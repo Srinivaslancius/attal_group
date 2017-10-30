@@ -14,7 +14,7 @@ $id = $_GET['uid'];
 
         
           if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='') {
-
+            $fileToUpload = $_FILES["fileToUpload"]["name"];
             $target_dir = "../uploads/content_images/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             $target_dir1 = "../uploads/content_banners/";
@@ -25,9 +25,10 @@ $id = $_GET['uid'];
               //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                   move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1);
-
+                  
                   $sql = "UPDATE `content_pages` SET title ='$title', description='$description', image='$fileToUpload', banner='$fileToUpload1', status='$status' WHERE id = '$id' ";
                   if($conn->query($sql) === TRUE){
+
                      echo "<script type='text/javascript'>window.location='content_pages.php?msg=success'</script>";
                   } else {
                      echo "<script type='text/javascript'>window.location='content_pages.php?msg=fail'</script>";
@@ -36,7 +37,7 @@ $id = $_GET['uid'];
               } else {
                   echo "Sorry, there was an error uploading your file.";
               }
-          } else {
+           }else {
               $sql = "UPDATE `content_pages` SET title ='$title', description='$description', status='$status' WHERE id = '$id' ";
               if($conn->query($sql) === TRUE){
                  echo "<script type='text/javascript'>window.location='content_pages.php?msg=success'</script>";

@@ -10,9 +10,9 @@ if($setcon == 1) {
 	$password = "";
 	$dbname = "";
 } else {
-	$servername = "localhost";	
+	$servername = "192.168.0.105";	
 	$username = "root";
-	$password = "";
+	$password = "root";
 	$dbname = "legend_india";
 }  
 
