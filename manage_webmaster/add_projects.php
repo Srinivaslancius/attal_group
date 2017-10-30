@@ -6,8 +6,9 @@
         } else  {
             //If success
             $project_name = $_POST['project_name'];
+            $category_id = $_POST['category_id'];
             $status = $_POST['status'];
-            $sql = "INSERT INTO `projects` (`project_name`,`status`) VALUES ('$project_name','$status')";
+            $sql = "INSERT INTO `projects` (`project_name`,`category_id`, `status`) VALUES ('$project_name','$category_id','$status')";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
             } else {
@@ -21,10 +22,21 @@
           <div class="panel-heading">
             <h3 class="m-y-0">Projects</h3>
           </div>
-          <div class="panel-body">            
+          <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
+                  <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <select id="form-control-3" name="category_id" class="custom-select" data-error="This field is required." required onChange="getSubCategories(this.value);">
+                      <option value="">Select Category</option>
+                      <?php while($row = $getCategories->fetch_assoc()) {  ?>
+                        <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
+                      <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Project Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="project_name" placeholder="Project Name" data-error="Please enter Project Name." required>

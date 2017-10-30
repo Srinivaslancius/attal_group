@@ -4,9 +4,11 @@ $id = $_GET['bid'];
  if (!isset($_POST['submit']))  {
             echo "fail";
     } else  {
-          $status = $_POST['status'];
+          
           $project_name = $_POST['project_name'];
-          $sql = "UPDATE `projects` SET project_name = '$project_name', status='$status' WHERE id = '$id' ";
+          $category_id = $_POST['category_id'];
+          $status = $_POST['status'];
+          $sql = "UPDATE `projects` SET project_name = '$project_name',category_id ='$category_id', status='$status' WHERE id = '$id' ";
           if($conn->query($sql) === TRUE){
              echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
           } else {
@@ -17,6 +19,7 @@ $id = $_GET['bid'];
 <?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
 $getProjects = $getProjectsData->fetch_assoc();
  ?>
+ <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
 <div class="site-content">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -26,6 +29,16 @@ $getProjects = $getProjectsData->fetch_assoc();
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <select id="form-control-3" name="category_id" class="custom-select" data-error="This field is required." required onChange="getSubCategories(this.value);">
+                      <option value="">Select Category</option>
+                      <?php while($row = $getCategories->fetch_assoc()) {  ?>
+                        <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getProjects['category_id']) { echo "selected=selected"; }?> ><?php echo $row['category_name']; ?></option>
+                    <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Project Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="project_name" required value="<?php echo $getProjects['project_name'];?>">
