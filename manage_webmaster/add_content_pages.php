@@ -1,27 +1,22 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
 if (!isset($_POST['submit']))  {
-  //If fail
-  echo "fail";
+
 } else  {
-  //If success
+ 
   $title = $_POST['title'];
   $description = $_POST['description'];
   $fileToUpload = $_FILES["fileToUpload"]["name"];
-  $fileToUpload1 = $_FILES['fileToUpload1']["name"];
   $status = $_POST['status'];
   
-  if($fileToUpload!='' || $fileToUpload1!='') {
+  if($fileToUpload!='') {
 
                 $target_dir = "../uploads/content_images/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
-                $target_dir1 = "../uploads/content_banners/";
-                $target_file1 = $target_dir1 . basename($_FILES["fileToUpload1"]["name"]);
                 //$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                  move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1);
-                   $sql = "INSERT INTO `content_pages` (`title`,`description`,`image`,`banner`,`status`) VALUES ('$title','$description','$fileToUpload', '$fileToUpload1', '$status')";
+                    $sql = "INSERT INTO `content_pages` (`title`,`description`,`image`,`status`) VALUES ('$title','$description','$fileToUpload','$status')"; 
                   if($conn->query($sql) === TRUE){
                      echo "<script type='text/javascript'>window.location='content_pages.php?msg=success'</script>";
                   } else {
@@ -53,21 +48,14 @@ if (!isset($_POST['submit']))  {
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-4" class="control-label">Image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label for="form-control-4" class="control-label">Image&nbsp;&nbsp;&nbsp;</label>
                     <img id="output" height="100" width="100"/>
                     <label class="btn btn-default file-upload-btn">
                       Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" required >
                       </label>
                   </div>
-                  <div class="form-group">
-                    <label for="form-control-4" class="control-label">Banner Image</label>
-                    <img id="output1" height="100" width="100"/>
-                    <label class="btn btn-default file-upload-btn">
-                      Choose file...
-                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" required >
-                      </label>
-                  </div>
+                  
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
