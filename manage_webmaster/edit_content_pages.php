@@ -8,25 +8,19 @@ $id = $_GET['uid'];
         $title = $_POST['title'];
         $description = $_POST['description'];
         $fileToUpload = $_FILES["fileToUpload"]["name"];
-        //$background_image = $_POST['background_image'];
-        $fileToUpload1 = $_FILES['fileToUpload1']["name"];
         $status = $_POST['status'];
-
+    
         
-          if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='') {
+          if($_FILES["fileToUpload"]["name"]!='' ) {
+
             $fileToUpload = $_FILES["fileToUpload"]["name"];
-            $target_dir = "../uploads/content_images/";
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-            $target_dir1 = "../uploads/content_banners/";
-            $target_file1 = $target_dir1 . basename($_FILES["fileToUpload1"]["name"]);
-            //$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-            $getImgUnlink = getImageUnlink('image','content_images','id',$id,$target_dir);
-            $getImgUnlink = getImageUnlink('banner','content_banners','id',$id,$target_dir1);
-              //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
+              $target_dir = "../uploads/content_images/";
+              $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+              $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+              $getImgUnlink = getImageUnlink('image','content_pages','id',$id,$target_dir);
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                  move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1);
-                  
-                  $sql = "UPDATE `content_pages` SET title ='$title', description='$description', image='$fileToUpload', banner='$fileToUpload1', status='$status' WHERE id = '$id' ";
+
+                 $sql = "UPDATE `content_pages` SET title ='$title', description='$description', image='$fileToUpload', status='$status' WHERE id = '$id' ";
                   if($conn->query($sql) === TRUE){
 
                      echo "<script type='text/javascript'>window.location='content_pages.php?msg=success'</script>";
@@ -76,14 +70,6 @@ $id = $_GET['uid'];
                     <label class="btn btn-default file-upload-btn">
                         Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
-                      </label>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-4" class="control-label">Banner Image</label>
-                    <img src="<?php echo $base_url . 'uploads/content_banners/'.$getContentData1['banner'] ?>"  id="output1" height="100" width="100"/>
-                    <label class="btn btn-default file-upload-btn">
-                        Choose file...
-                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" >
                       </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
