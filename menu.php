@@ -1,10 +1,15 @@
+ <?php 
+    $currentFile = $_SERVER["PHP_SELF"];
+    $parts = Explode('/', $currentFile);
+    $page_name = $parts[count($parts) - 1];
+?>
   <ul class="menu-logo">
                 <li><a href="index.php"><img src="images/logo.png" alt="logo"> </a></li>
             </ul>
             <!-- menu links -->
             <ul class="menu-links">
             <!-- active class -->
-            <li><a href="javascript:void(0)">About Us<i class="fa fa-angle-down fa-indicator"></i></a>
+            <li <?php if($page_name == 'content_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">About Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="content_details.php?id=1">Profile</a></li>
@@ -33,10 +38,10 @@
                     <li><a href="javascript:void(0)">Support Services</a></li>
                  </ul>
             </li>
-			<li><a href="partnerships.php">Partnerships</a>
+			<li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
                  <!-- drop down multilevel  -->
             </li>
-            <li><a href="photogallery.php">Photo Gallery</a>
+            <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
                  <!-- drop down multilevel  -->
             </li>
 			<li><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
@@ -49,9 +54,9 @@
                     <li><a href="aboutlegend.php">Advertisements</a></li>
                  </ul>
             </li>
-			<li><a href="faqs.php">FAQs</a>
+			<li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
             </li>
-           <li><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
+           <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="enquiry.php">Enquiry</a></li>
