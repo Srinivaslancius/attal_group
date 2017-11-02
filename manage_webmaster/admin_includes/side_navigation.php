@@ -69,6 +69,14 @@
                 <span class="menu-text">Content Pages</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'photo_gallery.php' || $page_name == 'add_photo_gallery.php' || $page_name == 'edit_photo_gallery.php') { echo "active"; } ?>">
+              <a href="photo_gallery.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Photo Gallery</span>
+              </a>
+            </li>
             <li class="with-sub">
               <a href="#" aria-haspopup="true">
                 <span class="menu-icon">
