@@ -7,13 +7,13 @@
             <li><a href="javascript:void(0)">About Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
-                    <li><a href="profile.php">Profile</a></li>
-                    <li><a href="history.php">History</a></li>
-                    <li><a href="philosophy.php">Philosophy</a></li>
-                    <li><a href="values.php">Values</a></li>
-                    <li><a href="promoters.php">Promoters</a></li>
-                    <li><a href="ourarchitects.php">Our Architects</a></li>
-                    <li><a href="ourjvpartners.php">Our JV Partners</a></li>
+                    <li><a href="content_details.php?id=1">Profile</a></li>
+                    <li><a href="content_details.php?id=2">History</a></li>
+                    <li><a href="content_details.php?id=3">Philosophy</a></li>
+                    <li><a href="content_details.php?id=4">Values</a></li>
+                    <li><a href="content_details.php?id=5">Promoters</a></li>
+                    <li><a href="content_details.php?id=6">Our Architects</a></li>
+                    <li><a href="content_details.php?id=7">Our JV Partners</a></li>
                  </ul>
             </li>
             <li><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>

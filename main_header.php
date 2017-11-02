@@ -12,9 +12,9 @@
 				<div class="topbar-right text-right">
 					 <ul class="list-inline">
              <li> <i class="fa fa-phone"></i><?php echo $getSiteSettingsData['mobile'];?></li> 
-             <li><a href="<?php echo $getSiteSettingsData['fb_link'];?>"><i class="fa fa-facebook"></i></a></li>   
-             <li><a href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>   
-             <li><a href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube-play"></i></a></li>   
+             <li><a target="_blank" href="<?php echo $getSiteSettingsData['fb_link'];?>"><i class="fa fa-facebook"></i></a></li>   
+             <li><a target="_blank" href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>   
+             <li><a target="_blank" href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube-play"></i></a></li>   
            </ul>
 				</div>
 			</div>
