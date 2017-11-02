@@ -8,6 +8,7 @@ if (!isset($_POST['submit']))  {
 
     //echo "<pre>";print_r($_POST);exit;
     $title = $_POST['title'];
+    $gallery_id = $_POST['gallery_id'];
     $status = $_POST['status'];
     $gallery_images = $_FILES['gallery_images']['name'];
     foreach($gallery_images as $key=>$value){
@@ -15,7 +16,7 @@ if (!isset($_POST['submit']))  {
         $file_tmp = $_FILES["gallery_images"]["tmp_name"][$key];
         $file_destination = '../uploads/photo_gallery/' . $gallery_images1;
         move_uploaded_file($file_tmp, $file_destination);        
-        $sql = "INSERT INTO photo_gallery ( `title`,`gallery_images`,`status`) VALUES ('$title','$gallery_images1','$status')";
+        $sql = "INSERT INTO photo_gallery ( `title`,`gallery_images`,`gallery_id`,`status`) VALUES ('$title','$gallery_images1','$gallery_id','$status')";
         $result = $conn->query($sql);
     }
     if( $result == 1){
@@ -37,6 +38,11 @@ if (!isset($_POST['submit']))  {
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Title</label>
                     <input type="text" class="form-control" id="form-control-2" name="title" placeholder="Title" data-error="Please enter title." required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Galler Id</label>
+                    <input type="text" class="form-control" id="form-control-2" name="gallery_id" placeholder="Galler Id" data-error="Please enter gallery id." required onkeypress="return isNumberKey(event)">
                     <div class="help-block with-errors"></div>
                   </div>  
                   <div id="formdiv">                   
@@ -67,3 +73,11 @@ if (!isset($_POST['submit']))  {
    <?php include_once 'admin_includes/footer.php'; ?>   
    <script src="js/multi_image_upload.js"></script>
    <link rel="stylesheet" type="text/css" href="css/multi_image_upload.css">
+   <script type="text/javascript">
+  function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
+    }
+</script>
