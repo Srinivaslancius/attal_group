@@ -130,19 +130,9 @@ header -->
          <div class="service-block">
            <div class="row">
              <div class="col-lg-12 col-md-12">
-               <h4 class="mb-20"><?php echo $getAboutUsData['description'];?>/h4>
-               <p class="mb-30">Legend Estates Pvt. Ltd. started its successful journey in the world of real estate with a residential apartment complex in 1998. Today, it is one of the fastest growing and among the most respected real estate companies in Andhra Pradesh.</p>
+               <?php echo $getAboutUsData['description'];?>
              </div>
            </div>
-          <div class="row text-justify">  
-             <div class="col-lg-6 col-md-6 mb-20"> 
-               <img class="img-responsive center-block" src="images/about/01.jpg" alt="">
-             </div>
-             <div class="col-lg-6 col-md-6"> 
-               <p>Legend was the outcome of the innate belief of its founders that there was a niche opportunity available for a strong values-based company in the real estate market.</p>
-         <p>Since inception, Legend has carved a niche for itself as one of the premium builders in Andhra Pradesh with landmark projects spanning a total of 2 million sq. ft. in the twin cities of Hyderabad and Secunderabad. A further 6 million sq. ft. is under development across premium residential and commercial spaces. The skilled team comprising of civil engineers, architects, partners and other professionals constantly strive to create high quality commercial, institutional and residential spaces that deliver the best value to the growing Legend family of 5500+ residents.</p>
-             </div>
-            </div>
          </div>
        </div>
      </div>
