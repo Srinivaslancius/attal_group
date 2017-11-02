@@ -1,6 +1,8 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 
 <?php 
+error_reporting(1);
+$id = $_GET['bid'];
 if (!isset($_POST['submit']))  {
             echo "";
 } else  {
@@ -25,7 +27,7 @@ if (!isset($_POST['submit']))  {
     }
 }
 ?>
-	<div class="site-content">
+<div class="site-content">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="m-y-0">Photo Gallery</h3>
@@ -33,24 +35,23 @@ if (!isset($_POST['submit']))  {
           <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <form method="post" enctype="multipart/form-data">
+                <form data-toggle="validator" method="post" enctype="multipart/form-data">
+                  <?php $getPhotoGalleryData = getDataFromTables('photo_gallery','0','id',$id,$activeStatus=NULL,$activeTop=NULL);
+                $getProducts = $getPhotoGalleryData->fetch_assoc();?>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Title</label>
-                    <input type="text" class="form-control" id="form-control-2" name="title" placeholder="Title" data-error="Please enter title." required>
+                    <input type="text" class="form-control" id="form-control-2" name="title" placeholder="Title" data-error="Please enter title." required value="<?php echo $getPhotoGalleryData['title']; ?>">
                     <div class="help-block with-errors"></div>
-                  </div>  
-                  <div id="formdiv">                   
-                        <div id="filediv"><input required name="gallery_images[]" accept="image/*" type="file" id="file" /></div><br/>               
-                        <input type="button" id="add_more" class="upload" value="Add More Files"/>
                   </div>
+                  
 
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
                     <select id="form-control-3" name="status" class="custom-select" data-error="This field is required." required>
-                      <option value="">Select Status</option>
-                      <?php while($row = $getStatus->fetch_assoc()) { ?>
-                          <option value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
+                      <option value="" >Choose your Status</option> 
+                      <?php while($row = $getStatus->fetch_assoc()) {  ?>
+                          <option <?php if($row['id'] == $getProducts['status']) { echo "Selected"; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['status']; ?></option>
                       <?php } ?>
                    </select>
                     <div class="help-block with-errors"></div>
@@ -64,6 +65,8 @@ if (!isset($_POST['submit']))  {
           </div>
         </div>
       </div>
-   <?php include_once 'admin_includes/footer.php'; ?>   
+      <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/multi_image_upload.js"></script>
    <link rel="stylesheet" type="text/css" href="css/multi_image_upload.css">
+   
+
