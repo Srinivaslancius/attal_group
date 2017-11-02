@@ -61,6 +61,7 @@
                 <span class="menu-text">Categories</span>
               </a>
             </li>
+            
             <li  class="<?php if($page_name == 'content_pages.php' || $page_name == 'add_content_pages.php' || $page_name == 'edit_content_pages.php') { echo "active"; } ?>">
               <a href="content_pages.php" aria-haspopup="true">
                 <span class="menu-icon">
@@ -122,7 +123,14 @@
                 <span class="menu-text">FAQ'S</span>
               </a>
             </li>
-            
+            <li  class="<?php if($page_name == 'faq_categories.php' || $page_name == 'add_faq_categories.php' || $page_name == 'edit_faq_categories.php') { echo "active"; } ?>">
+              <a href="faq_categories.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-store zmdi-hc-fw"></i>
+                </span>
+                <span class="menu-text">Faq Categories</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'customer_enqueries.php') { echo "active"; } ?>">
               <a href="customer_enqueries.php" aria-haspopup="true">
                 <span class="menu-icon">
