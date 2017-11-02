@@ -46,7 +46,12 @@ if (!isset($_POST['submit']))  {
   $headers .= 'From: <info@fioten.com>' . "\r\n";
   // $headers .= 'Cc: myboss@example.com' . "\r\n";
 
-  mail($to,$subject,$message,$headers);
+  $senMail = mail($to,$subject,$message,$headers);
+  if($senMail){
+     echo "<script>alert('Your Query Sent To Email');window.location.href('enquiry.php');</script>";
+  }else{
+      echo "<script>alert('Your Query Not Sent');window.location.href('enquiry.php');</script>";
+  }
 
     $sql = "INSERT INTO user_enquiry (`name`, `company`, `designation`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$name', '$company', '$designation','$phone','$mobile','$email','$website_url','$comments','$created_at')";
     if($conn->query($sql) === TRUE){
