@@ -4,10 +4,11 @@ $id = $_GET['uid'];
  if (!isset($_POST['submit']))  {
             echo "fail";
     } else  {
+    $faq_cat_id = $_POST['faq_cat_id'];
     $question = $_POST['question'];
     $answer = $_POST['answer'];
     $status = $_POST['status'];   
-        $sql = "UPDATE `faqs` SET question = '$question', answer = '$answer', status='$status' WHERE id = '$id' ";
+        $sql = "UPDATE `faqs` SET faq_cat_id='$faq_cat_id',question = '$question', answer = '$answer', status='$status' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='faqs.php?msg=success'</script>";
         } else {
@@ -24,8 +25,22 @@ $id = $_GET['uid'];
             <div class="row">
               <?php $getFaqs = getDataFromTables('faqs',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
               $getFaqs1 = $getFaqs->fetch_assoc(); ?>
+              <?php 
+              $getCategories = getDataFromTables('faq_categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);
+              ?>
+              
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST">
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Choose your Category</label>
+                    <select id="form-control-3" name="faq_cat_id" class="custom-select" data-error="This field is required." required>
+                      <option value="">Select Category</option>
+                      <?php while($row = $getCategories->fetch_assoc()) {  ?>
+                        <option value="<?php echo $row['id']; ?>" <?php if($row['id'] == $getFaqs1['faq_cat_id']) { echo "selected=selected"; }?> ><?php echo $row['faq_category']; ?></option>
+                    <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Question</label>
                     <textarea name="question" class="form-control" id="question" data-error="Please enter Question." required><?php echo $getFaqs1['question'];?></textarea>
