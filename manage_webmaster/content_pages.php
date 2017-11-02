@@ -13,7 +13,7 @@
                   <tr>
                     <th>Id</th>
                     <th>Title</th>
-                    <th>Image</th>
+                    <th>Banner</th>
                     <th>Description</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -55,11 +55,6 @@
                               <div class="col-sm-2"></div>
                               <div class="col-sm-4">Image:</div>
                               <div class="col-sm-6"><img src="<?php echo $base_url . 'uploads/content_images/'.$row['image'] ?>" height="100" width="100"/></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-2"></div>
-                              <div class="col-sm-4">Banner Image:</div>
-                              <div class="col-sm-6"><img src="<?php echo $base_url . 'uploads/content_banners/'.$row['banner'] ?>" height="100" width="100"/></div>
                             </div>
                           </div>
                           <div class="modal-footer">
