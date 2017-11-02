@@ -105,22 +105,23 @@
 		
      </div></div>
 
-
+<?php $getAllActiveFaqCategories = getAllDataCheckActive('faq_categories',0); ?> 
 <div class="col-sm-12">
       <div class="tab tab-light clearfix"> 
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#faq1" data-toggle="tab" aria-expanded="false"><span>All</span></a></li>
-          <li><a href="#faq2" data-toggle="tab" aria-expanded="true"><span>Legend</span></a></li>
-          <li><a href="#faq3" data-toggle="tab"><span>General</span></a></li>
-          <li><a href="#faq4" data-toggle="tab"><span>Residential</span></a></li>
-          <li><a href="#faq5" data-toggle="tab"><span>Corporate</span></a></li>
-          <li><a href="#faq6" data-toggle="tab"><span>NRI</span></a></li>
+        <ul class="nav nav-tabs" role="tablist" >
+          <?php $i=1; while($getAllData=$getAllActiveFaqCategories->fetch_assoc()) { ?>
+            <li class="<?php if($i==1) { ?> active <?php } ?>">
+            <a href="#<?php echo $getAllData['id']?>" data-toggle="tab" aria-expanded="false"><i class="fa fa-heartbeat" aria-hidden="true"></i>
+            <p><?php echo $getAllData['faq_category']; ?></p>
+            </a>
+            </li>
+            <?php $i++; } ?>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane fade active in" id="faq1">
-				<div class="accordion arrow light-rounded">
+				  <div class="accordion arrow light-rounded">
                 <div class="acd-group acd-active"><a href="#" class="acd-heading">What is Legend?</a>
                     <div class="acd-des">
                         
@@ -128,13 +129,7 @@
                         
                     </div>
                 </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Who are the promoters of Legend?</a>
-                    <div class="acd-des">
-                       
-                        <p>Legend has been promoted by Mr. B. Nageshwar Rao and B. Rajashekar Reddy, both qualified and experienced engineers.</p>
-                       
-                    </div>
-                </div>
+                
                 <div class="acd-group"><a href="#" class="acd-heading">How many projects have been completed by Legend?</a>
                     <div class="acd-des">
                         <p>As of 2011, Legend has completed more than 80 residential and commercial projects across the city of Hyderabad in just 12 years.</p>
@@ -161,242 +156,6 @@
                
                 
              </div>
-          </div>
-          
-          <div role="tabpanel" class="tab-pane fade" id="faq2">
-          		<div class="accordion arrow light-rounded">
-                <div class="acd-group"><a href="#" class="acd-heading">What is Legend?</a>
-                    <div class="acd-des">                      
-                        <p>Legend is one of the most experienced and well-known companies in the premium real estate marketplace.</p>                      
-                    </div>
-                </div>
-				 <div class="acd-group"><a href="#" class="acd-heading">Who are the promoters of Legend?</a>
-                    <div class="acd-des">                      
-                        <p>Legend has been promoted by Mr. B. Nageshwar Rao and B. Rajashekar Reddy, both qualified and experienced engineers.</p>                      
-                    </div>
-                </div>
-				 <div class="acd-group"><a href="#" class="acd-heading">How many projects have been completed by Legend?</a>
-                    <div class="acd-des">                      
-                        <p>As of 2011, Legend has completed more than 80 residential and commercial projects across the city of Hyderabad in just 12 years.</p>                      
-                    </div>
-                </div>
-
-                <div class="acd-group"><a href="#" class="acd-heading">Why should I choose Legend?</a>
-                    <div class="acd-des">                       
-                        <ol class="list-unstyled">
-                           <li>Established reputation</li>
-                           <li>Excellent construction </li>
-                           <li>Modern facilities and features</li>
-                           <li>Litigation-free property</li>
-                         </ol>
-                    </div>
-                </div>
-				 <div class="acd-group"><a href="#" class="acd-heading">What are Legend’s future plans?</a>
-                    <div class="acd-des">                      
-                        <p>Legend is presently building more than 2000 apartments and 500 villas in the city of Hyderabad. In addition, malls, multiplexes, hotels, etc. are also on the anvil.</p>                      
-                    </div>
-                </div>
-				 <div class="acd-group"><a href="#" class="acd-heading">What is the Legend family?</a>
-                    <div class="acd-des">                      
-                        <p>All the residents of Legend built property are stakeholders of the Legend family, which meets formally at least once a year.</p>                      
-                    </div>
-                </div>
-               
-             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="faq3">
-          		<div class="accordion arrow light-rounded">
-
-                <div class="acd-group"><a href="#" class="acd-heading">What is meant by valuation of property?</a>
-                    <div class="acd-des">
-                        <p>The valuation process evaluates the market value of the property. Demand and supply forces operating in the market, as well as other factors like type of property, quality of construction, its location, the local infrastructure available, maintenance, etc. are all taken into consideration before the market value is decided.</p>
-                       
-                    </div>
-                </div>
-
-                <div class="acd-group"><a href="#" class="acd-heading">How does Property Valuation help?</a>
-                    <div class="acd-des">
-                        <p>Typically, if a real estate agent is asked to judge the value of a piece of property, 
-						he would do so based on information of recent sales or purchases of similar properties in that area.</p>
-                       
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">What is the meaning of a property's market value? How is its stamp duty decided?</a>
-                    <div class="acd-des">
-                       
-                        <p>The price that a property can command in the open market is known as its market value. Stamp duty is based on the market value or the agreement value of the property, whichever is greater.
-</p>
-                        
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">What does the term 'Leasehold Property' mean?
-</a>
-                    <div class="acd-des">
-                      
-                        <p>When a piece of property is given or 'leased' to an individual (known as the 'Lessee') for a stipulated period of time, by the owner of the property (known as the 'Lessor'), the property is referred to as Leasehold Property. A certain amount is fixed by the Lessor to be paid as lease premium and annual lease. The land ownership rights remain with the Lessor. Transfer of property requires prior permission.
-</p>
-                       
-                    </div>
-                </div>
-                
-             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="faq4">
-          			<div class="accordion arrow light-rounded">
-                <div class="acd-group acd-active"><a href="#" class="acd-heading">What is meant by valuation of property?</a>
-                     <div class="acd-des">
-                        <p>The valuation process evaluates the market value of the property. Demand and supply forces operating in the market, as well as other factors like type of property, quality of construction, its location, the local infrastructure available, maintenance, etc. are all taken into consideration before the market value is decided.</p>                       
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">How does Property Valuation help?</a>
-                    <div class="acd-des">
-                        <p>Typically, if a real estate agent is asked to judge the value of a piece of property, 
-						he would do so based on information of recent sales or purchases of similar properties in that area.</p>                      
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">What is the meaning of a property's market value? How is its stamp duty decided?</a>
-                    <div class="acd-des">                      
-                        <p>The price that a property can command in the open market is known as its market value. Stamp duty is based on the market value or the agreement value of the property, whichever is greater.</p>                        
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">What does the term 'Leasehold Property' mean?</a>
-                    <div class="acd-des">                     
-                        <p>When a piece of property is given or 'leased' to an individual (known as the 'Lessee') for a stipulated period of time, by the owner of the property (known as the 'Lessor'), the property is referred to as Leasehold Property. A certain amount is fixed by the Lessor to be paid as lease premium and annual lease. The land ownership rights remain with the Lessor. Transfer of property requires prior permission.</p>                       
-                    </div>                
-             </div>
-          </div>
-		  </div>
-          <div role="tabpanel" class="tab-pane fade" id="faq5">
-          		<div class="accordion arrow light-rounded">
-                <div class="acd-group acd-active"><a href="#" class="acd-heading">Lorem Ipsum is simply dummy text of the printing Neque porro quisquam est,</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Morbi accumsan ipsum velit. Nam nec tellus a odio?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Class aptent taciti sociosqu?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-             </div>
-          
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="faq6">
-          		<div class="accordion arrow light-rounded">
-                
-                <div class="acd-group"><a href="#" class="acd-heading">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                
-                <div class="acd-group"><a href="#" class="acd-heading">Sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Morbi accumsan ipsum velit. Nam nec tellus a odio?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-                <div class="acd-group"><a href="#" class="acd-heading">Class aptent taciti sociosqu?</a>
-                    <div class="acd-des">
-                        <h5 class="title mb-20">Lorem ipsum dolor sit amet of Lorem Ipsum?</h5>
-                        <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat</p>
-                        <ol class="list-unstyled">
-                           <li>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</li>
-                           <li>Auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </li>
-                           <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</li>
-                           <li>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit Class.</li>
-                         </ol>
-                    </div>
-                </div>
-             </div>
-          
           </div>
         </div>
       </div>
