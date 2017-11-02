@@ -11,6 +11,7 @@
     $twitter_link = $_POST['twitter_link'];
     $gplus_link = $_POST['gplus_link'];
     $mobile = $_POST['mobile'];
+    $open_timings = $_POST['open_timings'];
     $footer_text = $_POST['footer_text'];
     $address = $_POST['address'];
     if($_FILES["logo"]["name"]!='') {
@@ -30,7 +31,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
             } else {
@@ -83,13 +84,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Google Plus Link</label>
-                    <input type="url" name="twitter_link" class="form-control" id="form-control-2" placeholder="Instagram Link" data-error="Please enter a valid Instagram Link." value="<?php echo $getSiteSettingsData['twitter_link'];?>" required>
+                    <label for="form-control-2" class="control-label">Twitter Link</label>
+                    <input type="url" name="twitter_link" class="form-control" id="form-control-2" placeholder="Twitter Link" data-error="Please enter a valid Twitter Link." value="<?php echo $getSiteSettingsData['twitter_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Linkdin Link</label>
+                    <label for="form-control-2" class="control-label">Youtube Link</label>
                     <input type="url" name="gplus_link" class="form-control" id="form-control-2" placeholder="Youtube Link" data-error="Please enter a valid Youtube Link." value="<?php echo $getSiteSettingsData['gplus_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
@@ -99,7 +100,11 @@
                     <input type="text" name="mobile" class="form-control" id="form-control-2" maxlength="10"  pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" placeholder="Mobile" data-error="Please enter a valid Mobile." value="<?php echo $getSiteSettingsData['mobile'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>         
-
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Open Timings</label>
+                    <input type="text" name="open_timings" class="form-control" id="form-control-2" placeholder="Open Timings" data-error="Please enter Open Timings." value="<?php echo $getSiteSettingsData['open_timings'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <img src="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" accept="image/*" height="100" width="100" id="output"/>
                   </div>      

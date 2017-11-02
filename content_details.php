@@ -1,5 +1,9 @@
 <?php include_once 'top_header.php'; ?>
-
+<?php 
+$id = $_GET['id'];
+$getContentsData = getDataFromTables('content_pages',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
+$getAboutUsData  = $getContentsData->fetch_assoc();
+?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -84,7 +88,7 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white">Profile</h1></div>
+        <div class="section-title"><h1 class="title text-white"><?php echo $getAboutUsData['title'];?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
@@ -116,8 +120,8 @@ header -->
                <li><a href="philosophy.php">Philosophy</a></li>
                <li><a href="values.php">Values</a></li>
                <li><a href="promoters.php">Promoters</a></li>
-			    <li><a href="ourarchitects.php">Our Architects</a></li>
-				 <li><a href="ourjvpartners.php">Our JV partners</a></li>
+          <li><a href="ourarchitects.php">Our Architects</a></li>
+         <li><a href="ourjvpartners.php">Our JV partners</a></li>
              </ul>
            </div>
          </div>
@@ -126,7 +130,7 @@ header -->
          <div class="service-block">
            <div class="row">
              <div class="col-lg-12 col-md-12">
-               <h4 class="mb-20">What makes Legend, a Legend</h4>
+               <h4 class="mb-20"><?php echo $getAboutUsData['description'];?>/h4>
                <p class="mb-30">Legend Estates Pvt. Ltd. started its successful journey in the world of real estate with a residential apartment complex in 1998. Today, it is one of the fastest growing and among the most respected real estate companies in Andhra Pradesh.</p>
              </div>
            </div>
@@ -136,7 +140,7 @@ header -->
              </div>
              <div class="col-lg-6 col-md-6"> 
                <p>Legend was the outcome of the innate belief of its founders that there was a niche opportunity available for a strong values-based company in the real estate market.</p>
-			   <p>Since inception, Legend has carved a niche for itself as one of the premium builders in Andhra Pradesh with landmark projects spanning a total of 2 million sq. ft. in the twin cities of Hyderabad and Secunderabad. A further 6 million sq. ft. is under development across premium residential and commercial spaces. The skilled team comprising of civil engineers, architects, partners and other professionals constantly strive to create high quality commercial, institutional and residential spaces that deliver the best value to the growing Legend family of 5500+ residents.</p>
+         <p>Since inception, Legend has carved a niche for itself as one of the premium builders in Andhra Pradesh with landmark projects spanning a total of 2 million sq. ft. in the twin cities of Hyderabad and Secunderabad. A further 6 million sq. ft. is under development across premium residential and commercial spaces. The skilled team comprising of civil engineers, architects, partners and other professionals constantly strive to create high quality commercial, institutional and residential spaces that deliver the best value to the growing Legend family of 5500+ residents.</p>
              </div>
             </div>
          </div>
