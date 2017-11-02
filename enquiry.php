@@ -46,18 +46,12 @@ if (!isset($_POST['submit']))  {
   $headers .= 'From: <info@fioten.com>' . "\r\n";
   // $headers .= 'Cc: myboss@example.com' . "\r\n";
 
-  $senMail = mail($to,$subject,$message,$headers);
-  if($senMail){
-     echo "<script>alert('Your Query Sent To Email');window.location.href('enquiry.php');</script>";
-  }else{
-      echo "<script>alert('Your Query Not Sent');window.location.href('enquiry.php');</script>";
-  }
-
     $sql = "INSERT INTO user_enquiry (`name`, `company`, `designation`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$name', '$company', '$designation','$phone','$mobile','$email','$website_url','$comments','$created_at')";
     if($conn->query($sql) === TRUE){
-       echo "<script>alert('Data Updated Successfully');window.location.href='enquiry.php';</script>";
+      mail($to,$subject,$message,$headers);
+       echo "<script>alert('Your Query Sent To Email');window.location.href='enquiry.php';</script>";
     } else {
-       echo "<script>alert('Data Updation Failed');window.location.href='enquiry.php';</script>";
+       echo "<script>alert('Your Query Not Submitted');window.location.href='enquiry.php';</script>";
     }
 }
         
