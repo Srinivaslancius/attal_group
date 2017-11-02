@@ -76,15 +76,7 @@ header -->
  </div>
 </header>
 
-
-<!--=================================
- header -->
-
-
-<!--=================================
- banner -->
-
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getAboutUsData['image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
@@ -115,13 +107,13 @@ header -->
          <div class="sidebar">
            <div class="service-nav">
              <ul>
-               <li><a class="active" href="profile.php">Profile</a></li>
-               <li><a href="history.php">History</a></li>
-               <li><a href="philosophy.php">Philosophy</a></li>
-               <li><a href="values.php">Values</a></li>
-               <li><a href="promoters.php">Promoters</a></li>
-          <li><a href="ourarchitects.php">Our Architects</a></li>
-         <li><a href="ourjvpartners.php">Our JV partners</a></li>
+                <li><a href="content_details.php?id=1">Profile</a></li>
+                <li><a href="content_details.php?id=2">History</a></li>
+                <li><a href="content_details.php?id=3">Philosophy</a></li>
+                <li><a href="content_details.php?id=4">Values</a></li>
+                <li><a href="content_details.php?id=5">Promoters</a></li>
+                <li><a href="content_details.php?id=6">Our Architects</a></li>
+                <li><a href="content_details.php?id=7">Our JV Partners</a></li>
              </ul>
            </div>
          </div>
