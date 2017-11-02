@@ -69,6 +69,14 @@
                 <span class="menu-text">Content Pages</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'association.php' || $page_name == 'add_association.php' || $page_name == 'edit_association.php') { echo "active"; } ?>">
+              <a href="association.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-item  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Association</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'photo_gallery.php' || $page_name == 'add_photo_gallery.php' || $page_name == 'edit_photo_gallery.php') { echo "active"; } ?>">
               <a href="photo_gallery.php" aria-haspopup="true">
                 <span class="menu-icon">
