@@ -70,6 +70,14 @@
                 <span class="menu-text">Content Pages</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'photo_gallery.php' || $page_name == 'add_photo_gallery.php' || $page_name == 'edit_photo_gallery.php') { echo "active"; } ?>">
+              <a href="photo_gallery.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Photo Gallery</span>
+              </a>
+            </li>
             <li class="with-sub">
               <a href="#" aria-haspopup="true">
                 <span class="menu-icon">
@@ -91,28 +99,12 @@
                 <span class="menu-text">Testimonials</span>
               </a>
             </li>
-            <li  class="<?php if($page_name == 'seo.php' || $page_name == 'add_seo.php' || $page_name == 'edit_seo.php') { echo "active"; } ?>">
-              <a href="seo.php" aria-haspopup="true">
-                <span class="menu-icon">
-                   <i class="zmdi zmdi-collection-item  zmdi-hc-fw"></i>
-                </span> 
-                <span class="menu-text">SEO</span>
-              </a>
-            </li>
             <li  class="<?php if($page_name == 'services.php' || $page_name == 'add_services.php' || $page_name == 'edit_services.php') { echo "active"; } ?>">
               <a href="services.php" aria-haspopup="true">
                 <span class="menu-icon">
                    <i class="zmdi zmdi-wrench zmdi-hc-fw"></i>
                 </span> 
                 <span class="menu-text">Services</span>
-              </a>
-            </li>
-            <li  class="<?php if($page_name == 'service_details.php' || $page_name == 'add_service_details.php' || $page_name == 'edit_service_details.php') { echo "active"; } ?>">
-              <a href="service_details.php" aria-haspopup="true">
-                <span class="menu-icon">
-                   <i class="zmdi zmdi-comments  zmdi-hc-fw"></i>
-                </span> 
-                <span class="menu-text">Service Details</span>
               </a>
             </li>
             <li  class="<?php if($page_name == 'faqs.php' || $page_name == 'add_faqs.php' || $page_name == 'edit_faqs.php') { echo "active"; } ?>">

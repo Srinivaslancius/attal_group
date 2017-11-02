@@ -6,7 +6,6 @@ $id = $_GET['uid'];
     } else  {
             $name = $_POST['name'];
             $description = $_POST['description'];
-            $service_percentage = $_POST['service_percentage'];
             $status = $_POST['status'];
             if($_FILES["fileToUpload"]["name"]!='') {
               $fileToUpload = $_FILES["fileToUpload"]["name"];
@@ -16,7 +15,7 @@ $id = $_GET['uid'];
               $getImgUnlink = getImageUnlink('image','services','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                   $sql = "UPDATE `services` SET name = '$name',description = '$description',image = '$fileToUpload', service_percentage = '$service_percentage',status='$status' WHERE id = '$id' ";
+                   $sql = "UPDATE `services` SET name = '$name',description = '$description',image = '$fileToUpload', status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                       echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                     } else {
@@ -64,11 +63,6 @@ $id = $_GET['uid'];
                         Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
                       </label>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Service Percentage</label>
-                    <textarea name="service_percentage" class="form-control" id="description" data-error="Please enter Service Percentage ." required><?php echo $getServices1['service_percentage'];?></textarea>
-                    <div class="help-block with-errors"></div>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">

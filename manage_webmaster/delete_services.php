@@ -8,8 +8,8 @@ $getImgUnlink = getImageUnlink('image','services','id',$id,$target_dir);
 $qry = "DELETE FROM services WHERE id ='$id'";
 $result = $conn->query($qry);
 if(isset($result)) {
-   echo "<script>alert('Banner Deleted Successfully');window.location.href='services.php';</script>";
+   echo "<script>alert('Serive Data Deleted Successfully');window.location.href='services.php';</script>";
 } else {
-   echo "<script>alert('Banner Not Deleted');window.location.href='services.php';</script>";
+   echo "<script>alert('Serive Data Not Deleted');window.location.href='services.php';</script>";
 }
 ?>
