@@ -1,5 +1,7 @@
 <?php include_once 'top_header.php'; ?>
-
+<?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,$clause=NULL,8,$activeStatus=NULL,$activeTop=NULL);
+$getPartnerShipInfo = $getPartnerShipData->fetch_assoc();
+?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -104,14 +106,10 @@ header -->
 
 <section class="contact-sec page-section-pt"><div class="container"><div class="row">
     <div class="col-sm-12"><div class="section-title text-center">
-        <h2 class="title">Partnerships that enable</h2>
+        <h2 class="title"><?php echo $getPartnerShipInfo['title']?></h2>
 		</div>
 		<div class="section-title text-justify">
-        <p>Building quality spaces is a tedious job, the credit for which does not belong with a single entity. 
-		Equal credit goes to our associates for their invaluable contribution to each of our landmark creations. 
-		We are an open and transparent organization that values our associates and are always looking to collaborate 
-		with like-minded investors, vendors or land owners to be able to give maximum value to our clients. 
-		If you would like to get in touch with us to explore the various avenues available for collaboration, please use the form below.</p>
+        <?php echo $getPartnerShipInfo['description']?>
     </div></div>
 	 <div class="col-md-4 col-sm-7">
 	 </div>
