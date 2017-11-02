@@ -86,7 +86,7 @@ header -->
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
                 <li><a href="javascript:void(0)">About us</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span>Profile</span> </li>
+                <li><span><?php echo $getAboutUsData['title'];?></span> </li>
              </ul>
         </div>
      </div>
@@ -107,13 +107,13 @@ header -->
          <div class="sidebar">
            <div class="service-nav">
              <ul>
-                <li><a href="content_details.php?id=1">Profile</a></li>
-                <li><a href="content_details.php?id=2">History</a></li>
-                <li><a href="content_details.php?id=3">Philosophy</a></li>
-                <li><a href="content_details.php?id=4">Values</a></li>
-                <li><a href="content_details.php?id=5">Promoters</a></li>
-                <li><a href="content_details.php?id=6">Our Architects</a></li>
-                <li><a href="content_details.php?id=7">Our JV Partners</a></li>
+                <li><a href="content_details.php?id=1" <?php if($_GET['id'] == 1) { echo "class = active"; } ?>>Profile</a></li>
+                <li><a href="content_details.php?id=2" <?php if($_GET['id'] == 2) { echo "class = active"; } ?>>History</a></li>
+                <li><a href="content_details.php?id=3" <?php if($_GET['id'] == 3) { echo "class = active"; } ?>>Philosophy</a></li>
+                <li><a href="content_details.php?id=4" <?php if($_GET['id'] == 4) { echo "class = active"; } ?>>Values</a></li>
+                <li><a href="content_details.php?id=5" <?php if($_GET['id'] == 5) { echo "class = active"; } ?>>Promoters</a></li>
+                <li><a href="content_details.php?id=6" <?php if($_GET['id'] == 6) { echo "class = active"; } ?>>Our Architects</a></li>
+                <li><a href="content_details.php?id=7" <?php if($_GET['id'] == 7) { echo "class = active"; } ?>>Our JV Partners</a></li>
              </ul>
            </div>
          </div>
