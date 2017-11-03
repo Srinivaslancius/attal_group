@@ -820,44 +820,57 @@ $getChoose4 = $getChooseData4->fetch_assoc(); ?>
     </div>
 </div></div>
 </section>
- 
+ <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',15);
+$getChoose5 = $getChooseData5->fetch_assoc(); ?>
+<?php $getChooseData6 = getAllDataCheckActive1('content_pages','0',16);
+$getChoose6 = $getChooseData6->fetch_assoc(); ?>
+<?php $getChooseData7 = getAllDataCheckActive1('content_pages','0',17);
+$getChoose7 = $getChooseData7->fetch_assoc(); ?>
+<?php $getChooseData8 = getAllDataCheckActive1('content_pages','0',18);
+$getChoose8 = $getChooseData8->fetch_assoc(); ?>
+<?php $getChooseData9 = getAllDataCheckActive1('content_pages','0',19);
+$getChoose9 = $getChooseData9->fetch_assoc(); ?>
+<?php $getChooseData10 = getAllDataCheckActive1('content_pages','0',20);
+$getChoose10 = $getChooseData10->fetch_assoc(); ?>
+<?php $getChooseData11 = getAllDataCheckActive1('content_pages','0',21);
+$getChoose11 = $getChooseData11->fetch_assoc(); ?>
 <section class="our-sercive1 page-section-pt"><div class="container">
 	<div class="row">
     	<div class="col-sm-12"><div class="section-title text-center">
-        	<h2 class="title">Why Choose us</h2>
-            <p>Construction Project Management (CPM) is the overall planning, coordination, and control of a project from beginning to completion. CPM is aimed at meeting a client's requirement in order to produce a functionally and financially viable project.</p>
+        	<h2 class="title"><?php echo $getChoose5['title'];?></h2>
+            <p><?php echo $getChoose5['description'];?></p>
          </div></div>
          
          <div class="col-sm-12">
 			<div class="feature-box line">
            <i class="glyph-icon flaticon-people-10"></i>
-           <h3 class="title">Safety</h3>
-           <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+           <h3 class="title"><?php echo $getChoose6['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose6['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-trophy"></i>
-           <h3 class="title">Best Quality</h3>
-           <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut, consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+           <h3 class="title"><?php echo $getChoose7['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose7['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-drawing-1"></i>
-           <h3 class="title">Sustanability</h3>
-           <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis nostrud Lorem Ipsum is simply text of the printing and industry.</p>
+           <h3 class="title"><?php echo $getChoose8['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose8['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-people-10"></i>
-           <h3 class="title">Community</h3>
-           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa inventore.</p>
+           <h3 class="title"><?php echo $getChoose9['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose9['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-           <h3 class="title">Strategy</h3>
-           <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis nostrud Lorem Ipsum is simply text of the printing and industry.</p>
+           <h3 class="title"><?php echo $getChoose10['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose10['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-interface-5"></i>
-           <h3 class="title">Integrity</h3>
-           <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
+           <h3 class="title"><?php echo $getChoose11['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose11['description']), 0,200);?></p>
         </div>
           </div>
 	</div>

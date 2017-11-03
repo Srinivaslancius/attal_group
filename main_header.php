@@ -3,7 +3,8 @@
 			<div class="col-lg-6 col-md-6 col-sm-6">
 				<div class="topbar-left text-left">
 				   <ul class="list-inline">
-             <li><i class="fa fa-envelope-o"></i><?php echo $getSiteSettingsData['email'];?></li> 
+             <li><i class="fa fa-envelope-o"><a href="mailto:<?php echo $getSiteSettingsData['email'];?>"></i><?php echo $getSiteSettingsData['email'];?></a></li> 
+             
              <li> <i class="fa fa-clock-o"></i><?php echo $getSiteSettingsData['open_timings'];?></li>
            </ul>
 				</div>
