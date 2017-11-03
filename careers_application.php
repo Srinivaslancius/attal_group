@@ -131,9 +131,9 @@ header -->
 <section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/Careers-Banne.jpg);">
   <div class="container">
      <div class="row intro-title text-center">
-           <div class="col-sm-12">
+           <!-- <div class="col-sm-12">
 				<div class="section-title"><h1 class="title text-white">Online Application</h1></div>
-           </div>
+           </div> -->
            <!-- <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
@@ -155,7 +155,7 @@ header -->
 
 <section class="contact-sec page-section-pt"><div class="container"><div class="row">
     <div class="col-sm-12"><div class="section-title text-center">
-        <h2 class="title">Online Application Form</h2>
+        <h2 style="color: #F3B315;" class="title">Online Application Form</h2>
 		</div>
 		</div>
 	 <div class="col-md-4 col-sm-7">
@@ -170,7 +170,7 @@ header -->
             		      <input id="name" type="text" placeholder="" class="form-control"  name="position_interest_in" required>
                     </div>
             	</div>
-            	<h3>Personal Details</h3>
+            	<h3 style="color: #F3B315;">Personal Details</h3>
             	<div class="form-group">
                 	<label>Name*</label>
                     <div class="input-group">
@@ -194,9 +194,9 @@ header -->
 		   			<label>Gender</label>
 					  <select name='gender'class="form-control" id="sel1">
 						<option>Select Gender</option>
+						<option value='1'>Male</option>
 						<option value='0'>Female</option>
-		        		<option value='1'>Male</option>
-					  </select>
+		        	</select>
 				</div>
 				<div class="form-group">
 		   			<label>Marital Status</label>
@@ -232,7 +232,7 @@ header -->
             	     	<input type="email" placeholder="" class="form-control" name="email" required>
                     </div>
             	</div>
-            	<h3>Work Experience</h3>
+            	<h3 style="color: #F3B315;">Work Experience</h3>
             	<div class="form-group">
             		<label>Years Of Experience*</label>
                     <div class="input-group">
@@ -269,7 +269,7 @@ header -->
             	     	<input type="text" placeholder="" class="form-control" name="other_skills">
                     </div>
             	</div>
-            	<h3>Educational Qualifications</h3>
+            	<h3 style="color: #F3B315;">Educational Qualifications</h3>
             	<div class="form-group">
             		<label>Qualification*</label>
                     <div class="input-group">
@@ -289,7 +289,7 @@ header -->
                     </div>
             	</div>
             	<div class="form-group">
-            		<label>Additional Info</label>
+            		<label>Additional Information</label>
                     <div class="input-group">
             		      <textarea class="form-control input-message" rows="7" name="additional_info"></textarea>
                     </div>
