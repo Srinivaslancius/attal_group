@@ -48,14 +48,14 @@
             <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
                  <!-- drop down multilevel  -->
             </li>
-			<li><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
+			<li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul  class="drop-down-multilevel left-menu">
-                    <li><a href="aboutlegend.php">About legend</a></li>
-                    <li><a href="aboutlegend.php">About Hyderabad</a></li>
-                    <li><a href="aboutlegend.php">About India</a></li>
-                    <li><a href="aboutlegend.php">About Real Estate</a></li>
-                    <li><a href="aboutlegend.php">Advertisements</a></li>
+                    <li><a href="news_details.php?id=1">About legend</a></li>
+                    <li><a href="news_details.php?id=2">About Hyderabad</a></li>
+                    <li><a href="news_details.php?id=3">About India</a></li>
+                    <li><a href="news_details.php?id=4">About Real Estate</a></li>
+                    <li><a href="news_details.php?id=5">Advertisements</a></li>
                  </ul>
             </li>
 			<li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
