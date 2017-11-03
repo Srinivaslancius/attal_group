@@ -3,7 +3,8 @@
 <?php  
  if (!isset($_POST['submit']))  {
             echo "";
-    } else  {            
+    } else  { 
+    echo "<pre";print_r($_POST);           
     $id=1;
     $admin_title = $_POST['admin_title'];  
     $email = $_POST['email'];
@@ -31,7 +32,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+         $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
             } else {
@@ -42,7 +43,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }  else {
-        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', open_timings='$open_timings',address='$address' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
         } else {

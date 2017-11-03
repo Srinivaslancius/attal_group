@@ -5,7 +5,7 @@
     $page_name = $parts[count($parts) - 1];
 ?>
   <ul class="menu-logo">
-                <li><a href="index.php"><img src="images/logo.png" alt="logo"> </a></li>
+                <li><a href="index.php"><img src="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" alt="logo"> </a></li>
             </ul>
             <!-- menu links -->
             <ul class="menu-links">
