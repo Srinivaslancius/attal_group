@@ -108,9 +108,14 @@ header -->
              <div class="col-sm-12"><div class="section-title text-center">
 		<h2 class="title">Experience Legend In Pictures</h2>
 	</div></div>
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title">Chimes Model Villa</h4>
-	</div></div>
+  <?php $getGalleryData = getDataFromTables('photo_gallery','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);
+      $sql = ""
+  ?>
+	<div class="col-sm-12">
+    <div class="section-title text-left">
+		  <h4 class="title">Chimes Model Villa</h4>
+	 </div>
+  </div>
 <div class="col-sm-12"><div class="popup-gallery columns-4">
     	<div class="project-info">
            <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
@@ -198,7 +203,8 @@ header -->
 			</div></div>
          </div>
          
-    </div></div>
+    </div>
+  </div>
 
 </div><br>
 <div class="row no-gutter">
