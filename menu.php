@@ -1,4 +1,8 @@
- <?php $getMenus = getAllDataCheckActive('services',0); ?>
+ <?php //$getMenus = getAllDataCheckActive('services',0); 
+        $getAllMenus = "SELECT * FROM services WHERE status = 0 ORDER BY id ASC";
+        $getMenus = $conn->query($getAllMenus);
+
+ ?>
  <?php 
     $currentFile = $_SERVER["PHP_SELF"];
     $parts = Explode('/', $currentFile);

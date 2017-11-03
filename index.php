@@ -784,40 +784,6 @@ aliquip ex ea commodo consequatDuis aute irure  </div>
 <!--=================================
  banner -->
 
-<!--=================================
- Page Section -->
-
-<section class="our-sercive page-section-ptb pb-50">
-<div class="container">
-	<div class="row">
-    	<div class="col-md-6 mb-30"><img class="img-responsive" src="images/about/01.jpg" alt=""></div>
-        <div class="col-md-6"><div class="content-block pl-10">
-        	<div class="section-title"><h2 class="title">About Us</h2></div>
-            <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br> laboris nisi ut aliquip ex ea commodo consequat, It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-				<div class="row mt-30">
-                	<div class="col-sm-6"><div class="feature-box left_bor left_pos ex-small">
-                        <i class="glyph-icon flaticon-construction-26"></i>
-                        <h3 class="title">Good Sale & Marketing</h3>
-                        <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis</p>
-                    </div></div>
-                    <div class="col-sm-6"><div class="feature-box left_bor left_pos ex-small">
-                        <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-                        <h3 class="title">Virtual Construction (BIM)</h3>
-                        <p>It has survived not only five centuries, but also the leap into electronic</p>
-                    </div></div>
-                
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
- </section>
-
-<div class="action-box small yellow-bg"><div class="container"><div class="row">
-	<div class="col-md-8 text-left"><h4>Contractors &amp; Construction Managers Since 1989.</h4></div>
-	<div class="col-md-4 text-right text-sm-left"><a href="#" class="button border animated middle-fill"><span>GET A QUOTE</span></a></div>
-</div></div></div>
-
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
 	<div class="col-md-9">
