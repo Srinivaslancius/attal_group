@@ -1,5 +1,5 @@
 <?php include_once 'top_header.php'; ?>
-<?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,$clause=NULL,8,$activeStatus=NULL,$activeTop=NULL);
+<?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,'id',8,$activeStatus=NULL,$activeTop=NULL);
 $getPartnerShipInfo = $getPartnerShipData->fetch_assoc();
 ?>
 <!-- Favicon -->

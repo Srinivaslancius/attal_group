@@ -14,7 +14,6 @@
                     <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Number of Openings</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -25,7 +24,6 @@
                     <td><?php echo $i;?></td>
                     <td><?php echo $row['title'];?></td>
                     <td><?php echo substr(strip_tags($row['description']), 0,150);?></td>
-                    <td><?php echo $row['number_of_vacancies'];?></td>
                     <td><?php if ($row['status']==0) { echo "<span class='label label-outline-success check_active open_cursor' data-incId=".$row['id']." data-status=".$row['status']." data-tbname='current_openings'>Active</span>" ;} else { echo "<span class='label label-outline-info check_active open_cursor' data-status=".$row['status']." data-incId=".$row['id']." data-tbname='current_openings'>In Active</span>" ;} ?></td>
                     <td> <a href="edit_current_openings.php?uid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-edit"></i></a> &nbsp; <a href="#"><!-- <i class="zmdi zmdi-eye zmdi-hc-fw" data-toggle="modal" data-target="#<?php echo $row['id']; ?>" class=""></i> --></a></td>
                     <!-- Open Modal Box  here -->

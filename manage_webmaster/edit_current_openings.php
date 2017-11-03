@@ -6,9 +6,8 @@ $id = $_GET['uid'];
     } else  {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $number_of_vacancies = $_POST['number_of_vacancies'];
     $status = $_POST['status'];   
-        $sql = "UPDATE `current_openings` SET title = '$title', description = '$description', number_of_vacancies = '$number_of_vacancies', status='$status' WHERE id = '$id' ";
+        $sql = "UPDATE `current_openings` SET title = '$title', description = '$description', status='$status' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='current_openings.php?msg=success'</script>";
         } else {
@@ -35,11 +34,6 @@ $id = $_GET['uid'];
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Description</label>
                     <textarea name="description" class="form-control" id="description" data-error="Please enter Description." required><?php echo $getCurrentOpenings1['description'];?></textarea>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Number of Vacancies</label>
-                    <input type="text" name="number_of_vacancies" class="form-control" id="form-control-2" data-error="Please enter Number of Vacancies" required value="<?php echo $getCurrentOpenings1['number_of_vacancies'];?>">
                     <div class="help-block with-errors"></div>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
