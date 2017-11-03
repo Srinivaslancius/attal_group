@@ -19,7 +19,7 @@
          <div class="footer-usefull">
            <div class="section-title"><h4 class="title">Usefull Links</h4></div>
            <ul class="list-mark list-2">
-             <li><a href="content_details.php">About Us</a></li>
+             <li><a href="content_details.php?id=1">About Us</a></li>
              <li><a href="residential.php">Projects</a></li>
              <li><a href="service_details.php">Services</a></li>
 			 <li><a href="partnerships.php">Patnerships</a></li>
@@ -42,7 +42,7 @@
            <div class="section-title"><h4 class="title">Get in Touch</h4></div>
            <ul class="list-inline">
              <li><i class="fa fa-map-marker"></i> <span><?php echo $getSiteSettingsData['address'];?></span></li>
-             <li><i class="fa fa-phone"></i> <span><?php echo $getSiteSettingsData['mobile'];?></span></li>
+             <li><i class="fa fa-phone"></i><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><span><?php echo $getSiteSettingsData['mobile'];?></span></a></li>
              <li><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $getSiteSettingsData['email'];?>"><span><?php echo $getSiteSettingsData['email'];?></span></a></li>
            </ul>
         </div>

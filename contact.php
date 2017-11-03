@@ -1,9 +1,9 @@
 <?php include_once 'top_header.php';
-$getContentsData = getDataFromTables('content_pages','0','id',6,$activeStatus=NULL,$activeTop=NULL);
+$getContentsData = getDataFromTables('content_pages','0','id',22,$activeStatus=NULL,$activeTop=NULL);
 $getAddress  = $getContentsData->fetch_assoc();
-$getContentsData = getDataFromTables('content_pages','0','id',7,$activeStatus=NULL,$activeTop=NULL);
+$getContentsData = getDataFromTables('content_pages','0','id',23,$activeStatus=NULL,$activeTop=NULL);
 $getPhone  = $getContentsData->fetch_assoc();
-$getContentsData = getDataFromTables('content_pages','0','id',8,$activeStatus=NULL,$activeTop=NULL);
+$getContentsData = getDataFromTables('content_pages','0','id',24,$activeStatus=NULL,$activeTop=NULL);
 $getEmail  = $getContentsData->fetch_assoc();
 ?>
 <!-- Favicon -->
