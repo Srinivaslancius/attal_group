@@ -2,7 +2,6 @@
 include_once('admin_includes/config.php');
 include_once('admin_includes/common_functions.php');
 $id = $_POST['del_id'];
-//echo $music_number;
 $target_dir = '../uploads/photo_gallery/';
 $getImgUnlink = getImageUnlink('gallery_images','photo_gallery','id',$id,$target_dir);
 $qry = "DELETE FROM photo_gallery WHERE id ='$id'";

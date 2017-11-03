@@ -5,7 +5,7 @@
     $page_name = $parts[count($parts) - 1];
 ?>
   <ul class="menu-logo">
-                <li><a href="index.php"><img src="images/logo.png" alt="logo"> </a></li>
+                <li><a href="index.php"><img src="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" alt="logo"> </a></li>
             </ul>
             <!-- menu links -->
             <ul class="menu-links">
@@ -45,7 +45,7 @@
             </li>
 			<li><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
-                <ul class="drop-down-multilevel left-menu">
+                <ul  class="drop-down-multilevel left-menu">
                     <li><a href="aboutlegend.php">About legend</a></li>
                     <li><a href="aboutlegend.php">About Hyderabad</a></li>
                     <li><a href="aboutlegend.php">About India</a></li>

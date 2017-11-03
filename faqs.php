@@ -1,5 +1,5 @@
 <?php include_once 'top_header.php'; ?>
-
+<?php $getChooseData = getAllDataCheckActive1('content_pages','0',9); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -67,8 +67,8 @@
 
 <!--=================================
  banner -->
-
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+<?php $getChoose = $getChooseData->fetch_assoc(); ?>
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getChoose['image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
@@ -93,15 +93,9 @@
 
 <section class="faq-page page-section-ptb"><div class="container"><div class="row">
      <div class="col-sm-12"><div class="section-title text-center">
-    <h2 class="title">One Question away from owning your dream space?</h2></div>
+    <h2 class="title"><?php echo $getChoose['title'];?></h2></div>
     <div class="section-title text-justify">
-    <p>Over the last 12 years we have sold more than 1500 apartments and villas in Hyderabad to practically 
-    every segment of our society. The interactions we have had with members of the Legend family have enriched 
-    us with tremendous knowledge and we have been incorporating these learnings into all our current and future projects. 
-    We have distilled the questions asked most frequently by property buyers and are now presenting them to you in a structured 
-    format so that you get a complete overview of your new property, much before you buy it.<br>
-    Should you have any additional queries or seek clarifications on some of these responses please do get in touch with us at 
-    our Corporate Office. We will be happy to answer them and subsequently welcome you to the 5500+ growing Legend family.</p>
+    <p><?php echo $getChoose['description'];?></p>
     
      </div></div>
 

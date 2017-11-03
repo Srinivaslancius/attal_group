@@ -1,5 +1,5 @@
 <?php include_once 'top_header.php'; ?>
-<?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,$clause=NULL,8,$activeStatus=NULL,$activeTop=NULL);
+<?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,'id',8,$activeStatus=NULL,$activeTop=NULL);
 $getPartnerShipInfo = $getPartnerShipData->fetch_assoc();
 ?>
 <!-- Favicon -->
@@ -80,7 +80,7 @@ header -->
 <!--=================================
  banner -->
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getPartnerShipInfo['image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
@@ -89,7 +89,7 @@ header -->
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="partnerships.php">PartnerShips</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="partnerships.php">PartnerShips</a></i></li>
              </ul>
         </div>
      </div>

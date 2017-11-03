@@ -86,7 +86,7 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white">Contact Us</h1></div>
+        <div class="section-title"><h1 class="title text-white">Contact Us</h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
@@ -113,59 +113,59 @@ header -->
     </div></div>
     
    <div class="col-md-4 col-sm-5">
-    	<div class="address-block fill">
-        	<i class="glyph-icon flaticon-construction-5"></i>
+      <div class="address-block fill">
+          <i class="glyph-icon flaticon-construction-5"></i>
             <h3 class="title"><?php echo $getAddress['title']; ?></h3>
             <span><?php echo $getAddress['description']; ?></span>
         </div>
         <div class="address-block fill">
-        	<i class="glyph-icon flaticon-technology-2"></i>
+          <i class="glyph-icon flaticon-technology-2"></i>
             <h3 class="title"><?php echo $getPhone['title']; ?></h3>
             <span><?php echo $getPhone['description']; ?></span>
         </div>
         <div class="address-block fill">
-        	<i class="glyph-icon flaticon-email"></i>
+          <i class="glyph-icon flaticon-email"></i>
             <h3 class="title"><?php echo $getEmail['title']; ?></h3>
             <a href="#"><?php echo $getEmail['description']; ?></a>
         </div>
-	</div>
+  </div>
       <div class="col-md-8 col-sm-7">
         <div class="defoult-form">
         <div id="formmessage" style="display:none">Success/Error Message Goes Here</div>
            <form id="contactform" role="form" method="post" action="#">
-            	<div class="form-group half-group">
-                	<label>Name*</label>
+              <div class="form-group half-group">
+                  <label>Name*</label>
                     <div class="input-group">
-            		      <input id="name" type="text" placeholder="" class="form-control"  name="name">
+                      <input id="name" type="text" placeholder="" class="form-control"  name="name">
                     </div>
-            	</div>
-            	<div class="form-group half-group">
-            		<label>Email*</label>
+              </div>
+              <div class="form-group half-group">
+                <label>Email*</label>
                     <div class="input-group">
-            	     	<input type="email" placeholder="" class="form-control" name="email">
+                    <input type="email" placeholder="" class="form-control" name="email">
                     </div>
-            	</div>
-            	<div class="form-group half-group">
-            		<label>Phone*</label>
+              </div>
+              <div class="form-group half-group">
+                <label>Phone*</label>
                     <div class="input-group">
-            		      <input type="text" placeholder="" class="form-control" name="phone">
+                      <input type="text" placeholder="" class="form-control" name="phone">
                     </div>
-            	</div>
+              </div>
                 <div class="form-group half-group">
-            		<label>Website*</label>
+                <label>Website*</label>
                     <div class="input-group">
                       <input type="text" placeholder="" class="form-control" name="website">
                     </div>
-            	</div>
-            	<div class="form-group">
-            		<label>Message*</label>
+              </div>
+              <div class="form-group">
+                <label>Message*</label>
                     <div class="input-group">
-            		      <textarea class="form-control input-message" placeholder="Comment*" rows="7" name="message"></textarea>
+                      <textarea class="form-control input-message" placeholder="Comment*" rows="7" name="message"></textarea>
                     </div>
-               	</div>
+                </div>
                 <div class="form-group">
-                	<input type="hidden" name="action" value="sendEmail"/>
-            		<button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>Submit Now</span></button>
+                  <input type="hidden" name="action" value="sendEmail"/>
+                <button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>Submit Now</span></button>
                 </div>
             </form>
             <div id="ajaxloader" style="display:none"><img class="center-block" src="images/loading.gif" alt=""></div> 
