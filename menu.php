@@ -1,10 +1,11 @@
+ <?php $getMenus = getAllDataCheckActive('services',0); ?>
  <?php 
     $currentFile = $_SERVER["PHP_SELF"];
     $parts = Explode('/', $currentFile);
     $page_name = $parts[count($parts) - 1];
 ?>
   <ul class="menu-logo">
-                <li><a href="index.php"><img src="images/logo.png" alt="logo"> </a></li>
+                <li><a href="index.php"><img src="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" alt="logo"> </a></li>
             </ul>
             <!-- menu links -->
             <ul class="menu-links">
@@ -28,14 +29,12 @@
                     <li><a href="commercial.php">Commercial</a></li>
                  </ul>
             </li>
-            <li><a href="javascript:void(0)">Services<i class="fa fa-angle-down fa-indicator"></i></a>
+            <li <?php if($page_name == 'service_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Services<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
-                    <li><a href="propertymanagementservices.php">Property Management Services</a></li>
-                    <li><a href="homeloans.php">Home Loans</a></li>
-                    <li><a href="loanguide.php">Loan Guide</a></li>
-                    <li><a href="javascript:void(0)">NRI Services</a></li>
-                    <li><a href="javascript:void(0)">Support Services</a></li>
+                    <?php while($getAllMenus = $getMenus->fetch_assoc()) { ?>
+                    <li><a href="service_details.php?id=<?php echo $getAllMenus['id']; ?>"><?php echo $getAllMenus['name']; ?></a></li>
+                    <?php } ?>
                  </ul>
             </li>
 			<li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
