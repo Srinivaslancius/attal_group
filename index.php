@@ -783,41 +783,14 @@ aliquip ex ea commodo consequatDuis aute irure  </div>
 
 <!--=================================
  banner -->
-
-<!--=================================
- Page Section -->
-
-<section class="our-sercive page-section-ptb pb-50">
-<div class="container">
-	<div class="row">
-    	<div class="col-md-6 mb-30"><img class="img-responsive" src="images/about/01.jpg" alt=""></div>
-        <div class="col-md-6"><div class="content-block pl-10">
-        	<div class="section-title"><h2 class="title">About Us</h2></div>
-            <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br> laboris nisi ut aliquip ex ea commodo consequat, It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-				<div class="row mt-30">
-                	<div class="col-sm-6"><div class="feature-box left_bor left_pos ex-small">
-                        <i class="glyph-icon flaticon-construction-26"></i>
-                        <h3 class="title">Good Sale & Marketing</h3>
-                        <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis</p>
-                    </div></div>
-                    <div class="col-sm-6"><div class="feature-box left_bor left_pos ex-small">
-                        <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-                        <h3 class="title">Virtual Construction (BIM)</h3>
-                        <p>It has survived not only five centuries, but also the leap into electronic</p>
-                    </div></div>
-                
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
- </section>
-
-<div class="action-box small yellow-bg"><div class="container"><div class="row">
-	<div class="col-md-8 text-left"><h4>Contractors &amp; Construction Managers Since 1989.</h4></div>
-	<div class="col-md-4 text-right text-sm-left"><a href="#" class="button border animated middle-fill"><span>GET A QUOTE</span></a></div>
-</div></div></div>
-
+<?php $getChooseData1 = getAllDataCheckActive1('content_pages','0',11);
+$getChoose1 = $getChooseData1->fetch_assoc(); ?>
+<?php $getChooseData2 = getAllDataCheckActive1('content_pages','0',12);
+$getChoose2 = $getChooseData2->fetch_assoc(); ?>
+<?php $getChooseData3 = getAllDataCheckActive1('content_pages','0',13);
+$getChoose3 = $getChooseData3->fetch_assoc(); ?>
+<?php $getChooseData4 = getAllDataCheckActive1('content_pages','0',14);
+$getChoose4 = $getChooseData4->fetch_assoc(); ?>
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
 	<div class="col-md-9">
@@ -825,66 +798,79 @@ aliquip ex ea commodo consequatDuis aute irure  </div>
      <div class="row mt-50">
      		<div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-construction-34"></i>
-                <h3 class="title">Project Buildings</h3>
-                <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis</p>
+                <h3 class="title"><?php echo $getChoose1['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose1['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-shield"></i>
-                <h3 class="title">Home Maintenance</h3>
-                <p>It has survived not only five centuries, but also the leap into electronic</p>
+                <h3 class="title"><?php echo $getChoose2['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose2['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-construction-26"></i>
-                <h3 class="title">Value Engineering</h3>
-                <p>The industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+                <h3 class="title"><?php echo $getChoose3['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose3['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-                <h3 class="title">Project Management</h3>
-                <p>CPM is aimed at meeting a client's requirement in order to produce a functionally</p>
+                <h3 class="title"><?php echo $getChoose4['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose4['description']), 0,150);?></p>
             </div></div>
        </div>
     </div>
 </div></div>
 </section>
- 
+ <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',15);
+$getChoose5 = $getChooseData5->fetch_assoc(); ?>
+<?php $getChooseData6 = getAllDataCheckActive1('content_pages','0',16);
+$getChoose6 = $getChooseData6->fetch_assoc(); ?>
+<?php $getChooseData7 = getAllDataCheckActive1('content_pages','0',17);
+$getChoose7 = $getChooseData7->fetch_assoc(); ?>
+<?php $getChooseData8 = getAllDataCheckActive1('content_pages','0',18);
+$getChoose8 = $getChooseData8->fetch_assoc(); ?>
+<?php $getChooseData9 = getAllDataCheckActive1('content_pages','0',19);
+$getChoose9 = $getChooseData9->fetch_assoc(); ?>
+<?php $getChooseData10 = getAllDataCheckActive1('content_pages','0',20);
+$getChoose10 = $getChooseData10->fetch_assoc(); ?>
+<?php $getChooseData11 = getAllDataCheckActive1('content_pages','0',21);
+$getChoose11 = $getChooseData11->fetch_assoc(); ?>
 <section class="our-sercive1 page-section-pt"><div class="container">
 	<div class="row">
     	<div class="col-sm-12"><div class="section-title text-center">
-        	<h2 class="title">Why Choose us</h2>
-            <p>Construction Project Management (CPM) is the overall planning, coordination, and control of a project from beginning to completion. CPM is aimed at meeting a client's requirement in order to produce a functionally and financially viable project.</p>
+        	<h2 class="title"><?php echo $getChoose5['title'];?></h2>
+            <p><?php echo $getChoose5['description'];?></p>
          </div></div>
          
          <div class="col-sm-12">
 			<div class="feature-box line">
            <i class="glyph-icon flaticon-people-10"></i>
-           <h3 class="title">Safety</h3>
-           <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+           <h3 class="title"><?php echo $getChoose6['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose6['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-trophy"></i>
-           <h3 class="title">Best Quality</h3>
-           <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut, consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+           <h3 class="title"><?php echo $getChoose7['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose7['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-drawing-1"></i>
-           <h3 class="title">Sustanability</h3>
-           <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis nostrud Lorem Ipsum is simply text of the printing and industry.</p>
+           <h3 class="title"><?php echo $getChoose8['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose8['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-people-10"></i>
-           <h3 class="title">Community</h3>
-           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa inventore.</p>
+           <h3 class="title"><?php echo $getChoose9['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose9['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-           <h3 class="title">Strategy</h3>
-           <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis nostrud Lorem Ipsum is simply text of the printing and industry.</p>
+           <h3 class="title"><?php echo $getChoose10['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose10['description']), 0,200);?></p>
         </div>
         <div class="feature-box line">
            <i class="glyph-icon flaticon-interface-5"></i>
-           <h3 class="title">Integrity</h3>
-           <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
+           <h3 class="title"><?php echo $getChoose11['title'];?></h3>
+           <p><?php echo substr(strip_tags($getChoose11['description']), 0,200);?></p>
         </div>
           </div>
 	</div>

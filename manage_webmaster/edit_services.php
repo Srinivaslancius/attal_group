@@ -26,7 +26,7 @@ $id = $_GET['uid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `services` SET name = '$name',description = '$description', service_percentage = '$service_percentage' ,status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `services` SET name = '$name',description = '$description',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                   echo "<script type='text/javascript'>window.location='services.php?msg=success'</script>";
                 } else {

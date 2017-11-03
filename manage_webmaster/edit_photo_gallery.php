@@ -16,7 +16,7 @@ if (!isset($_POST['submit']))  {
     $updateData = $conn->query($sql);
     $gallery_images = $_FILES['gallery_images']['name'];
     foreach($gallery_images as $key=>$value){
-        $gallery_images1 = $_FILES['gallery_images']['name'][$key];
+        $gallery_images1 = uniqid().$_FILES['gallery_images']['name'][$key];
         $file_tmp = $_FILES["gallery_images"]["tmp_name"][$key];
         $file_destination = '../uploads/photo_gallery/' . $gallery_images1;
         move_uploaded_file($file_tmp, $file_destination);        

@@ -43,7 +43,7 @@
            <ul class="list-inline">
              <li><i class="fa fa-map-marker"></i> <span><?php echo $getSiteSettingsData['address'];?></span></li>
              <li><i class="fa fa-phone"></i> <span><?php echo $getSiteSettingsData['mobile'];?></span></li>
-             <li><i class="fa fa-envelope"></i> <span><?php echo $getSiteSettingsData['email'];?></span></li>
+             <li><i class="fa fa-envelope"></i> <a href="mailto:<?php echo $getSiteSettingsData['email'];?>"><span><?php echo $getSiteSettingsData['email'];?></span></a></li>
            </ul>
         </div>
       </div>
