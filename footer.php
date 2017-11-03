@@ -31,7 +31,7 @@
              <li><a href="index.php">Home</a></li>
              <li><a href="#">Customer Care</a></li>
 			  <li><a href="#">Legend Foundation</a></li>
-			   <li><a href="#">Careers</a></li>
+			   <li><a href="careers.php">Careers</a></li>
 			    <li><a href="#">Downloads</a></li>
 				 <li><a href="#">SiteMap</a></li>
            </ul>

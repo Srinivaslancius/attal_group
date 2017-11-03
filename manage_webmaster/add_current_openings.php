@@ -5,9 +5,8 @@ if (!isset($_POST['submit']))  {
 }else  {
   $title = $_POST['title'];
   $description = $_POST['description'];
-  $number_of_vacancies = $_POST['number_of_vacancies'];
   $status = $_POST['status'];  
-  $sql = "INSERT INTO current_openings (`title`, `description`, `number_of_vacancies`, `status`) VALUES ('$title', '$description', '$number_of_vacancies', '$status')";
+  $sql = "INSERT INTO current_openings (`title`, `description`, `status`) VALUES ('$title', '$description', '$status')";
   if($conn->query($sql) === TRUE){
     echo "<script type='text/javascript'>window.location='current_openings.php?msg=success'</script>";
   }else {
@@ -32,11 +31,6 @@ if (!isset($_POST['submit']))  {
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Description</label>
                     <textarea name="description" class="form-control" id="description" placeholder="Description" data-error="Please enter Description." required></textarea>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Number of Vacancies</label>
-                    <input type="text" name="number_of_vacancies" class="form-control" id="form-control-2" placeholder="Number of Vacancies" data-error="Please enter number of vacancies" required>
                     <div class="help-block with-errors"></div>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
