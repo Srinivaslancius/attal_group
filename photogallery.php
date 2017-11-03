@@ -83,7 +83,7 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white">Photo Gallery</h1></div>
+        <div class="section-title"><h1 class="title text-white">Photo Gallery</h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
@@ -104,296 +104,48 @@ header -->
 
 
 <section class="portfolio-page page-section-ptb pb-50"><div class="container">
+<div class="col-sm-12">
+    <div class="section-title text-center">
+      <h2 class="title">Experience Legend In Pictures</h2>
+    </div>
+  </div>
+<?php $sql = "SELECT * FROM photo_gallery GROUP BY gallery_id"; 
+      $res = $conn->query($sql);
+      while($row = $res->fetch_assoc()) {
+?>
+
 <div class="row no-gutter">
-             <div class="col-sm-12"><div class="section-title text-center">
-		<h2 class="title">Experience Legend In Pictures</h2>
-	</div></div>
-  <?php $getGalleryData = getDataFromTables('photo_gallery','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);
-      $sql = ""
-  ?>
-	<div class="col-sm-12">
+
+  
+  
+  <div class="col-sm-12">
     <div class="section-title text-left">
-		  <h4 class="title">Chimes Model Villa</h4>
-	 </div>
+      <h4 class="title"><?php echo $row['title']; ?></h4>
+   </div>
   </div>
 <div class="col-sm-12"><div class="popup-gallery columns-4">
-    	<div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
+
+  <?php $gid=  $row['gallery_id']; $sql1 = "SELECT * FROM photo_gallery WHERE gallery_id = '$gid' "; 
+      $res1 = $conn->query($sql1);
+      while($row1 = $res1->fetch_assoc()) {
+  ?>
+
+      <div class="project-info">
+           <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/photo_gallery/'.$row1['gallery_images'] ?>" alt="">
+          <div class="overlay">
+              <div class="overlay-content text-center">
        
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/23.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/23.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/26.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/26.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
+               <a href="<?php echo $base_url . 'uploads/photo_gallery/'.$row1['gallery_images'] ?>" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
+              </div>
+          </div>
+      </div>
+     <?php } ?>   
          
     </div>
   </div>
 
 </div><br>
-<div class="row no-gutter">
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title">Harmony Model Appartment</h4>
-	</div></div>
-<div class="col-sm-12"><div class="popup-gallery columns-4">
-    	<div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-      
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/23.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/23.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/26.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/26.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         
-    </div></div>
-	
-</div><br>
-<div class="row no-gutter">
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title">Crest Vizag</h4>
-	</div></div>
-<div class="col-sm-12"><div class="popup-gallery columns-4">
-    	<div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-       
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/20.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/23.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/23.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/26.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/26.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/28.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-            <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/21.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/24.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/27.jpg" alt="">
-           <div class="overlay">
-           		<div class="overlay-content text-center">
-               <a href="images/project/27.jpg" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-			</div></div>
-         </div>
-         
-    </div></div>
-	</div>
+<?php } ?>
 </div></section>
 
 <!--=================================
