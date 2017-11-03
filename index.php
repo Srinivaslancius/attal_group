@@ -783,7 +783,14 @@ aliquip ex ea commodo consequatDuis aute irure  </div>
 
 <!--=================================
  banner -->
-
+<?php $getChooseData1 = getAllDataCheckActive1('content_pages','0',11);
+$getChoose1 = $getChooseData1->fetch_assoc(); ?>
+<?php $getChooseData2 = getAllDataCheckActive1('content_pages','0',12);
+$getChoose2 = $getChooseData2->fetch_assoc(); ?>
+<?php $getChooseData3 = getAllDataCheckActive1('content_pages','0',13);
+$getChoose3 = $getChooseData3->fetch_assoc(); ?>
+<?php $getChooseData4 = getAllDataCheckActive1('content_pages','0',14);
+$getChoose4 = $getChooseData4->fetch_assoc(); ?>
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
 	<div class="col-md-9">
@@ -791,23 +798,23 @@ aliquip ex ea commodo consequatDuis aute irure  </div>
      <div class="row mt-50">
      		<div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-construction-34"></i>
-                <h3 class="title">Project Buildings</h3>
-                <p>Eiusmod tempor incididunt ut labore et dolore Ut enim ad minim veniam quis</p>
+                <h3 class="title"><?php echo $getChoose1['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose1['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-shield"></i>
-                <h3 class="title">Home Maintenance</h3>
-                <p>It has survived not only five centuries, but also the leap into electronic</p>
+                <h3 class="title"><?php echo $getChoose2['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose2['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-construction-26"></i>
-                <h3 class="title">Value Engineering</h3>
-                <p>The industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+                <h3 class="title"><?php echo $getChoose3['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose3['description']), 0,150);?></p>
             </div></div>
             <div class="col-sm-6"><div class="feature-box left_pos small">
                 <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-                <h3 class="title">Project Management</h3>
-                <p>CPM is aimed at meeting a client's requirement in order to produce a functionally</p>
+                <h3 class="title"><?php echo $getChoose4['title'];?></h3>
+                <p><?php echo substr(strip_tags($getChoose4['description']), 0,150);?></p>
             </div></div>
        </div>
     </div>
