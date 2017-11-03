@@ -2,6 +2,32 @@
 <?php $getPartnerShipData = getDataFromTables('content_pages',$status=NULL,'id',8,$activeStatus=NULL,$activeTop=NULL);
 $getPartnerShipInfo = $getPartnerShipData->fetch_assoc();
 ?>
+<?php 
+
+if (!isset($_POST['submit']))  {
+            echo "";
+    } else  { 
+    //echo "<pre>";print_r($_POST);
+    $collabrate_as = $_POST['collabrate_as'];
+    $name = $_POST['name'];
+    $company_name = $_POST['company_name'];
+    $designation = $_POST['designation'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $website_url = $_POST['website_url'];
+    $comments = $_POST['comments'];
+    $created_at = date("Y-m-d h:i:s");
+    $sql = "INSERT INTO partnership (`collabrate_as`,`name`, `company_name`, `designation`, `address`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$collabrate_as','$name', '$company_name', '$designation','$address','$phone','$mobile','$email','$website_url','$comments','$created_at')";
+    if($conn->query($sql) === TRUE){
+       echo "<script>alert('Data Updated Successfully');window.location.href='partnerships.php';</script>";
+    } else {
+       echo "<script>alert('Data Updation Failed');window.location.href='partnerships.php';</script>";
+    }
+}
+        
+?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -116,32 +142,33 @@ header -->
       <div class="col-md-4 col-sm-7">
         <div class="defoult-form">
         <div id="formmessage" style="display:none">Success/Error Message Goes Here</div>
-           <form id="contactform" role="form" method="post" action="#">
+           <form method="post">
+        <?php $getCollabrate = getDataFromTables('collabrate_partners','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
 		   <div class="form-group">
 		   <label>Collaborate as*</label>
-			  <select class="form-control" id="sel1">
+			  <select name="collabrate_as" class="form-control" id="sel1" required>
 				<option>Select One</option>
-				<option>Land Owner</option>
-				<option>Invester</option>
-				<option>Vendar</option>
+				<?php while($row = $getCollabrate->fetch_assoc()) {  ?>
+        <option value="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></option>
+        <?php } ?>
 			  </select>
 			</div>
             	<div class="form-group">
                 	<label>Name*</label>
                     <div class="input-group">
-            		      <input id="name" type="text" placeholder="" class="form-control"  name="name">
+            		      <input id="name" type="text" placeholder="" class="form-control"  name="name" required>
                     </div>
             	</div>
 				 <div class="form-group">
             		<label>Company*</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="company">
+                      <input type="text" placeholder="" class="form-control" name="company_name" required>
                     </div>
             	</div>
 				 <div class="form-group">
             		<label>Designation*</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="designation">
+                      <input type="text" placeholder="" class="form-control" name="designation" required>
                     </div>
             	</div>
 				<div class="form-group">
@@ -159,25 +186,25 @@ header -->
 				<div class="form-group">
             		<label>Mobile No*</label>
                     <div class="input-group">
-            		      <input type="text" placeholder="" class="form-control" name="mobile">
+            		      <input type="text" placeholder="" class="form-control" name="mobile" maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     </div>
             	</div>
             	<div class="form-group">
             		<label>Email Id*</label>
                     <div class="input-group">
-            	     	<input type="email" placeholder="" class="form-control" name="email">
+            	     	<input type="email" placeholder="" class="form-control" name="email" required>
                     </div>
             	</div>
                 <div class="form-group">
             		<label>Website URL</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="website URL">
+                      <input type="text" placeholder="" class="form-control" name="website_url">
                     </div>
             	</div>
             	<div class="form-group">
             		<label>Comments*</label>
                     <div class="input-group">
-            		      <textarea class="form-control input-message"  rows="7" name="comments"></textarea>
+            		      <textarea class="form-control input-message"  rows="7" name="comments" required></textarea>
                     </div>
                	</div>
                 <div class="form-group">
@@ -238,3 +265,11 @@ Color Customizer -->
 
 </body>
 </html>
+<script type="text/javascript">
+  function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
+    }
+</script>
