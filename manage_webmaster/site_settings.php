@@ -4,7 +4,7 @@
  if (!isset($_POST['submit']))  {
             echo "";
     } else  { 
-    echo "<pre";print_r($_POST);           
+    //echo "<pre";print_r($_POST);           
     $id=1;
     $admin_title = $_POST['admin_title'];  
     $email = $_POST['email'];
@@ -13,6 +13,10 @@
     $gplus_link = $_POST['gplus_link'];
     $mobile = $_POST['mobile'];
     $open_timings = $_POST['open_timings'];
+    $project_count = $_POST['project_count'];
+    $credit_count = $_POST['credit_count'];
+    $features_count = $_POST['features_count'];
+    $likes_count = $_POST['likes_count'];
     $footer_text = $_POST['footer_text'];
     $address = $_POST['address'];
     if($_FILES["logo"]["name"]!='') {
@@ -32,7 +36,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-         $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo', footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+         $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count' ,footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
             } else {
@@ -43,7 +47,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }  else {
-        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', open_timings='$open_timings',address='$address' WHERE id = '$id' ";
+        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', open_timings='$open_timings',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count', address='$address' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
         } else {
@@ -118,7 +122,26 @@
                         <input name="logo" id="form-control-22" class="file-upload-input" type="file" multiple="multiple" onchange="loadFile(event)" accept="image/*">
                       </label>
                   </div>
-
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Projects Counts</label>
+                    <input type="text" name="project_count" class="form-control" id="form-control-2" placeholder="Projects Count" data-error="Please enter Projects Counts." value="<?php echo $getSiteSettingsData['project_count'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Credit Counts</label>
+                    <input type="text" name="credit_count" class="form-control" id="form-control-2" placeholder="Projects Count" data-error="Please enter Projects Counts." value="<?php echo $getSiteSettingsData['project_count'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Features Count</label>
+                    <input type="text" name="features_count" class="form-control" id="form-control-2" placeholder="Features Count" data-error="Please enter Features Count." value="<?php echo $getSiteSettingsData['features_count'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-2" class="control-label">Likes Count</label>
+                    <input type="text" name="likes_count" class="form-control" id="form-control-2" placeholder="Features Count" data-error="Please enter Likes Count." value="<?php echo $getSiteSettingsData['likes_count'];?>" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Footer Text</label>
                     <input type="text" name="footer_text" class="form-control" id="form-control-2" placeholder="Footer Text" data-error="Please enter a valid Mobile." value="<?php echo $getSiteSettingsData['footer_text'];?>" required>
