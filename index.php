@@ -1,5 +1,8 @@
 <?php include_once 'top_header.php'; ?>
 <!-- Favicon -->
+<?php $sqlData="SELECT * FROM our_history WHERE  status=0 LIMIT 3";
+$getAllHistoryData = $conn->query($sqlData);
+?>
 <link rel="shortcut icon" href="images/favicon.ico" />
 
 <!-- bootstrap -->
@@ -882,27 +885,15 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
     <div class="col-md-6 pall-80 text-white">
 		<div class="section-title"><h2 class="title">Our History</h2></div>
         <div class="timeline mt-60 clearfix">
+            <?php  while($getAllData16 = $getAllHistoryData->fetch_assoc()) { ?>
         	<div class="timeline-panel">
-            	<div class="timeline-year"><span>1920</span></div>
+            	<div class="timeline-year"><span><?php echo $getAllData16['year']; ?></span></div>
                 <div class="timeline-body">
-        			<h4 class="title">Beginning Our Services</h4>
-            		<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. laboris nisi ut aliquip ex ea commodo consequat labore et dolore magna aliqua.</p>
+        			<h4 class="title"><?php echo $getAllData16['title']; ?></h4>
+            		<p><?php echo $getAllData16['description']; ?></p>
                 </div>
             </div>
-            <div class="timeline-panel">
-            	<div class="timeline-year"><span>1925</span></div>
-                <div class="timeline-body">
-        			<h4 class="title">Offering More Services</h4>
-            		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-            <div class="timeline-panel">
-            	<div class="timeline-year"><span>1930</span></div>
-                <div class="timeline-body">
-        			<h4 class="title">Opening Our First Branch Office</h4>
-            		<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. laboris nisi ut aliquip ex ea lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat.</p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div></div></section>

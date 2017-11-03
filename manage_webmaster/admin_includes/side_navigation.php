@@ -115,6 +115,14 @@
                 <span class="menu-text">Services</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'our_history.php' || $page_name == 'add_our_history.php' || $page_name == 'edit_our_history.php') { echo "active"; } ?>">
+              <a href="our_history.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Our History</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'faqs.php' || $page_name == 'add_faqs.php' || $page_name == 'edit_faqs.php') { echo "active"; } ?>">
               <a href="faqs.php" aria-haspopup="true">
                 <span class="menu-icon">
