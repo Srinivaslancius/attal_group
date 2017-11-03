@@ -1,4 +1,5 @@
- <?php $getMenus = getAllDataCheckActive('services',0); ?>
+ <?php $getMenus = getAllDataCheckActive('services',0); 
+ ?>
  <?php 
     $currentFile = $_SERVER["PHP_SELF"];
     $parts = Explode('/', $currentFile);
