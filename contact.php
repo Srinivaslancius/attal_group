@@ -1,5 +1,11 @@
-<?php include_once 'top_header.php'; ?>
-
+<?php include_once 'top_header.php';
+$getContentsData = getDataFromTables('content_pages','0','id',6,$activeStatus=NULL,$activeTop=NULL);
+$getAddress  = $getContentsData->fetch_assoc();
+$getContentsData = getDataFromTables('content_pages','0','id',7,$activeStatus=NULL,$activeTop=NULL);
+$getPhone  = $getContentsData->fetch_assoc();
+$getContentsData = getDataFromTables('content_pages','0','id',8,$activeStatus=NULL,$activeTop=NULL);
+$getEmail  = $getContentsData->fetch_assoc();
+?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -109,26 +115,18 @@ header -->
    <div class="col-md-4 col-sm-5">
     	<div class="address-block fill">
         	<i class="glyph-icon flaticon-construction-5"></i>
-            <h3 class="title">Location :</h3>
-            <span>Head office Madhapur,<br>Hyderabad</span>
+            <h3 class="title"><?php echo $getAddress['title']; ?></h3>
+            <span><?php echo $getAddress['description']; ?></span>
         </div>
         <div class="address-block fill">
         	<i class="glyph-icon flaticon-technology-2"></i>
-            <h3 class="title">Phone :</h3>
-            <span>+(000) 123 456 7890</span>
-            <span>+(111) 000 123 456</span>
+            <h3 class="title"><?php echo $getPhone['title']; ?></h3>
+            <span><?php echo $getPhone['description']; ?></span>
         </div>
         <div class="address-block fill">
         	<i class="glyph-icon flaticon-email"></i>
-            <h3 class="title">Mail :</h3>
-            <a href="#">mail@legendindia.com</a>
-            <a href="#">info@legendindia.co.in</a>
-        </div>
-        <div class="address-block fill">
-        	<i class="glyph-icon flaticon-fax"></i>
-            <h3 class="title">Fax :</h3>
-            <span>+(000) 123 456 7890</span>
-            <span>+(111) 000 123 456</span>
+            <h3 class="title"><?php echo $getEmail['title']; ?></h3>
+            <a href="#"><?php echo $getEmail['description']; ?></a>
         </div>
 	</div>
       <div class="col-md-8 col-sm-7">
