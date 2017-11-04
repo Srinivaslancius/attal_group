@@ -70,6 +70,14 @@
                 <span class="menu-text">Content Pages</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'news.php' || $page_name == 'add_news.php' || $page_name == 'edit_news.php') { echo "active"; } ?>">
+              <a href="news.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-item  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">News</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'association.php' || $page_name == 'add_association.php' || $page_name == 'edit_association.php') { echo "active"; } ?>">
               <a href="association.php" aria-haspopup="true">
                 <span class="menu-icon">
