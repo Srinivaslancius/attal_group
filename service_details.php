@@ -1,8 +1,8 @@
 <?php include_once 'top_header.php'; ?>
 <?php 
 $id = $_GET['id'];
-$getContentsData = getDataFromTables('content_pages',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
-$getAboutUsData  = $getContentsData->fetch_assoc();
+$getServicesData = getDataFromTables('services',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
+$getService  = $getServicesData->fetch_assoc();
 ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -76,17 +76,17 @@ header -->
  </div>
 </header>
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getAboutUsData['image'] ?>);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getService['image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-        <div class="section-title"><h1 class="title text-white"><?php echo $getAboutUsData['title'];?></h1></div>
+        <div class="section-title"><h1 class="title text-white"><?php echo $getService['name'];?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="javascript:void(0)">About us</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span><?php echo $getAboutUsData['title'];?></span> </li>
+                <li><a href="javascript:void(0)">Services</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span><?php echo $getService['name'];?></span> </li>
              </ul>
         </div>
      </div>
@@ -107,13 +107,13 @@ header -->
          <div class="sidebar">
            <div class="service-nav">
              <ul>
-                <li><a href="content_details.php?id=1" <?php if($_GET['id'] == 1) { echo "class = active"; } ?>>Profile</a></li>
-                <li><a href="content_details.php?id=2" <?php if($_GET['id'] == 2) { echo "class = active"; } ?>>History</a></li>
-                <li><a href="content_details.php?id=3" <?php if($_GET['id'] == 3) { echo "class = active"; } ?>>Philosophy</a></li>
-                <li><a href="content_details.php?id=4" <?php if($_GET['id'] == 4) { echo "class = active"; } ?>>Values</a></li>
-                <li><a href="content_details.php?id=5" <?php if($_GET['id'] == 5) { echo "class = active"; } ?>>Promoters</a></li>
-                <li><a href="content_details.php?id=6" <?php if($_GET['id'] == 6) { echo "class = active"; } ?>>Our Architects</a></li>
-                <li><a href="content_details.php?id=7" <?php if($_GET['id'] == 7) { echo "class = active"; } ?>>Our JV Partners</a></li>
+                <!--<li><a href="content_details.php?id=1" <?php if($_GET['id'] == 1) { echo "class = active"; } ?>>Profile</a></li>-->
+                <li><a href="service_details.php?id=2" <?php if($_GET['id'] == 2) { echo "class = active"; } ?>>Property Management Services</a></li>
+                <li><a href="service_details.php?id=3" <?php if($_GET['id'] == 3) { echo "class = active"; } ?>>Home Loans</a></li>
+                <li><a href="service_details.php?id=4" <?php if($_GET['id'] == 4) { echo "class = active"; } ?>>Loan Guide</a></li>
+                <li><a href="service_details.php?id=5" <?php if($_GET['id'] == 5) { echo "class = active"; } ?>>NRI Services</a></li>
+                <!--<li><a href="content_details.php?id=6" <?php if($_GET['id'] == 6) { echo "class = active"; } ?>>Our Architects</a></li>-->
+                <li><a href="service_details.php?id=7" <?php if($_GET['id'] == 7) { echo "class = active"; } ?>>Support Services</a></li>
              </ul>
            </div>
          </div>
@@ -122,7 +122,7 @@ header -->
          <div class="service-block">
            <div class="row">
              <div class="col-lg-12 col-md-12">
-               <?php echo $getAboutUsData['description'];?>
+               <?php echo $getService['description'];?>
              </div>
            </div>
          </div>
