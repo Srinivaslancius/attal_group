@@ -130,11 +130,12 @@ $getAllDownloadsData = $conn->query($getDownloadsData);
 		<div class="item">
         <div class="post left_pos clearfix">
 			<div class="post-image clearfix">
-				<a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="<?php echo $base_url.'images/about/PDF-Symbol.jpg'?>" alt="pdf_image"></a> images/about/PDF-Symbol.jpg
+				<a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="<?php echo $base_url.'images/about/PDF-Symbol.jpg'?>" alt="pdf_image"></a> 
 			</div>
 			<div class="post-details">
 				<div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
-                <div class="post-content"><p><?php echo $getDownloads['description']; ?></p></div>
+                <div class="post-content"><p><?php echo substr(strip_tags($getDownloads['description']), 0,40);?></p></div>
+
 			</div>                
          </div>
          
