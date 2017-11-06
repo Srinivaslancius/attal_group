@@ -171,6 +171,14 @@
                 <span class="menu-text">Customer Enqueries</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'feedbacks.php') { echo "active"; } ?>">
+              <a href="feedbacks.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-account-box-mail zmdi-hc-fw"></i>
+                </span>
+                <span class="menu-text">User Feedbacks</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
