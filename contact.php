@@ -9,7 +9,7 @@ $getEmail  = $getContentsData->fetch_assoc();
 <?php
 //ob_start();
 if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['website']) && !empty($_POST['phone']))  {
-$dataem = $getSiteSettingsData['email'];
+$dataem = 'gunavardhan@lanciussolutions.com';
 //$to = "srinivas@lanciussolutions.com";
 $to = "$dataem";
 $subject = "Attal Group - Contact Us ";
