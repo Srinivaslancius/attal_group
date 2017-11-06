@@ -34,7 +34,7 @@
 		   <ul class="list-mark list-2">
              <li><a href="index.php">Home</a></li>
              <li><a href="contact.php">Customer Care</a></li>
-			  <li><a href="#">Emi Calculator</a></li>
+			  <li><a href="emi_calculator.php">Emi Calculator</a></li>
 			   <li><a href="careers.php">Careers</a></li>
 			    <li><a href="downloads.php">Downloads</a></li>
 				 
