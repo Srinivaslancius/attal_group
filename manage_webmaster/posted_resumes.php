@@ -1,5 +1,5 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-<?php $getPostedResumesData = getAllData('posted_resumes'); $i=1; ?>
+<?php $getPostedResumesData = getAllData('carrer_applcication'); $i=1; ?>
       <div class="site-content">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
@@ -12,8 +12,10 @@
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Position</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Additional Info</th>
                     <th>Resumes</th>
                   </tr>
                 </thead>
@@ -21,9 +23,11 @@
                   <?php while ($row = $getPostedResumesData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
-                    <td><?php echo $row['resume_title'];?></td>
-                    <td><?php echo substr(strip_tags($row['resume_description']), 0,150);?></td>
-                    <td><a href="<?php echo $row['resumes'];?>"><img src="../uploads/index.jpg" alt="" height="60"></a></td>
+                    <td><?php echo $row['position_interest_in'];?></td>
+                    <td><?php echo $row['name'];?></td>
+                    <td><?php echo $row['mobile'];?></td>
+                    <td><?php echo substr(strip_tags($row['additional_info']), 0,150);?></td>
+                    <td><a href="<?php echo $base_url . 'uploads/resumes/'.$row['upload_cv'] ?>"><img src="<?php echo $base_url.'uploads/index.jpg'?>" height="35px" width="35px" title="<?php echo $row['upload_cv'];?>"></a></td>
                   </tr>
                   <?php  $i++; } ?>
                 </tbody>
