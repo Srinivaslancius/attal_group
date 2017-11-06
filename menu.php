@@ -27,8 +27,8 @@
             <li><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
-                    <li><a href="residential.php">Residential</a></li>
-                    <li><a href="commercial.php">Commercial</a></li>
+                    <li><a href="project_view.php?id=1">Residential</a></li>
+                    <li><a href="project_view.php?id=2">Commercial</a></li>
                  </ul>
             </li>
             <li <?php if($page_name == 'service_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Services<i class="fa fa-angle-down fa-indicator"></i></a>

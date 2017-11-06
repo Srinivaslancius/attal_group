@@ -75,12 +75,15 @@ header -->
 
 <!--=================================
  banner -->
-
+<?php 
+  $getProjects = getDataFromTables('categories',$status=NULL,'id',2,$activeStatus=NULL,$activeTop=NULL);
+  $getCatgory = $getProjects->fetch_assoc();
+?>
 <section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white">Residential Projects</h1></div>
+				<div class="section-title"><h1 class="title text-white"><?php echo $getCatgory['category_name']?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">

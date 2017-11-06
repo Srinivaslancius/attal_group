@@ -18,7 +18,7 @@
                     <th>Customer Name</th>
                     <th>Company Name</th>
                     <th>Customer Mobile</th>
-                    <th>Created Email</th>
+                    <th>Email</th>
                     <th>Created Date</th>
                   </tr>
                 </thead>

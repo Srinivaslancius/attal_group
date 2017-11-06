@@ -1,33 +1,34 @@
 <?php include_once 'top_header.php'; ?>
-
+<?php 
+$id = $_GET['id'];
+$getProjectsData = getDataFromTables('categories',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
+$getProjects  = $getProjectsData->fetch_assoc();
+?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
-<!-- Bootstrap -->
+<!-- bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!--  Roboto font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
 
-<!-- Mega Menu -->
+<!-- mega menu -->
 <link href="css/mega-menu/mega_menu.css" rel="stylesheet" type="text/css" />
 
-<!-- Font Awesome -->
+<!-- font-awesome -->
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <!-- Flaticon -->
 <link href="css/flaticon.css" rel="stylesheet" type="text/css" />
 
-<!-- Magnific Popup -->
-<link rel="stylesheet" type="text/css" href="css/magnific-popup/magnific-popup.css">
-
-<!-- Owl Carousel -->
+<!-- owl-carousel -->
 <link href="css/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
 
 <!-- General style -->
 <link href="css/general.css" rel="stylesheet" type="text/css" />
 
-<!-- Main Style -->
+<!-- main style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
 <!-- Style customizer -->
@@ -47,7 +48,7 @@ header -->
 
 <header id="header" class="clean">
 <div class="topbar dark">
-  <?php include_once 'main_header.php'; ?>
+ <?php include_once 'main_header.php'; ?>
 </div>
  
 <!--=================================
@@ -62,7 +63,7 @@ header -->
       <div class="row"> 
        <div class="col-lg-12 col-md-12"> 
         <!-- menu logo -->
-        <?php include_once 'menu.php'; ?>
+       <?php include_once 'menu.php'; ?>
        </div>
       </div>
      </div>
@@ -79,17 +80,17 @@ header -->
 <!--=================================
  banner -->
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/category_images/'.$getProjects['category_image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-        <div class="section-title"><h1 class="title text-white">Photo Gallery</h1></div>
+				<div class="section-title"><h1 class="title text-white"><?php echo $getProjects['category_name']?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="photogallery.php">Photo Gallery</a> <i class="fa fa-angle-double-right"></i></li>
-              <!--  <li><span>Portfolio 4 columns</span> </li>-->
+                <li><a href="javascript:void(0)">Projects</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span><?php echo $getProjects['category_name']?></span> </li>
              </ul>
         </div>
      </div>
@@ -99,72 +100,73 @@ header -->
 <!--=================================
  banner -->
 
+
+
 <!--=================================
  Page Section -->
 
+<section class="content-box3 page-section-ptb pb-40">
+<?php 
+      $subCat = "SELECT * FROM sub_categories";
+      $res = $conn->query($subCat);
+      while($getSubCat = $res->fetch_assoc()){
 
-<section class="portfolio-page page-section-ptb pb-50">
-  <div class="container">
-<div class="col-sm-12">
-    <div class="section-title text-center">
-      <h2 class="title">Experience Legend In Pictures</h2>
-    </div>
-  </div>
-<?php $sql = "SELECT * FROM photo_gallery GROUP BY gallery_id"; 
-      $res = $conn->query($sql);
-      while($row = $res->fetch_assoc()) {
-?>
-
-<div class="row no-gutter">
-
-  
-  
-  <div class="col-sm-12">
-    <div class="section-title text-left">
-      <h4 class="title"><?php echo $row['title']; ?></h4>
-   </div>
-  </div>
-<div class="col-sm-12"><div class="popup-gallery columns-4">
-
-  <?php $gid=  $row['gallery_id']; $sql1 = "SELECT * FROM photo_gallery WHERE gallery_id = '$gid' "; 
-      $res1 = $conn->query($sql1);
-      while($row1 = $res1->fetch_assoc()) {
+      ?>
+  <div class="container"><div class="row text-justify">
+<div class="col-sm-12"><div class="section-title text-center">
+		<h2 class="title"><?php echo $getSubCat['sub_category_name']; ?></h2>
+	</div></div>
+  <?php $subCat = "SELECT * FROM sub_sub_categories WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '$id' ";
+        $res1 = $conn->query($subCat);
+      while($getSubSubCat = $res1->fetch_assoc()){
   ?>
+	<div class="col-sm-12"><div class="section-title text-left">
+		<h4 class="title"><?php echo $getSubSubCat['sub_sub_category_name']; ?></h4>
+	</div></div>
+  <?php 
 
-      <div class="project-info">
-           <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/photo_gallery/'.$row1['gallery_images'] ?>" alt="">
-          <div class="overlay">
-              <div class="overlay-content text-center">
-       
-               <a href="<?php echo $base_url . 'uploads/photo_gallery/'.$row1['gallery_images'] ?>" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
-              </div>
-          </div>
-      </div>
-     <?php } ?>   
-         
-    </div>
-  </div>
+    $subCat = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND sub_sub_category_id = '".$getSubSubCat['id']."' GROUP BY gallery_id ";
+        $res2 = $conn->query($subCat);
+      while($getProjects = $res2->fetch_assoc()){
 
-</div><br>
+        $lid= $getProjects['location_id'];
+  ?>
+  <?php $gid=  $getProjects['gallery_id']; $sql1 = "SELECT * FROM projects WHERE gallery_id = '$gid' "; 
+      $res4 = $conn->query($sql1);
+      while($getProImages = $res4->fetch_assoc()) {
+  ?>
+	<div class="col-sm-3">
+		<div class="about mb-40">
+          <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProImages['images'] ?>" alt=""></div>
+          <div class="about-details">
+            
+          	<h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
+              <small><?php $sql = "SELECT * FROM lkp_locations WHERE id = '$lid'";
+              $result = $conn->query($sql);
+              $row = $result->fetch_assoc(); echo $row['location_name'];?></small></a></h5>
+          	<div class="about-des"><?php echo $getProjects['description'];?></div>
+            <!-- <a class="button link" href="#"><span>Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a> -->
+          </div>                
+		</div>
+	</div>
+  <?php } } }?>
+	
+</div></div>
 <?php } ?>
-</div></section>
-
-<!--=================================
- 
+</section>
 
 <!--=================================
 footer -->
  
  <footer class="footer dark-bg page-section-pt pb-0">
-   <?php include_once 'footer.php'; ?>
+  <?php include_once 'footer.php'; ?>
  </footer>
- 
+
  <!--=================================
 footer -->
 
 <!--=================================
 Color Customizer --> 
-
 
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-chevron-up"></i></a></div>
 
@@ -183,12 +185,6 @@ Color Customizer -->
 
 <!-- owl-carousel -->
 <script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
-
-<!-- isotope -->
-<script type="text/javascript" src="js/isotope/isotope.pkgd.min.js"></script>
-
-<!-- magnific -->
-<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- style customizer  -->
 <script type="text/javascript" src="js/style-customizer.js"></script>
