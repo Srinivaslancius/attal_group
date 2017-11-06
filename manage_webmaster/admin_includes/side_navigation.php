@@ -47,6 +47,24 @@
             </li>
             <li  class="<?php if($page_name == 'locations.php' || $page_name == 'add_locations.php' || $page_name == 'edit_locations.php') { echo "active"; } ?>">
               <a href="locations.php" aria-haspopup="true">
+            <li  class="<?php if($page_name == 'downloads.php' || $page_name == 'add_downloads.php' || $page_name == 'edit_downloads.php') { echo "active"; } ?>">
+              <a href="downloads.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="glyphicon glyphicon-download-alt"></i>
+                </span> 
+                <span class="menu-text">Downloads</span>
+              </a>
+            </li>
+            <!-- <li  class="<?php if($page_name == 'our_team.php' || $page_name == 'add_our_team.php' || $page_name == 'edit_our_team.php') { echo "active"; } ?>">
+              <a href="our_team.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-item  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Our Team</span>
+              </a>
+            </li> -->
+            <li  class="<?php if($page_name == 'projects.php' || $page_name == 'add_projects.php' || $page_name == 'edit_projects.php') { echo "active"; } ?>">
+              <a href="projects.php" aria-haspopup="true">
                 <span class="menu-icon">
                    <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
                 </span> 
@@ -177,6 +195,14 @@
                    <i class="zmdi zmdi-account-box-mail zmdi-hc-fw"></i>
                 </span>
                 <span class="menu-text">Customer Enqueries</span>
+              </a>
+            </li>
+            <li  class="<?php if($page_name == 'feedbacks.php') { echo "active"; } ?>">
+              <a href="feedbacks.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-account-box-mail zmdi-hc-fw"></i>
+                </span>
+                <span class="menu-text">User Feedbacks</span>
               </a>
             </li>
           </ul>
