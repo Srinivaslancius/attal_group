@@ -82,7 +82,7 @@ header -->
 	<div id="rev_slider_13_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.3.0.2.1">
 <ul>	<!-- SLIDE  -->
     <?php while ($row = $getBannersData->fetch_assoc()) { ?>
-    <li data-index="rs-42" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default"       data-title="Slide"   data-description="">
+    <li data-index="rs-42" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-title="Slide"   data-description="">
 		<!-- MAIN IMAGE -->
         <img src="<?php echo $base_url . 'uploads/banner_images/'.$row['banner'] ?>" style='background-color:#ffd200' alt=""  >
 	

@@ -6,7 +6,7 @@
         } else  {
             //If success
             $category_id = $_POST['category_id'];
-            $username = $_POST['user_name'];
+            $user_name = $_POST['user_name'];
             $lkp_location_id = $_POST['lkp_location_id'];
             $description = $_POST['description'];
             $fileToUpload = $_FILES["fileToUpload"]["name"];
@@ -19,7 +19,7 @@
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                      $sql = "INSERT INTO downloads (`category_id`, `user_name`,`lkp_location_id`,`description` ,`pdf_image`,status) VALUES ('$category_id', '$username','$lkp_location_id','$description','$fileToUpload','$status')"; 
+                      $sql = "INSERT INTO downloads (`category_id`, `user_name`,`lkp_location_id`,`description` ,`pdf_image`,status) VALUES ('$category_id', '$user_name','$lkp_location_id','$description','$fileToUpload','$status')"; 
                       
                     if($conn->query($sql) === TRUE){
                        echo "<script type='text/javascript'>window.location='downloads.php?msg=success'</script>";
@@ -75,8 +75,8 @@
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-4" class="control-label">Pdf Image</label>
-                    <img id="output" height="100" width="100"/>
+                    <label for="form-control-4" class="control-label">Pdf File</label>
+                    
                     <label class="btn btn-default file-upload-btn">
                       Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept=".pdf,.doc"  name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" required >

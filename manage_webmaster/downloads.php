@@ -32,7 +32,9 @@
                     <td><?php $getLocations = getDataFromTables('lkp_locations',$status=NULL,'id',$row['lkp_location_id'],$activeStatus=NULL,$activeTop=NULL);
                     $getLocation1 = $getLocations->fetch_assoc(); echo $getLocation1['location_name']; ?></td>
 
-                    <td><img src="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$row['pdf_image'] ?>" height="100" width="100"/></td>
+                    <td><a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$row['pdf_image'] ?>" target="_blank"><img src="../uploads/pdf_file.jpg" alt="" height="60"></a></td>
+
+                    
                     <td><?php echo substr(strip_tags($row['description']), 0,150);?></td>
                     <td><?php if ($row['status']==0) { echo "<span class='label label-outline-success check_active open_cursor' data-incId=".$row['id']." data-status=".$row['status']." data-tbname='downloads'>Active</span>" ;} else { echo "<span class='label label-outline-info check_active open_cursor' data-status=".$row['status']." data-incId=".$row['id']." data-tbname='downloads'>In Active</span>" ;} ?></td>
                     <td> <a href="edit_downloads.php?did=<?php echo $row['id']; ?>"><i class="zmdi zmdi-edit"></i></a> &nbsp; <a href="#"><i class="zmdi zmdi-eye zmdi-hc-fw" data-toggle="modal" data-target="#<?php echo $row['id']; ?>" class=""></i></a><a href="delete_downloads.php?uid=<?php echo $row['id']; ?>"><i class="zmdi zmdi-delete zmdi-hc-fw" onclick="return confirm('Are you sure you want to delete?')"></i></a></td>
@@ -53,6 +55,16 @@
                               <div class="col-sm-2"></div>
                               <div class="col-sm-4">Title:</div>
                               <div class="col-sm-6"><?php echo $getCategory['category_name'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">UserName:</div>
+                              <div class="col-sm-6"><?php echo $row['user_name'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Loaction:</div>
+                              <div class="col-sm-6"><?php echo $getLocation1['location_name'];?></div>
                             </div>
                             <div class="row">
                               <div class="col-sm-2"></div>
