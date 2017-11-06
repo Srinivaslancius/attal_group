@@ -99,315 +99,52 @@ header -->
 
 <!--=================================
  Page Section -->
+<?php $getCategoriesData = "SELECT * FROM categories WHERE status='0' "; 
+$getAllcategoriesData = $conn->query($getCategoriesData);
 
-<section class="content-box3 page-section-ptb pb-40">
-<div class="container">
+?>
+
+
+<section class="content-box3 page-section-ptb pb-40"><div class="container">
 <div class="row text-justify">
+<div class="col-sm-12">
+	<div class="section-title text-center">
+		<h2 class="title">Downloads</h2>
+	</div>
+</div>
+</div>
+	<?php while($getCategories = $getAllcategoriesData->fetch_assoc()) {?>
 	<div class="col-sm-12">
-		<div class="section-title text-center">
-			<h2 class="title">Downloads</h2>
+		<div class="section-title text-left">
+		<h4 class="title"><?php echo $getCategories['category_name']; ?></h4>
 		</div>
 	</div>
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title">Residential Ongoing Projects</h4>
-	</div></div>
-</div>
+<?php $getDownloadsData = "SELECT * FROM downloads WHERE category_id='".$getCategories['id']."' ";
+$getAllDownloadsData = $conn->query($getDownloadsData);
+
+?>
+
 	<div class="row mrgb-btm">
+	<?php while($getDownloads = $getAllDownloadsData->fetch_assoc()) {?>	
 	<div class="col-sm-4">
 		<div class="item">
         <div class="post left_pos clearfix">
 			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
+				<a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="<?php echo $base_url.'images/about/PDF-Symbol.jpg'?>" alt="pdf_image"></a> images/about/PDF-Symbol.jpg
 			</div>
 			<div class="post-details">
-				<div class="post-title"><h5 class="title">Blue Hope, Abids</h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
+				<div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
+                <div class="post-content"><p><?php echo $getDownloads['description']; ?></p></div>
 			</div>                
          </div>
+         
       </div>
 	</div>
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Chawla, Banjara Hills</a></h5></div>
-                <div class="post-content"><p>Specifications Layout Plan Map</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Chimes,Kokapet</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Site Plan E-brochure Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-<div class="row mrgb-btm">
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Coconut Grove, Miyapur</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Site Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Crest Vizag</a></h5></div>
-                <div class="post-content"><p>E-brochure Site Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Harmony, Gachibowli</a></h5></div>
-                <div class="post-content"><p>Specifications Site Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-	<div class="row mrgb-btm">
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Jagannath, Ameerpet</a></h5></div>
-                <div class="post-content"><p>E-brochure Floor Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Marigold, Gachibowli</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Pranav Banjara Hills</a></h5></div>
-                <div class="post-content"><p>Specification Floor Plan Map Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-	<div class="row mrgb-btm">
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Serene Bay, Vizag</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Map FAQ Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Solitaire, Ameerpet</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan FAQ</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Tulips, Somajiguda</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Map FAQ</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-	<div class="row mrgb-btm">
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Venkatesa, Narayanaguda</a></h5></div>
-                <div class="post-content"><p>E-brochure Specifications Floor Plan FAQ Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Suraj, Banjara Hills</a></h5></div>
-                <div class="post-content"><p>E-brochure Specifications Floor Plan FAQ Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title">Harizon, Attapur</h5></div>
-                <div class="post-content"><p>E-brochure Specifications Floor Plan FAQ Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-	<!-- <div class="row mrgb-btm">
-	<div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">Galaxy, Kothapet</a></h5></div>
-                <div class="post-content"><p>E-brochure Specifications Floor Plan FAQ Application Form</p></div>
-			</div>                
-         </div>
-      </div>
-	</div>
-	</div> -->
+	<?php } ?>
 	
-	<div class="col-sm-12">
-	<div class="section-title text-left">
-		<h4 class="title">Commercial Ongoing Projects</h4>
 	</div>
-	</div>
-	<div class="row mrgb-btm">
-	<div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
-			</div>                
-         </div>
-      </div>
-	</div>
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
-			</div>                
-         </div>
-      </div>
-	</div>	 -->
-	</div>
-	<div class="row mrgb-btm">
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	<!-- <div class="col-sm-4">
-		<div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<a href="images/about/1.pdf" target="_blank"><img class="img-responsive " src="images/about/PDF-Symbol.jpg" alt=""></a>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-                <div class="post-content"><p>Specifications Floor Plan Application Form E-brochur</p></div>
-			</div>                
-         </div>
-      </div>
-	</div> -->
-	</div>
-</div></div></section>
+	<?php } ?>
+</section>
 
 <!--=================================
 footer -->
