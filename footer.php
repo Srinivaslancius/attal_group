@@ -1,8 +1,12 @@
 <div class="container"><div class="row">
       <div class="col-sm-4 mb-30">
       	 <div class="section-title"><h4 class="title">About Us</h4></div>
+        <?php  
+          $getContentsData = getDataFromTables('content_pages',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
+          $getAboutUsData  = $getContentsData->fetch_assoc();
+        ?>  
        <div class="footer-about text-justify">
-         <p>Legend Estates Pvt. Ltd. started its successful journey in the world of real estate with a residential apartment complex in 1998. Today, it is one of the fastest growing and among the most respected real estate companies in Andhra Pradesh.</p>
+         <p><?php echo substr(strip_tags($getAboutUsData['description']), 0,276);?></p>
          <div class="social-icons social-white border color-hover mt-20">
            	<ul>
 				<li class="social-facebook"><a target="_blank" href="<?php echo $getSiteSettingsData['fb_link'];?>"><i class="fa fa-facebook"></i></a></li>
@@ -29,8 +33,8 @@
            </ul>
 		   <ul class="list-mark list-2">
              <li><a href="index.php">Home</a></li>
-             <li><a href="#">Customer Care</a></li>
-			  <li><a href="#">Legend Foundation</a></li>
+             <li><a href="contact.php">Customer Care</a></li>
+			  <li><a href="#">Emi Calculator</a></li>
 			   <li><a href="careers.php">Careers</a></li>
 			    <li><a href="downloads.php">Downloads</a></li>
 				 
@@ -57,7 +61,7 @@
          </div>
          <div class="col-lg-6 col-md-6 col-sm-6">
            <ul class="text-right">
-             <li><a href="#">Terms of Use</a></li>
+             <li><a href="content_details.php">Terms of Use</a></li>
              <li><a href="#">Privacy Policy</a></li>
              <li><a href="contact.php">Contact Us</a></li>
            </ul>
