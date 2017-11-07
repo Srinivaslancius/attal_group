@@ -1,6 +1,6 @@
 <?php include_once 'top_header.php'; ?>
 <!-- Favicon -->
-<?php $sqlData="SELECT * FROM our_history WHERE  status=0 LIMIT 3";
+<?php $sqlData="SELECT * FROM our_history WHERE  status=0 ";
 $getAllHistoryData = $conn->query($sqlData);
 ?>
 <?php $getBannersData = getAllDataCheckActive('banners',0);  ?>

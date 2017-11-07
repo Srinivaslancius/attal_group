@@ -117,7 +117,7 @@ header -->
          <div class="sidebar">
            <div class="service-nav">
              <ul>
-               <li><a class="active" href="careers_application.php">Online Applications</a></li>
+               <li><a href="careers_application.php">Online Applications</a></li>
                
              </ul>
            </div>

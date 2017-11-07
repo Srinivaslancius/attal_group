@@ -112,66 +112,9 @@ header -->
     <?php echo $getNewsData['description'];?>
   </div></div>
   </div>
-  <div class="row">
-   <div class="masonry-block">
-   <div class="masonry column-3">
-   <div class="grid-sizer"></div>
-      <div class="masonry-item post-article"><div class="post">
-     <div class="post-details">
-              <div class="post-title"><center><h5 class="title"><a href="#">The Legends of real estate</a></h5></center></div>           
-              </div>
-              <center><div class="post-image clearfix"><a href="images/1.pdf"><img class="img-responsive" src="images/blog/04.jpg" alt=""></a></div></center>           
-                             
-    </div></div>
-    
-        <div class="masonry-item post-article"><div class="post">
-              <div class="post-details">
-              <div class="post-title"><h5 class="title"><a href="#">Chime for some quiet</a></h5></div>           
-              </div>
-              <center><div class="post-image clearfix"><a href="images/2.pdf"><img class="img-responsive" src="images/blog/05.jpg" alt=""></a></div></center>                   
-    </div></div>
-      <div class="masonry-item post-article"><div class="post">
-              <div class="post-details">
-              <div class="post-title"><h5 class="title"><a href="#">Legend Chimes villa by Legend Estates Pvt.Ltd. offers residents true taste of luxury</a></h5></div>           
-              </div>
-              <center><div class="post-image clearfix"><a href="images/3.jpg"><img class="img-responsive" src="images/blog/06.jpg" alt=""></a></div></center>                   
-    </div></div>     
-    </div>
-</div></div>
+ 
 </div></section>
-<section class="portfolio-page page-section-ptb pb-0" style="margin-top:-150px"><div class="container">
-<div class="row no-gutter">
-  <div class="col-sm-12"><div class="section-title text-left">
-    <h5 class="title">Legend Estates Stall at LICHFL 4th INDIAN REALITY EXPO, Crowne Plaza-KUWAIT on 27th April and 28th April 2012</h5>
-  </div></div>
-<div class="col-sm-12"><div class="popup-gallery columns-4">
-      <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-          
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/21.jpg" alt="">
-          
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/20.jpg" alt="">
-          
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/23.jpg" alt="">
-          
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/24.jpg" alt="">
-          
-         </div>
-         <div class="project-info">
-           <img class="img-responsive center-block" src="images/project/28.jpg" alt="">
-           
-         </div>
-     </div>
-     </div>
-     </section><br>
+
                   
 <!--=================================
  page-section -->
