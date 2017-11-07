@@ -32,7 +32,7 @@ $rid = $_GET['rid'];
                        echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
                     }
                     //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-                } else {
+                } else { 
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
