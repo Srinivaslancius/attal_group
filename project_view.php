@@ -107,7 +107,7 @@ header -->
 
 <section class="content-box3 page-section-ptb pb-40">
 <?php 
-      $subCat = "SELECT * FROM sub_categories";
+      $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id'";
       $res = $conn->query($subCat);
       while($getSubCat = $res->fetch_assoc()){
 
@@ -125,19 +125,15 @@ header -->
 	</div></div>
   <?php 
 
-    $subCat = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND sub_sub_category_id = '".$getSubSubCat['id']."' GROUP BY gallery_id ";
+    $subCat = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND sub_sub_category_id = '".$getSubSubCat['id']."'";
         $res2 = $conn->query($subCat);
       while($getProjects = $res2->fetch_assoc()){
 
         $lid= $getProjects['location_id'];
   ?>
-  <?php $gid=  $getProjects['gallery_id']; $sql1 = "SELECT * FROM projects WHERE gallery_id = '$gid' "; 
-      $res4 = $conn->query($sql1);
-      while($getProImages = $res4->fetch_assoc()) {
-  ?>
 	<div class="col-sm-3">
 		<div class="about mb-40">
-          <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProImages['images'] ?>" alt=""></div>
+          <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt=""></div>
           <div class="about-details">
             
           	<h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
@@ -149,7 +145,7 @@ header -->
           </div>                
 		</div>
 	</div>
-  <?php } } }?>
+  <?php }  }?>
 	
 </div></div>
 <?php } ?>

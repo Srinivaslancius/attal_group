@@ -1,14 +1,12 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
 error_reporting(1);
-$id = $_GET['gid'];
 $rid = $_GET['rid'];
  if (!isset($_POST['submit']))  {
             echo "fail";
     } else  {
           
     $project_name = $_POST['project_name'];
-    $gallery_id = $_POST['gallery_id'];
     $location_id = $_POST['location_id'];
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
@@ -18,21 +16,33 @@ $rid = $_GET['rid'];
     $specification = $_POST['specification'];
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
-    $sql = "UPDATE projects SET project_name = '$project_name',gallery_id = '$gallery_id',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
-    $updateData = $conn->query($sql);
-        foreach($gallery_images as $key=>$value){
-            $gallery_images1 = uniqid().$_FILES['gallery_images']['name'][$key];
-            $file_tmp = $_FILES["gallery_images"]["tmp_name"][$key];
-            $file_destination = '../uploads/projects_images/' . $gallery_images1;
-            move_uploaded_file($file_tmp, $file_destination);        
-            $sql = "INSERT INTO projects (`project_name`, `gallery_id`,`images`,`location_id`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name', '$gallery_id','$gallery_images1','$location_id','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
-            $result = $conn->query($sql);
-        }
-        if( $result == 1){
-        echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-        } else {
-           echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-        }
+
+    if($_FILES["fileToUpload"]["name"]!='') {
+              $fileToUpload = $_FILES["fileToUpload"]["name"];
+              $target_dir = "../uploads/projects_images/";
+              $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+              $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+              $getImgUnlink = getImageUnlink('images','projects','id',$id,$target_dir);
+                //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
+              if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                    $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                    if($conn->query($sql) === TRUE){
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+                    } else {
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+                    }
+                    //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+            }  else {
+                $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                if($conn->query($sql) === TRUE){
+                   echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+                } else {
+                   echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+                }
+            }    
       }
 ?>
 <?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
@@ -108,30 +118,14 @@ $getProjects = $getProjectsData->fetch_assoc();
                     <textarea name="specification" class="form-control" id="specification" placeholder="specification" data-error="Please enter Specifications." required><?php echo $getProjects['specification'];?></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Gallery Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="gallery_id" placeholder="Gallery Id" data-error="Please enter gallery id." required value="<?php echo $getProjects['gallery_id']; ?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                      <?php  $pid = $_GET['gid'];                                                           
-                      $sql = "SELECT * FROM projects where gallery_id = '$pid' ";
-                      $getImages= $conn->query($sql);                                                             
-                      while($row=$getImages->fetch_assoc()) {
-                          echo "<img id='output_".$row['id']."' src= '../uploads/projects_images/".$row['images']."' width=80px; height=80px;/> <a style='cursor:pointer' class='ajax_img_del' id=".$row['id'].">Delete</a> <br />";
-                      }                               
-                     ?>
-                  </div>
-                  <div id="formdiv">                   
-                      <div id="filediv">
-                        <?php if($getImages->num_rows > 0){ ?>
-                          <input name="gallery_images[]" accept="image/*" type="file" id="file" />
-                         <?php } else { ?>
-                          <input name="gallery_images[]" accept="image/*" type="file" id="file" required/>
-                         <?php } ?>
-
-                      </div><br/>               
-                      <input type="button" id="add_more" class="upload" value="Add More Files"/>                                                    
+                  
+                 <div class="form-group">
+                    <label for="form-control-4" class="control-label">Image</label>
+                    <img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>"  id="output" height="100" width="100"/>
+                    <label class="btn btn-default file-upload-btn">
+                        Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
+                      </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
@@ -154,52 +148,12 @@ $getProjects = $getProjectsData->fetch_assoc();
       </div>
       <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/tables-datatables.min.js"></script>
-   <script src="js/multi_image_upload.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/multi_image_upload.css">
 <script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'description' );
     CKEDITOR.replace( 'specification' ); 
 </script>
-<script type="text/javascript">
-$(function(){
-    $(document).on('click','.ajax_img_del',function(){
 
-        var divOldLength = $(".form-group > img").length;
-        var divNewLength = $(".abcd > img").length;
-
-        if(divOldLength == '1' && divNewLength=='0')  {
-          alert("Require at lease one image!");
-          return false;
-        } else {
-          var del_id= $(this).attr('id');
-          var $ele = $(this).parent().parent();
-          var r = confirm("Are you sure you want to delete?");
-          if(r == true){
-          $.ajax({
-              type:'POST',
-              url:'ajax_project_delete_image.php',
-              data:{'del_id':del_id},
-              success: function(data){    
-                   if(data=="YES"){
-                     //location.reload();
-                     $("#output_"+del_id).remove();
-                     $('a#'+del_id).remove();
-                   }else{
-                      alert("Deleted Failed");  
-                  }
-               }
-
-             });
-           } else{
-              //location.reload();
-           }
-        }
-        
-    });
-});
-
-</script>
 <script type="text/javascript">
   function getSubCategories(val) {
     $.ajax({
@@ -211,7 +165,6 @@ $(function(){
     }
     });
 }
-
 function getSubSubCategories(val) {
     $.ajax({
     type: "POST",

@@ -6,7 +6,6 @@ if (!isset($_POST['submit']))  {
 } else  {
     //Save data into database
     $project_name = $_POST['project_name'];
-    $gallery_id = $_POST['gallery_id'];
     $location_id = $_POST['location_id'];
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
@@ -17,21 +16,25 @@ if (!isset($_POST['submit']))  {
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
     //save product images into product_images table    
-    
-   foreach($gallery_images as $key=>$value){
-        $gallery_images1 = uniqid().$_FILES['gallery_images']['name'][$key];
-        $file_tmp = $_FILES["gallery_images"]["tmp_name"][$key];
-        $file_destination = '../uploads/projects_images/' . $gallery_images1;
-        move_uploaded_file($file_tmp, $file_destination);        
-       $sql = "INSERT INTO projects (`project_name`, `gallery_id`,`images`,`location_id`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name', '$gallery_id','$gallery_images1','$location_id','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
-      $result = $conn->query($sql);
+    if($fileToUpload!='') {
+        $target_dir = "../uploads/projects_images/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            $sql = "INSERT INTO projects (`project_name`,`images`,`location_id`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload','$location_id','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
+              
+            if($conn->query($sql) === TRUE){
+               echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+            } else {
+               echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
   }
-  if( $result == 1){
-      echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-  } else {
-     echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-  }
-}
 ?>
     <div class="site-content">
         <div class="panel panel-default">
@@ -98,14 +101,14 @@ if (!isset($_POST['submit']))  {
                     <textarea name="specification" class="form-control" id="specification" placeholder="specification" data-error="Please enter Specifications." required></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
+                  
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Galler Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="gallery_id" placeholder="Galler Id" data-error="Please enter gallery id." required onkeypress="return isNumberKey(event)">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div id="formdiv">                   
-                        <div id="filediv"><input required name="gallery_images[]" accept="image/*" type="file" id="file" /></div><br/>               
-                        <input type="button" id="add_more" class="upload" value="Add More Files"/>
+                    <label for="form-control-4" class="control-label">Image</label>
+                    <img id="output" height="100" width="100"/>
+                    <label class="btn btn-default file-upload-btn">
+                      Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" required >
+                      </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
@@ -128,8 +131,6 @@ if (!isset($_POST['submit']))  {
       </div>
       <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/tables-datatables.min.js"></script>
-   <script src="js/multi_image_upload.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/multi_image_upload.css">
    <!-- Below script for ck editor -->
     <script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
     <script>
