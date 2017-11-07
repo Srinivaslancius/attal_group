@@ -88,7 +88,7 @@ header -->
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="photogallery.php">Photo Gallery</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="photogallery.php">Photo Gallery</a></li>
               <!--  <li><span>Portfolio 4 columns</span> </li>-->
              </ul>
         </div>

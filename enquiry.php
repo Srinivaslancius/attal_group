@@ -16,10 +16,10 @@ if (!isset($_POST['submit']))  {
     $comments = $_POST['comments'];
     $created_at = date("Y-m-d h:i:s");
 
-    //Sending mail
-  //$dataem = $getSiteSettingsData['email'];
-  $to = "gunavardhan@lanciussolutions.com";
-  //$to = "$dataem";
+    $dataem = $getSiteSettingsData['email'];
+
+  $to = "$dataem";
+
   $subject = "User Enquiry Info";
 
   $message = "<html><head><title>User Enquiry Information</title></head>
@@ -43,15 +43,15 @@ if (!isset($_POST['submit']))  {
   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
   // More headers
-  $headers .= 'From: <info@fioten.com>' . "\r\n";
-  // $headers .= 'Cc: myboss@example.com' . "\r\n";
+  $headers .= 'From: '.$name.'<'.$email.'>'. "\r\n";
+
 
     $sql = "INSERT INTO user_enquiry (`name`, `company`, `designation`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$name', '$company', '$designation','$phone','$mobile','$email','$website_url','$comments','$created_at')";
     if($conn->query($sql) === TRUE){
       mail($to,$subject,$message,$headers);
-       echo "<script>alert('Your Query Sent To Email');window.location.href='enquiry.php';</script>";
+       echo "<script>alert('Enquiry Form Submitted Successfully');window.location.href='enquiry.php';</script>";
     } else {
-       echo "<script>alert('Your Query Not Submitted');window.location.href='enquiry.php';</script>";
+       echo "<script>alert('Enquiry Form Not Submitted');window.location.href='enquiry.php';</script>";
     }
 }
         
