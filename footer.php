@@ -61,7 +61,7 @@
          </div>
          <div class="col-lg-6 col-md-6 col-sm-6">
            <ul class="text-right">
-             <li><a href="terms_of_us_privacy_policy.php">Terms of Use Privacy Policy</a></li>
+             <li><a href="terms_of_us_privacy_policy.php">Terms of Use </a> <a href="privacy_policy.php">Privacy Policy</a></li>
              
              <li><a href="contact.php">Contact Us</a></li>
            </ul>
