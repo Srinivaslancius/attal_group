@@ -57,7 +57,7 @@
 <div class="footer-widget mt-20">
       <div class="container"><div class="row">
          <div class="col-lg-6 col-md-6 col-sm-6">
-           <p class="text-white"> <?php echo $getSiteSettingsData['footer_text'];?></p>
+           <p class="text-white"> <a target="_blank" href="https://www.lanciussolutions.com/"><?php echo $getSiteSettingsData['footer_text'];?></a></p>
          </div>
          <div class="col-lg-6 col-md-6 col-sm-6">
            <ul class="text-right">
