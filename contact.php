@@ -122,7 +122,7 @@ header -->
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="contact.php">Contact us</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="contact.php">Contact us</a> </li>
               <!--  <li><span>Contact 01</span> </li>-->
              </ul>
         </div>

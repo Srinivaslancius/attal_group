@@ -77,7 +77,7 @@
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="faqs.php">Faqs</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="faqs.php">Faqs</a> </li>
              </ul>
         </div>
      </div>
@@ -105,7 +105,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li class="active"><a href="#faq1" data-toggle="tab" aria-expanded="false"><span>All</span></a></li>
-          <li><a href="#faq2" data-toggle="tab" aria-expanded="true"><span>Legend</span></a></li>
+          <li><a href="#faq2" data-toggle="tab" aria-expanded="true"><span>Attal</span></a></li>
           <li><a href="#faq3" data-toggle="tab"><span>General</span></a></li>
           <li><a href="#faq4" data-toggle="tab"><span>Residential</span></a></li>
           <li><a href="#faq5" data-toggle="tab"><span>Corporate</span></a></li>
@@ -127,7 +127,9 @@
              </div>
           </div>
           
-          <?php $getFaqs = getDataFromTables('faqs','0','faq_cat_id','2',$activeStatus=NULL,$activeTop=NULL); ?>
+          <?php $getFaqs = "SELECT * FROM faqs WHERE faq_cat_id = '2' AND status = 0 "; 
+                $getFaqs = $conn->query($getFaqs);
+          ?>
           <div role="tabpanel" class="tab-pane fade" id="faq2">
 
               <div class="accordion arrow light-rounded">
@@ -143,7 +145,9 @@
              </div>
           </div>
 
-          <?php $getFaqs3 = getDataFromTables('faqs','0','faq_cat_id','3',$activeStatus=NULL,$activeTop=NULL); ?>
+          <?php $getFaqs3 = "SELECT * FROM faqs WHERE faq_cat_id = '3' AND status = '0' ";
+                $getFaqs3 = $conn->query($getFaqs3);
+           ?>
           <div role="tabpanel" class="tab-pane fade" id="faq3">
 
               <div class="accordion arrow light-rounded">
@@ -159,7 +163,9 @@
              </div>
           </div>
 
-          <?php $getFaqs4 = getDataFromTables('faqs','0','faq_cat_id','4',$activeStatus=NULL,$activeTop=NULL); ?>
+          <?php $getFaqs4 = "SELECT * FROM faqs WHERE faq_cat_id = '4' AND status = '0' "; 
+              $getFaqs4 = $conn->query($getFaqs4);
+          ?>
           <div role="tabpanel" class="tab-pane fade" id="faq4">
               <div class="accordion arrow light-rounded">
 
@@ -174,7 +180,8 @@
               </div>
           </div>
 
-          <?php $getFaqs5 = getDataFromTables('faqs','0','faq_cat_id','5',$activeStatus=NULL,$activeTop=NULL); ?>
+          <?php $getFaqs5 = "SELECT * FROM faqs WHERE faq_cat_id = '5' AND status = '0'";
+          $getFaqs5 = $conn->query($getFaqs5); ?>
           <div role="tabpanel" class="tab-pane fade" id="faq5">
 
               <div class="accordion arrow light-rounded">
@@ -189,7 +196,9 @@
           
           </div>
 
-          <?php $getFaqs6 = getDataFromTables('faqs','0','faq_cat_id','6',$activeStatus=NULL,$activeTop=NULL); ?>
+          <?php $getFaqs6 = "SELECT * FROM faqs WHERE faq_cat_id = '6' AND status = '0'";
+          $getFaqs6 = $conn->query($getFaqs6); ?>
+          
           <div role="tabpanel" class="tab-pane fade" id="faq6">
 
               <div class="accordion arrow light-rounded">

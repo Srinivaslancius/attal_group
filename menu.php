@@ -6,9 +6,12 @@
     $parts = Explode('/', $currentFile);
     $page_name = $parts[count($parts) - 1];
 ?>
+<div class="col-md-3">
   <ul class="menu-logo">
                 <li><a href="index.php"><img src="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" alt="logo"> </a></li>
             </ul>
+</div>
+<div class="col-md-9">
             <!-- menu links -->
             <ul class="menu-links">
             <!-- active class -->
@@ -49,7 +52,7 @@
                     <?php }?>
                  </ul>
             </li>
-			<li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
+      <li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
                  <!-- drop down multilevel  -->
             </li>
             <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
@@ -59,7 +62,7 @@
                 $sql1 = "SELECT * FROM news WHERE status = 0 ";
                 $getNews = $conn->query($sql1);
             ?>
-			<li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
+      <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul  class="drop-down-multilevel left-menu">
                     <?php while($getNewsdata = $getNews->fetch_assoc()) {?>
@@ -67,7 +70,7 @@
                     <?php } ?>
                  </ul>
             </li>
-			<li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
+      <li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
             </li>
            <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
@@ -77,3 +80,4 @@
                  </ul>
             </li>
         </ul>
+</div>

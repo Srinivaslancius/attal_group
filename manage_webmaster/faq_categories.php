@@ -3,7 +3,7 @@
      <div class="site-content">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
-            <a href="add_faq_categories.php" style="float:right">Add Faq Categories</a>
+            <!-- <a href="add_faq_categories.php" style="float:right">Add Faq Categories</a> -->
             <h3 class="m-t-0 m-b-5">Faq Categories</h3>            
           </div>
           <div class="panel-body">
