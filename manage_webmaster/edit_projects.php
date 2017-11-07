@@ -13,16 +13,15 @@ $rid = $_GET['rid'];
     $sub_sub_category_id = $_POST['sub_sub_category_id'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
     $description = $_POST['description'];
-    $specification = $_POST['specification'];
-    $gallery_images = $_FILES['gallery_images']['name'];
+    $specification = $_POST['specification'];    
     $status = $_POST['status'];
 
     if($_FILES["fileToUpload"]["name"]!='') {
-              $fileToUpload = $_FILES["fileToUpload"]["name"];
+              $fileToUpload = uniqid().$_FILES["fileToUpload"]["name"];
               $target_dir = "../uploads/projects_images/";
-              $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+              $target_file = $target_dir . basename($fileToUpload);
               $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-              $getImgUnlink = getImageUnlink('images','projects','id',$id,$target_dir);
+              //$getImgUnlink = getImageUnlink('images','projects','id',$rid,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
