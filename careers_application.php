@@ -297,7 +297,7 @@ header -->
                 <div class="form-group">
             		<label>Upload Cv</label>
                     <div class="input-group">
-                      <input type="file"  accept=".doc, .docx" class="form-control" id='fileToUpload' name="fileToUpload">
+                      <input type="file"  accept=".doc, .docx" class="form-control" id='fileToUpload' name="fileToUpload" required>
                     </div>
             	</div>
                 <div class="form-group">
