@@ -110,7 +110,7 @@ header -->
       <h2 class="title">Experience Legend In Pictures</h2>
     </div>
   </div>
-<?php $sql = "SELECT * FROM photo_gallery GROUP BY gallery_id"; 
+<?php $sql = "SELECT * FROM photo_gallery WHERE status = '0' GROUP BY gallery_id "; 
       $res = $conn->query($sql);
       while($row = $res->fetch_assoc()) {
 ?>
@@ -126,7 +126,7 @@ header -->
   </div>
 <div class="col-sm-12"><div class="popup-gallery columns-4">
 
-  <?php $gid=  $row['gallery_id']; $sql1 = "SELECT * FROM photo_gallery WHERE gallery_id = '$gid' "; 
+  <?php $gid=  $row['gallery_id']; $sql1 = "SELECT * FROM photo_gallery WHERE gallery_id = '$gid' AND status = '0' "; 
       $res1 = $conn->query($sql1);
       while($row1 = $res1->fetch_assoc()) {
   ?>
