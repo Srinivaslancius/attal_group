@@ -5,14 +5,13 @@ $id = $_GET['bid'];
             echo "fail";
     } else  {
         $category_id = $_POST['category_id'];
-        $sub_category_id = $_POST['sub_category_id'];
-        $sub_sub_category_name = $_POST['sub_sub_category_name'];
+        $sub_category_name = $_POST['sub_category_name'];
         $sql = "UPDATE `sub_categories` SET category_id = '$category_id', sub_category_name = '$sub_category_name', status='$status' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='sub_categories.php?msg=success'</script>";
         } else {
            echo "<script type='text/javascript'>window.location='sub_categories.php?msg=fail'</script>";
-        }
+        } 
       }
 ?>
 <?php $getSubCategoriesData = getDataFromTables('sub_categories',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);

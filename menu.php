@@ -24,22 +24,29 @@
                     <li><a href="content_details.php?id=7">Our JV Partners</a></li>
                  </ul>
             </li>
-            <li><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>
+
+            <?php 
+                $sql = "SELECT * FROM categories WHERE status = 0 ";
+                $getRes = $conn->query($sql);
+            ?>
+            <li <?php if($page_name == 'project_view.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
-                    <li><a href="project_view.php?id=1">Residential</a></li>
-                    <li><a href="project_view.php?id=2">Commercial</a></li>
-                 </ul>
+                    <?php while($getCat = $getRes->fetch_assoc()) {?>
+                    <li><a href="project_view.php?id=<?php echo $getCat['id']?>"><?php echo $getCat['category_name'];?></a></li>
+                     <?php } ?>
+                </ul>
             </li>
+           <?php 
+                $getSerQry = "SELECT * FROM services WHERE status = 0 ";
+                $getSer = $conn->query($getSerQry);
+            ?>
             <li <?php if($page_name == 'service_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Services<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
-                    <li><a href="service_details.php?id=2">Property Management Services</a></li>
-                    <li><a href="service_details.php?id=3">Home Loans</a></li>
-                    <li><a href="service_details.php?id=4">Loan Guide</a></li>
-                    <li><a href="service_details.php?id=5">NRI Services</a></li>
-                    <!-- <li><a href="content_details.php?id=8">Promoters</a></li> -->
-                    <li><a href="service_details.php?id=7">Support Services</a></li>
+                    <?php while($getSerData = $getSer->fetch_assoc()) {?>
+                    <li><a href="service_details.php?id=<?php echo $getSerData['id']?>"><?php echo $getSerData['name'];?></a></li>
+                    <?php }?>
                  </ul>
             </li>
 			<li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
@@ -48,14 +55,16 @@
             <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
                  <!-- drop down multilevel  -->
             </li>
+            <?php 
+                $sql1 = "SELECT * FROM news WHERE status = 0 ";
+                $getNews = $conn->query($sql1);
+            ?>
 			<li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul  class="drop-down-multilevel left-menu">
-                    <li><a href="news_details.php?id=1">About legend</a></li>
-                    <li><a href="news_details.php?id=2">About Hyderabad</a></li>
-                    <li><a href="news_details.php?id=3">About India</a></li>
-                    <li><a href="news_details.php?id=4">About Real Estate</a></li>
-                    <li><a href="news_details.php?id=5">Advertisements</a></li>
+                    <?php while($getNewsdata = $getNews->fetch_assoc()) {?>
+                    <li><a href="news_details.php?id=<?php echo $getNewsdata['id']?>"><?php echo $getNewsdata['title'];?></a></li>
+                    <?php } ?>
                  </ul>
             </li>
 			<li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
