@@ -220,111 +220,23 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
 		<h2 class="title">Ongoing Lifestyle Projects</h2>
 	</div></div>
 	<div class="col-sm-12"><div class="owl-carousel" data-nav-arrow="true" data-items="2" data-md-items="2" data-sm-items="1" data-xs-items="1">
-     <div class="item">
+    <?php $getProImages = getDataFromTables('projects','0','sub_sub_category_id','1',$activeStatus=NULL,$activeTop=NULL);
+    while($getProImages1 = $getProImages->fetch_assoc()) {?>
+    <div class="item">
         <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
+      <div class="post-image clearfix">
+        <img class="img-responsive" style="width: 90%;" src="<?php echo $base_url . 'uploads/projects_images/'.$getProImages1['images'] ?>" alt="">
+      </div>
+      <div class="post-details">
+        <div class="post-title"><h5 class="title"><a href="#"><?php echo $getProImages1['project_name'];?></a></h5></div>
+        <div class="post-meta">
+        </div>
+          <div class="post-content"><p><?php echo $getProImages1['description'];?></p></div>
+          <!-- <a class="button small border animated middle-fill" href="#"><span>Read More</span></a> -->
+      </div>                
          </div>
       </div>
-      <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
-     <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
-      <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
-	  <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
-	  <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
-	  <div class="item">
-        <div class="post left_pos clearfix">
-			<div class="post-image clearfix">
-				<img class="img-responsive " src="images/blog/v_05.jpg" alt="">
-				<div class="post-date">27<span>NAV</span></div>
-			</div>
-			<div class="post-details">
-				<div class="post-title"><h5 class="title"><a href="#">legend Empire</a></h5></div>
-				<div class="post-meta">
-				</div>
-                <div class="post-content"><p>Legend Mint is the latest landmark in Hyderabad’s IT district – Madhapur.</p></div>
-                <a class="button small border animated middle-fill" href="#"><span>Read More</span></a>
-			</div>                
-         </div>
-      </div>
+      <?php } ?>
 	</div></div>              
 </div></div></section>
 

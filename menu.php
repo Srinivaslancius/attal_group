@@ -62,7 +62,7 @@
                 $sql1 = "SELECT * FROM news WHERE status = 0 ";
                 $getNews = $conn->query($sql1);
             ?>
-      <li <?php if($page_name == 'aboutlegend.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
+      <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul  class="drop-down-multilevel left-menu">
                     <?php while($getNewsdata = $getNews->fetch_assoc()) {?>
