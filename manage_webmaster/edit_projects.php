@@ -9,7 +9,7 @@ $rid = $_GET['rid'];
           
     $project_name = $_POST['project_name'];
     $gallery_id = $_POST['gallery_id'];
-    $location_name = $_POST['location_name'];
+    $location_id = $_POST['location_id'];
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
     $sub_sub_category_id = $_POST['sub_sub_category_id'];
@@ -18,14 +18,14 @@ $rid = $_GET['rid'];
     $specification = $_POST['specification'];
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
-    $sql = "UPDATE projects SET project_name = '$project_name',gallery_id = '$gallery_id',location_name = '$location_name',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+    $sql = "UPDATE projects SET project_name = '$project_name',gallery_id = '$gallery_id',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
     $updateData = $conn->query($sql);
         foreach($gallery_images as $key=>$value){
             $gallery_images1 = uniqid().$_FILES['gallery_images']['name'][$key];
             $file_tmp = $_FILES["gallery_images"]["tmp_name"][$key];
             $file_destination = '../uploads/projects_images/' . $gallery_images1;
             move_uploaded_file($file_tmp, $file_destination);        
-            $sql = "INSERT INTO projects (`project_name`, `gallery_id`,`images`,`location_name`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name', '$gallery_id','$gallery_images1','$location_name','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
+            $sql = "INSERT INTO projects (`project_name`, `gallery_id`,`images`,`location_id`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name', '$gallery_id','$gallery_images1','$location_id','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
             $result = $conn->query($sql);
         }
         if( $result == 1){
