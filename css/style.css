@@ -11,9 +11,9 @@
 .loading-effect span{float:left; margin-top:28px;}
 
 @media screen and (max-width:767px) {
-	.clear-loading{margin-left:-50px;}
-	.loading-effect{width:100px; height:100px;}
-	.loading-effect span{display:none;}
+  .clear-loading{margin-left:-50px;}
+  .loading-effect{width:100px; height:100px;}
+  .loading-effect span{display:none;}
 }
 
 .mfp-image-holder .mfp-close, .mfp-iframe-holder .mfp-close{display:none;}
@@ -38,8 +38,8 @@
 #header.dark-fancy .menu-icon-right li i:hover{color:#ffffff;}
 
 /*mega-menu*/
-.mega-menu .menu-logo { padding:30px 0px; } 
-.mega-menu .menu-logo img { height: 40px; }
+.mega-menu .menu-logo {padding:0px 0px;} 
+.mega-menu .menu-logo img {/* height: 40px; */}
 .mega-menu .menu-links > li > a { line-height:100px; text-transform: uppercase; font-size: 14px; font-weight:500;}
 .mega-menu .drop-down-multilevel.right-menu { right: 0px; }
 .mega-menu .menu-links > li:first-child{padding-left: 0px;}
@@ -73,12 +73,12 @@
  Header White
 -------------------------------------*/
 #header.clean{background:#ffffff; z-index: 999; padding: 0px; margin: 0px; position: relative; width: 100%; -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1); }
-#header.clean .topbar{border-bottom:0; background: #ffd200; padding:7px 0px; 	}
+#header.clean .topbar{border-bottom:0; background: #ffd200; padding:7px 0px;  }
 #header.clean .topbar-left li i,
 #header.clean .topbar-right li i{color:#ffd200;}
-#header.clean .mega-menu .menu-links > li > a{color:#222222;}
+#header.clean .mega-menu .menu-links > li > a{color: #fff;}
 #header.clean .mega-menu .menu-links > li.active > a{color:#ffd200;}
-#header.clean .mega-menu.desktopTopFixed .menu-list-items{background:#ffffff; -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.05); -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.05); box-shadow: 0px 3px 3px rgba(0,0,0,0.05);}
+#header.clean .mega-menu.desktopTopFixed .menu-list-items{background: #000;-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.05);-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.05);box-shadow: 0px 3px 3px rgba(0,0,0,0.05);}
 
 #header .topbar.dark{background:#353535;}
 
@@ -132,7 +132,7 @@
 #header.dark-fancy .menu-icon-right li i{color:#353535; }
 
 /*--------------------------------------------------------------------
-	    	Banner Section
+        Banner Section
 ---------------------------------------------------------------------*/
 .rev-slider{position:relative;}
 #video-background{width:100%; height:100vh; z-index:-1;}
@@ -167,7 +167,7 @@
 
 
 /*--------------------------------------------------------------------
-	    	inner-intro
+        inner-intro
 ---------------------------------------------------------------------*/
 .inner-intro{height:280px; display:block; position:relative;}
 .inner-intro .container{display: table; height:100%; position:relative;}
@@ -421,13 +421,13 @@ hr{border-style:dashed; border-color:#d5d5d5; margin:50px 0;}
 .portfolio-page .no-gutter{margin:0 -7px;}
 
 @media screen and (max-width:1024px) {
-.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:33.3333%;}	
+.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:33.3333%;} 
 }
 @media screen and (max-width:992px) {
-.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:50%;}	
+.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:50%;}  
 }
 @media screen and (max-width:599px) {
-.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:100%;}	
+.popup-gallery.columns-3 .project-info, .popup-gallery.columns-4 .project-info{width:100%;} 
 }
 
 
@@ -699,7 +699,7 @@ Footer
 
 /*-------------------------------------------------
 All Counter
---------------------------------------------------*/	
+--------------------------------------------------*/  
 .counter-section{padding-top:20px; padding-bottom:25px;}
 .counter-section .counter{margin:10px 0 !important;}
 .counter-section .counter-block > div{margin-bottom:0 !important;}
@@ -733,21 +733,21 @@ Action-box Page
 /* Animation Keay */
 /*==================================================================================*/
 .bg-effect:before{
-	-webkit-animation-name:fadebounce;
-	-moz-animation-name:fadebounce;
-	-ms-animation-name:fadebounce;
-	-o-animation-name:fadebounce;
-	animation-name:fadebounce;
-	-webkit-animation-duration:3s;
-	-moz-animation-duration:3s;
-	-ms-animation-duration:3s;
-	-o-animation-duration:3s;
-	animation-duration:3s;
-	-webkit-animation-iteration-count:infinite;
-	-moz-animation-iteration-count:infinite;
-	-ms-animation-iteration-count:infinite;
-	-o-animation-iteration-count:infinite;
-	animation-iteration-count:infinite
+  -webkit-animation-name:fadebounce;
+  -moz-animation-name:fadebounce;
+  -ms-animation-name:fadebounce;
+  -o-animation-name:fadebounce;
+  animation-name:fadebounce;
+  -webkit-animation-duration:3s;
+  -moz-animation-duration:3s;
+  -ms-animation-duration:3s;
+  -o-animation-duration:3s;
+  animation-duration:3s;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  -ms-animation-iteration-count:infinite;
+  -o-animation-iteration-count:infinite;
+  animation-iteration-count:infinite
 }
 v@-moz-keyframes fadebounce {
 0% {-moz-transform:translateY(0); transform:translateY(0); opacity:1}
