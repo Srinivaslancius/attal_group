@@ -7,33 +7,12 @@ $id = $_GET['bid'];
         $category_id = $_POST['category_id'];
         $sub_category_id = $_POST['sub_category_id'];
         $sub_sub_category_name = $_POST['sub_sub_category_name'];
-        $description = $_POST['description'];
-        if($_FILES["fileToUpload"]["name"]!='') {
-              $fileToUpload = $_FILES["fileToUpload"]["name"];
-              $target_dir = "../uploads/sub_category_images/";
-              $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-              $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-              $getImgUnlink = getImageUnlink('sub_category_image','sub_categories','id',$id,$target_dir);
-                //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
-              if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    $sql = "UPDATE `sub_categories` SET category_id = '$category_id', sub_category_name = '$sub_category_name',sub_category_image='$fileToUpload', status='$status' WHERE id = '$id' ";
-                    if($conn->query($sql) === TRUE){
-                       echo "<script type='text/javascript'>window.location='sub_categories.php?msg=success'</script>";
-                    } else {
-                       echo "<script type='text/javascript'>window.location='sub_categories.php?msg=fail'</script>";
-                    }
-                    //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
-            }  else {
-                $sql = "UPDATE `sub_categories` SET category_id = '$category_id', sub_category_name = '$sub_category_name', status='$status' WHERE id = '$id' ";
-                if($conn->query($sql) === TRUE){
-                   echo "<script type='text/javascript'>window.location='sub_categories.php?msg=success'</script>";
-                } else {
-                   echo "<script type='text/javascript'>window.location='sub_categories.php?msg=fail'</script>";
-                }
-            }
+        $sql = "UPDATE `sub_categories` SET category_id = '$category_id', sub_category_name = '$sub_category_name', status='$status' WHERE id = '$id' ";
+        if($conn->query($sql) === TRUE){
+           echo "<script type='text/javascript'>window.location='sub_categories.php?msg=success'</script>";
+        } else {
+           echo "<script type='text/javascript'>window.location='sub_categories.php?msg=fail'</script>";
+        }
       }
 ?>
 <?php $getSubCategoriesData = getDataFromTables('sub_categories',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
@@ -63,14 +42,6 @@ $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activ
                     <label for="form-control-2" class="control-label">Sub Category Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="sub_category_name" required value="<?php echo $getSubCategories['sub_category_name'];?>">
                     <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-4" class="control-label">Sub Category Image</label>
-                    <img src="<?php echo $base_url . 'uploads/sub_category_images/'.$getSubCategories['sub_category_image'] ?>"  id="output" height="100" width="100"/>
-                    <label class="btn btn-default file-upload-btn">
-                        Choose file...
-                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
-                      </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">

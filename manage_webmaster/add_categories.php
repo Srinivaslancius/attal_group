@@ -6,7 +6,6 @@
         } else  {
             //If success
             $category_name = $_POST['category_name'];
-            $description = $_POST['description'];
             $fileToUpload = $_FILES["fileToUpload"]["name"];
             $status = $_POST['status'];
             
@@ -17,7 +16,7 @@
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                     $sql = "INSERT INTO categories (`category_name`, `description`,`category_image`, `status`) VALUES ('$category_name', '$description','$fileToUpload','$status')"; 
+                     $sql = "INSERT INTO categories (`category_name`,`category_image`, `status`) VALUES ('$category_name','$fileToUpload','$status')"; 
                     if($conn->query($sql) === TRUE){
                        echo "<script type='text/javascript'>window.location='categories.php?msg=success'</script>";
                     } else {
@@ -42,11 +41,6 @@
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Category Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="category_name" placeholder="Category Name" data-error="Please enter Category Name." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Description</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Description" data-error="Please enter Description." required></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -78,19 +72,7 @@
         </div>
       </div>
       <?php include_once 'admin_includes/footer.php'; ?>
-      <script src="js/tables-datatables.min.js"></script>
-<!-- Below script for ck editor -->
-<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'description' );
-</script>
-<style type="text/css">
-    .cke_top, .cke_contents, .cke_bottom {
-        border: 1px solid #333;
-    }
-</style>
-
-      
+      <script src="js/tables-datatables.min.js"></script>      
        
 
       

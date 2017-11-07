@@ -34,8 +34,7 @@
               <ul class="sidebar-submenu collapse">
                 <li class="menu-subtitle">Users</li>
                 <li class="<?php if($page_name == 'admin_users.php' || $page_name == 'add_admin_users.php' || $page_name == 'edit_admin_users.php') { echo "active"; } ?>"><a href="admin_users.php">Admin Users</a></li> 
-                <li class="<?php if($page_name == 'users.php' || $page_name == 'add_users.php' || $page_name == 'edit_users.php') { echo "active"; } ?>"><a href="users.php">Users</a></li>
-              </ul>
+              </ul> 
             </li>
             <li  class="<?php if($page_name == 'banners.php' || $page_name == 'add_banners.php' || $page_name == 'edit_banners.php') { echo "active"; } ?>">
               <a href="banners.php" aria-haspopup="true">
@@ -53,7 +52,7 @@
                 <span class="menu-text">Downloads</span>
               </a>
             </li>
-            <li  class="<?php if($page_name == 'locations.php' || $page_name == 'add_locations.php' || $page_name == 'edit_locations.php') { echo "active"; } ?>">
+           <li  class="<?php if($page_name == 'locations.php' || $page_name == 'add_locations.php' || $page_name == 'edit_locations.php') { echo "active"; } ?>">
               <a href="locations.php" aria-haspopup="true">
                 <span class="menu-icon">
                    <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
@@ -61,22 +60,7 @@
                 <span class="menu-text">Locations</span>
               </a>
             </li>
-            <!-- <li  class="<?php if($page_name == 'our_team.php' || $page_name == 'add_our_team.php' || $page_name == 'edit_our_team.php') { echo "active"; } ?>">
-              <a href="our_team.php" aria-haspopup="true">
-                <span class="menu-icon">
-                   <i class="zmdi zmdi-collection-item  zmdi-hc-fw"></i>
-                </span> 
-                <span class="menu-text">Our Team</span>
-              </a>
-            </li> -->
-            <li  class="<?php if($page_name == 'projects.php' || $page_name == 'add_projects.php' || $page_name == 'edit_projects.php') { echo "active"; } ?>">
-              <a href="projects.php" aria-haspopup="true">
-                <span class="menu-icon">
-                   <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
-                </span> 
-                <span class="menu-text">Projects</span>
-              </a>
-            </li>
+            
             <li  class="<?php if($page_name == 'categories.php' || $page_name == 'add_categories.php' || $page_name == 'edit_categories.php') { echo "active"; } ?>">
               <a href="categories.php" aria-haspopup="true">
                 <span class="menu-icon">
@@ -85,7 +69,30 @@
                 <span class="menu-text">Categories</span>
               </a>
             </li>
-            
+            <li  class="<?php if($page_name == 'sub_categories.php' || $page_name == 'add_sub_categories.php' || $page_name == 'edit_sub_categories.php') { echo "active"; } ?>">
+              <a href="sub_categories.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-store zmdi-hc-fw"></i>
+                </span>
+                <span class="menu-text">Sub Categories</span>
+              </a>
+            </li>
+            <li  class="<?php if($page_name == 'sub_sub_categories.php' || $page_name == 'add_sub_sub_categories.php' || $page_name == 'edit_sub_sub_categories.php') { echo "active"; } ?>">
+              <a href="sub_sub_categories.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-store zmdi-hc-fw"></i>
+                </span>
+                <span class="menu-text">Sub Sub Categories</span>
+              </a>
+            </li>
+            <li  class="<?php if($page_name == 'projects.php' || $page_name == 'add_projects.php' || $page_name == 'edit_projects.php') { echo "active"; } ?>">
+              <a href="projects.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-collection-image  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Projects</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'content_pages.php' || $page_name == 'add_content_pages.php' || $page_name == 'edit_content_pages.php') { echo "active"; } ?>">
               <a href="content_pages.php" aria-haspopup="true">
                 <span class="menu-icon">
