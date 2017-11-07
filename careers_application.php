@@ -185,7 +185,7 @@ header -->
                     </div>
             	</div>
               <div class="form-group">
-                	<label>Date Of Birth</label>
+                	<label>Date Of Birth*</label>
                     <div class="input-group">
             		      <input id="date_of_birth" type="text" placeholder="" class="form-control" required name="date_of_birth">
                     </div>
@@ -252,7 +252,7 @@ header -->
                     </div>
             	</div>
             	<div class="form-group">
-            		<label>Joining Date</label>
+            		<label>Joining Date*</label>
                     <div class="input-group">
             	     	<input type="text"  class="form-control" id="joining_date" name="joining_date" required>
                     </div>
