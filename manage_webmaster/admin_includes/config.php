@@ -10,10 +10,10 @@ if($setcon == 1) {
 	$password = "";
 	$dbname = "";
 } else {
-	$servername = "192.168.0.105";	
+	$servername = "192.168.0.114";	
 	$username = "root";
 	$password = "root";
-	$dbname = "legend_india";
+	$dbname = "attal_group";
 }  
 
 // Create connection
@@ -23,7 +23,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }  
  
-$base_url = "http://localhost/legend_india/";
+$base_url = "http://localhost/attal_group/";
 
 
 ?>
