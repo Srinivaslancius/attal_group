@@ -24,7 +24,7 @@
                     <li><a href="content_details.php?id=7">Our JV Partners</a></li>
                  </ul>
             </li>
-            <li><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>
+            <li <?php if($page_name == 'project_view.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Projects<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="project_view.php?id=1">Residential</a></li>
