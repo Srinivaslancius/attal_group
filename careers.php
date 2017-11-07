@@ -3,8 +3,10 @@
 $getCarrersData = getDataFromTables('content_pages',$status=NULL,'id',10,$activeStatus=NULL,$activeTop=NULL);
 $getCarrersInfo = $getCarrersData->fetch_assoc();
 
-$getCurrentVacancies = getDataFromTables('current_openings',$status=NULL,'id',1,$activeStatus=NULL,$activeTop=NULL);
-$getCurrentVacanciesData = $getCurrentVacancies->fetch_assoc();
+?>
+<?php 
+    $sql = "SELECT * FROM current_openings WHERE status = 0 ";
+    $res = $conn->query($sql);
 ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -129,7 +131,10 @@ header -->
              <div class="col-lg-12 col-md-12">
                <h4 class="mb-20"><?php echo $getCarrersInfo['title'];?></h4>
                <?php echo $getCarrersInfo['description'];?>
-               <?php echo $getCurrentVacanciesData['description'];?>
+               <?php while($getOpenings = $res->fetch_assoc() ){ ?>
+                <strong><?php echo $getOpenings['title'];?></Strong>
+               <?php echo $getOpenings['description'];?>
+               <?php }?>
              </div>
            </div>
           
