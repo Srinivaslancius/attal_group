@@ -5,11 +5,9 @@ $id = $_GET['uid'];
             echo "fail";
     } else  {
       
-        $category_id = $_POST['category_id'];
-            $username = $_POST['user_name'];
-            $lkp_location_id = $_POST['lkp_location_id'];
-            $description = $_POST['description'];
-            $status = $_POST['status'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $status = $_POST['status'];
     
         
           if($_FILES["fileToUpload"]["name"]!='' ) {

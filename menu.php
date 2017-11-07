@@ -72,7 +72,7 @@
             </li>
       <li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
             </li>
-           <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
+           <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php' || $page_name == 'contact.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="enquiry.php">Enquiry</a></li>
