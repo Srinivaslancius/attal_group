@@ -45,7 +45,7 @@ $rid = $_GET['rid'];
             }    
       }
 ?>
-<?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
+<?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$rid,$activeStatus=NULL,$activeTop=NULL);
 $getProjects = $getProjectsData->fetch_assoc();
  ?>
  <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
@@ -124,7 +124,7 @@ $getProjects = $getProjectsData->fetch_assoc();
                     <img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>"  id="output" height="100" width="100"/>
                     <label class="btn btn-default file-upload-btn">
                         Choose file...
-                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
+                        <input  class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
                       </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
