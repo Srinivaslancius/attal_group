@@ -34,7 +34,7 @@
               <ul class="sidebar-submenu collapse">
                 <li class="menu-subtitle">Users</li>
                 <li class="<?php if($page_name == 'admin_users.php' || $page_name == 'add_admin_users.php' || $page_name == 'edit_admin_users.php') { echo "active"; } ?>"><a href="admin_users.php">Admin Users</a></li> 
-              </ul>
+              </ul> 
             </li>
             <li  class="<?php if($page_name == 'banners.php' || $page_name == 'add_banners.php' || $page_name == 'edit_banners.php') { echo "active"; } ?>">
               <a href="banners.php" aria-haspopup="true">

@@ -5,7 +5,6 @@ $id = $_GET['bid'];
             echo "fail";
     } else  {
             $category_name = $_POST['category_name'];
-            $description = $_POST['description'];
             $status = $_POST['status'];
             if($_FILES["fileToUpload"]["name"]!='') {
               $fileToUpload = $_FILES["fileToUpload"]["name"];
@@ -15,7 +14,7 @@ $id = $_GET['bid'];
               $getImgUnlink = getImageUnlink('category_image','categories','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    $sql = "UPDATE `categories` SET category_name = '$category_name', category_image = '$fileToUpload',description='$description', status='$status' WHERE id = '$id' ";
+                    $sql = "UPDATE `categories` SET category_name = '$category_name', category_image = '$fileToUpload',status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
                        echo "<script type='text/javascript'>window.location='categories.php?msg=success'</script>";
                     } else {
@@ -26,7 +25,7 @@ $id = $_GET['bid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE `categories` SET category_name = '$category_name', description='$description',status='$status' WHERE id = '$id' ";
+                $sql = "UPDATE `categories` SET category_name = '$category_name',status='$status' WHERE id = '$id' ";
                 if($conn->query($sql) === TRUE){
                    echo "<script type='text/javascript'>window.location='categories.php?msg=success'</script>";
                 } else {
@@ -50,11 +49,6 @@ $getCategories = $getCategoriesData->fetch_assoc();
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Category Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="category_name" required value="<?php echo $getCategories['category_name'];?>">
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Description</label>
-                    <textarea name="description" class="form-control" id="description" data-error="Please enter a valid email address." required><?php echo $getCategories['description'];?></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
@@ -86,15 +80,3 @@ $getCategories = $getCategoriesData->fetch_assoc();
       </div>
       <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/tables-datatables.min.js"></script>
-<!-- Below script for ck editor -->
-
-<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'description' ); 
-</script>
-<style type="text/css">
-    .cke_top, .cke_contents, .cke_bottom {
-        border: 1px solid #333;
-    }
-</style>
-
