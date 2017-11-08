@@ -1,8 +1,11 @@
 <?php include_once 'top_header.php'; ?>
 <?php 
 $id = $_GET['id'];
-$getProjectsData = getDataFromTables('categories',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
-$getProjects  = $getProjectsData->fetch_assoc();
+$cid = $_GET['cid'];
+
+$getQry = "SELECT * FROM projects WHERE id = '$id' AND category_id = '$cid' ";
+$res = $conn->query($getQry);
+$getPojects  = $res->fetch_assoc();
 ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -41,7 +44,10 @@ $getProjects  = $getProjectsData->fetch_assoc();
 
 <!--=================================
  preloader -->
- 
+
+<!--=================================
+ preloader -->
+
 
 <!--=================================
 header -->
@@ -80,82 +86,66 @@ header -->
 <!--=================================
  banner -->
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/category_images/'.$getProjects['category_image'] ?>);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white"><?php echo $getProjects['category_name']?></h1></div>
+				<div class="section-title"><h1 class="title text-white"><?php echo $getPojects['project_name'];?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="javascript:void(0)">Projects</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span><?php echo $getProjects['category_name']?></span> </li>
+                <li><a href="javascript:void(0)"><i class="fa fa-home"></i>Projects</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><span><?php echo $getPojects['project_name'];?></span> </li>
              </ul>
         </div>
      </div>
   </div>
+  <?php ?>
 </section>
 
 <!--=================================
  banner -->
 
 
-
 <!--=================================
- Page Section -->
+ service -->
 
-<section class="content-box3 page-section-ptb pb-40">
-<?php 
-      $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id'";
-      $res = $conn->query($subCat);
-      while($getSubCat = $res->fetch_assoc()){
-
-      ?>
-  <div class="container"><div class="row text-justify">
-<div class="col-sm-12"><div class="section-title text-center">
-		<h2 class="title"><?php echo $getSubCat['sub_category_name']; ?></h2>
-	</div></div>
-  <?php $subCat = "SELECT * FROM sub_sub_categories WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '$id' ";
-        $res1 = $conn->query($subCat);
-      while($getSubSubCat = $res1->fetch_assoc()){
-  ?>
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title"><?php echo $getSubSubCat['sub_sub_category_name']; ?></h4>
-	</div></div>
-  <?php 
-
-    $subCat = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND sub_sub_category_id = '".$getSubSubCat['id']."'";
-        $res2 = $conn->query($subCat);
-      while($getProjects = $res2->fetch_assoc()){
-
-        $lid= $getProjects['location_id'];
-  ?>
-	<div class="col-sm-3">
-		<div class="about mb-40">
-          <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt=""></div>
-          <div class="about-details">
-            
-          	<h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
-              <small><?php $sql = "SELECT * FROM lkp_locations WHERE id = '$lid'";
-              $result = $conn->query($sql);
-              $row = $result->fetch_assoc(); echo $row['location_name'];?></small></a></h5>
-          	<div class="about-des"><?php echo $getProjects['description'];?></div>
-             <a class="button link" href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><span>Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a> 
-          </div>                
-		</div>
-	</div>
-  <?php }  }?>
-	
-</div></div>
-<?php } ?>
+<section class="service white-bg page-section-ptb">
+   <div class="container">
+   <?php ?> 
+     <div class="row">
+       
+        <div class="col-lg-12 col-md-12">
+         <div class="service-block">
+           <div class="row">
+             <div class="col-lg-12 col-md-12">
+               <h4 class="mb-20"><?php echo $getPojects['project_name'];?></h4>
+               <p class="mb-30"><?php echo $getPojects['description'];?></p>
+             </div>
+           </div>
+          <div class="row text-justify">  
+             <div class="col-lg-6 col-md-6 mb-20"> 
+               <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '250px' height='250px' alt="">
+             </div>
+             <div class="col-lg-6 col-md-6"> 
+               <p style="float:left;"><?php echo $getPojects['specification'];?></p>
+             </div>
+            </div>
+         </div>
+       </div>
+     </div>
+   </div>
 </section>
 
 <!--=================================
+ service -->
+ 
+<!--=================================
 footer -->
  
- <footer class="footer dark-bg page-section-pt pb-0">
-  <?php include_once 'footer.php'; ?>
+<footer class="footer page-section-pt dark-bg">
+      <?php include_once 'footer.php'; ?>
  </footer>
 
  <!--=================================
@@ -163,6 +153,7 @@ footer -->
 
 <!--=================================
 Color Customizer --> 
+
 
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-chevron-up"></i></a></div>
 

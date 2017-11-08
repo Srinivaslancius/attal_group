@@ -1,7 +1,7 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
 error_reporting(1);
-$rid = $_GET['rid'];
+$id = $_GET['pid'];
  if (!isset($_POST['submit']))  {
             echo "fail";
     } else  {
@@ -14,7 +14,6 @@ $rid = $_GET['rid'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
     $description = $_POST['description'];
     $specification = $_POST['specification'];
-    $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
 
     if($_FILES["fileToUpload"]["name"]!='') {
@@ -25,7 +24,7 @@ $rid = $_GET['rid'];
               $getImgUnlink = getImageUnlink('images','projects','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                    $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$id'";
                     if($conn->query($sql) === TRUE){
                        echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
                     } else {
@@ -36,7 +35,7 @@ $rid = $_GET['rid'];
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',sub_sub_category_id = '$sub_sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$id'";
                 if($conn->query($sql) === TRUE){
                    echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
                 } else {
@@ -45,7 +44,7 @@ $rid = $_GET['rid'];
             }    
       }
 ?>
-<?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$rid,$activeStatus=NULL,$activeTop=NULL);
+<?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
 $getProjects = $getProjectsData->fetch_assoc();
  ?>
  <?php $getCategories = getDataFromTables('categories','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
