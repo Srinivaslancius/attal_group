@@ -1,6 +1,6 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php //$getPhotoGalleryData = getAllDataWithActiveRecent('photo_gallery'); ?>
-<?php $sql = "SELECT * FROM photo_gallery GROUP BY gallery_id ORDER BY status";
+<?php $sql = "SELECT * FROM photo_gallery GROUP BY gallery_id ORDER BY status ";
   $getPhotoGalleryData = $conn->query($sql);
   $i=1; 
 

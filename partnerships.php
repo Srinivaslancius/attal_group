@@ -19,6 +19,38 @@ if (!isset($_POST['submit']))  {
     $website_url = $_POST['website_url'];
     $comments = $_POST['comments'];
     $created_at = date("Y-m-d h:i:s");
+
+        $dataem = $getSiteSettingsData['email'];
+
+  $to = "$dataem";
+
+  $subject = "Partnership Info";
+
+  $message = "<html><head><title>Partnership Information</title></head>
+  <body>
+    <table rules='all' style='border-color: #666;' cellpadding='10'>
+      <tr style='background: #eee;'><td><strong>Collaborate Name:</strong> </td><td>" . strip_tags($_POST['collabrate_as']) . "</td></tr>
+      <tr style='background: #eee;'><td><strong>User Name:</strong> </td><td>" . strip_tags($_POST['name']) . "</td></tr>
+      <tr><td><strong>Company Name:</strong> </td><td>" . strip_tags($_POST['company_name']) . "</td></tr>
+      <tr><td><strong>Designation:</strong> </td><td>" . strip_tags($_POST['designation']) . "</td></tr>
+      <tr><td><strong>Phone:</strong> </td><td>" . strip_tags($_POST['phone']) . "</td></tr>
+      <tr><td><strong>Address:</strong> </td><td>" . strip_tags($_POST['address']) . "</td></tr>
+      <tr><td><strong>Mobile:</strong> </td><td>" . strip_tags($_POST['mobile']) . "</td></tr>
+      <tr><td><strong>Email:</strong> </td><td>" . strip_tags($_POST['email']) . "</td></tr>
+      <tr><td><strong>Website Url:</strong> </td><td>" . strip_tags($_POST['website_url']) . "</td></tr>
+      <tr><td><strong>Comments:</strong> </td><td>" . strip_tags($_POST['comments']) . "</td></tr>
+    </table>
+  </body>
+  </html>
+  ";
+  // Always set content-type when sending HTML email
+  $headers = "MIME-Version: 1.0" . "\r\n";
+  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+  // More headers
+  $headers .= 'From: '.$name.'<'.$email.'>'. "\r\n";
+
+
     $sql = "INSERT INTO partnership (`collabrate_as`,`name`, `company_name`, `designation`, `address`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$collabrate_as','$name', '$company_name', '$designation','$address','$phone','$mobile','$email','$website_url','$comments','$created_at')";
     if($conn->query($sql) === TRUE){
        echo "<script>alert('Data Updated Successfully');window.location.href='partnerships.php';</script>";

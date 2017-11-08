@@ -154,6 +154,14 @@
                 <span class="menu-text">Services</span>
               </a>
             </li>
+            <li  class="<?php if($page_name == 'partnerships.php') { echo "active"; } ?>">
+              <a href="partnerships.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-comments  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Partnerships</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'our_history.php' || $page_name == 'add_our_history.php' || $page_name == 'edit_our_history.php') { echo "active"; } ?>">
               <a href="our_history.php" aria-haspopup="true">
                 <span class="menu-icon">
