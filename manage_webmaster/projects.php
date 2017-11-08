@@ -1,5 +1,5 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-<?php $sql = "SELECT * FROM projects";
+<?php $sql = "SELECT * FROM projects ORDER BY status";
   $getProjectsData = $conn->query($sql); $i=1; ?>
      <div class="site-content">
         <div class="panel panel-default panel-table">
