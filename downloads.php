@@ -85,7 +85,7 @@ header -->
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="javascript:void(0)">Downloads</a> <i class="fa fa-angle-double-right"></i></li>
+                <li><a href="javascript:void(0)">Downloads</a> </li>
              </ul>
         </div>
      </div>
@@ -103,72 +103,41 @@ header -->
 $getAllcategoriesData = $conn->query($getCategoriesData);
 
 ?>
-<section class="content-box3 page-section-ptb pb-40"><div class="container">
-<div class="row text-justify">
-<div class="col-sm-12">
-  <div class="section-title text-center">
-    <h2 class="title">Downloads</h2>
-  </div>
-</div>
-<?php while($getCategories = $getAllcategoriesData->fetch_assoc()) {?>
-  <div class="col-sm-12"><div class="section-title text-left">
-    <h4 class="title" style="margin-bottom:10"><?php echo $getCategories['category_name']; ?></h4>
-  </div>
-</div>
-</div>
-<?php $getDownloadsData = "SELECT * FROM downloads WHERE status='0' AND category_id='".$getCategories['id']."'  ";
-$getAllDownloadsData = $conn->query($getDownloadsData);
-
-?>
-  <div class="row mrgb-btm">
-    <?php while($getDownloads = $getAllDownloadsData->fetch_assoc()) {?>
-  <div class="col-sm-4">
-    <div class="item">
-        <div class="post left_pos clearfix">
-      <div class="post-image clearfix">
-        <a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="uploads/pdf_file.jpg" alt=""></a>
+<section class="content-box3 page-section-ptb pb-40">
+  <div class="container">
+      <div class="row text-justify">
+            <div class="col-sm-12">
+            <div class="section-title text-center">
+            <h2 class="title">Downloads</h2>
+            </div>
+            </div>
+            <?php while($getCategories = $getAllcategoriesData->fetch_assoc()) {?>
+            <div class="col-sm-12"><div class="section-title text-left">
+            <h4 class="title" style="margin-bottom:10"><?php echo $getCategories['category_name']; ?></h4>
+            </div>
+          </div>
       </div>
-      <div class="post-details">
-        <div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
+      <?php $getDownloadsData = "SELECT * FROM downloads WHERE status='0' AND category_id='".$getCategories['id']."'  ";
+      $getAllDownloadsData = $conn->query($getDownloadsData); ?>
+      <div class="row mrgb-btm">
+      <?php while($getDownloads = $getAllDownloadsData->fetch_assoc()) {?>
+            <div class="col-sm-4">
+                <div class="item">
+                <div class="post left_pos clearfix">
+                <div class="post-image clearfix">
+                <a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="uploads/pdf_file.jpg" alt=""></a>
+                </div>
+                <div class="post-details">
+                <div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
                 <div class="post-content"><p><?php echo substr(strip_tags($getDownloads['description']), 0,40);?></p></div>
-      </div>                
-         </div>
+                </div>                
+                </div>
+                </div>
+            </div>
+      <?php } ?>
       </div>
-  </div>
-  <?php } ?>
-  
-  </div>
-  <?php } ?>
-<div class="row mrgb-btm">
-  
-  
-  
-  </div>
-  <div class="row mrgb-btm">
-  
-  
-  
-  </div>
-  <div class="row mrgb-btm">
-  
-  
-  
-  </div>
-  <div class="row mrgb-btm">
-  
-  
-  
-  </div>
-  <div class="row mrgb-btm">
-  
-  </div>
-  
-  
-
-
-  
-  
-</div></div></section>
+        <?php } ?>
+  </div></section>
 
 <!--=================================
 footer -->
