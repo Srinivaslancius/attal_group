@@ -24,7 +24,7 @@
            <div class="section-title"><h4 class="title">Usefull Links</h4></div>
            <ul class="list-mark list-2">
              <li><a href="content_details.php?id=1">About Us</a></li>
-             <li><a href="residential.php">Projects</a></li>
+             <li><a href="project_view.php">Projects</a></li>
              <li><a href="service_details.php">Services</a></li>
 			 <li><a href="partnerships.php">Patnerships</a></li>
              <li><a href="photogallery.php">Photo Gallery</a></li>
@@ -61,7 +61,7 @@
          </div>
          <div class="col-lg-6 col-md-6 col-sm-6">
            <ul class="text-right">
-             <li><a href="terms_of_us_privacy_policy.php">Terms of Use </a> <a href="privacy_policy.php">Privacy Policy</a></li>
+             <li><a href="terms_of_us_privacy_policy.php">Terms of Use </a><a href="privacy_policy.php">Privacy Policy</a></li>
              
              <li><a href="contact.php">Contact Us</a></li>
            </ul>
