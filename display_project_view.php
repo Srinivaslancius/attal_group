@@ -2,7 +2,8 @@
 <?php 
 $id = $_GET['id'];
 $cid = $_GET['cid'];
-
+$getProjectsData = getDataFromTables('categories',$status=NULL,'id',$cid,$activeStatus=NULL,$activeTop=NULL);
+$getProjects  = $getProjectsData->fetch_assoc();
 $getQry = "SELECT * FROM projects WHERE id = '$id' AND category_id = '$cid' ";
 $res = $conn->query($getQry);
 $getPojects  = $res->fetch_assoc();
@@ -86,7 +87,7 @@ header -->
 <!--=================================
  banner -->
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(images/bg/bg-2.jpg);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/category_images/'.$getProjects['category_image'] ?>);">
 
   <div class="container">
      <div class="row intro-title text-center">
