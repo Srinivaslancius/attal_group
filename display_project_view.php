@@ -126,9 +126,10 @@ header -->
            </div>
           <div class="row text-justify">  
              <div class="col-lg-6 col-md-6 mb-20"> 
-               <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '250px' height='250px' alt="">
+               <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '450px' height='450px' alt="">
              </div>
-             <div class="col-lg-6 col-md-6"> 
+             <div class="col-lg-6 col-md-6">
+                <h2>Specifications</h2> 
                <p style="float:left;"><?php echo $getPojects['specification'];?></p>
              </div>
             </div>
