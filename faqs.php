@@ -105,11 +105,13 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li class="active"><a href="#faq1" data-toggle="tab" aria-expanded="false"><span>All</span></a></li>
-          <li><a href="#faq2" data-toggle="tab" aria-expanded="true"><span>Attal</span></a></li>
-          <li><a href="#faq3" data-toggle="tab"><span>General</span></a></li>
-          <li><a href="#faq4" data-toggle="tab"><span>Residential</span></a></li>
-          <li><a href="#faq5" data-toggle="tab"><span>Corporate</span></a></li>
-          <li><a href="#faq6" data-toggle="tab"><span>NRI</span></a></li>
+          <?php $getAllFaqCategories = getAllDataCheckActive('faq_categories',0); ?>
+           <?php $i=2; while($getAllData=$getAllFaqCategories->fetch_assoc()) { ?>
+                        <li class="<?php if($i==2) { ?> active <?php } ?>">
+                            <a href="#faq<?php echo $getAllData['id']; ?>" data-toggle="tab" aria-expanded="false"><p><?php echo $getAllData['faq_category']; ?></p>
+                            </a>
+                        </li>
+                        <?php $i++; } ?>  
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">

@@ -28,7 +28,7 @@
              <li><a href="service_details.php">Services</a></li>
 			 <li><a href="partnerships.php">Patnerships</a></li>
              <li><a href="photogallery.php">Photo Gallery</a></li>
-			  <li><a href="aboutlegend.php">News</a></li>
+			  <li><a href="news_details.php?id=<?php echo 1;?>">News</a></li>
 			   <li><a href="contact.php">Contact Us</a></li>
            </ul>
 		   <ul class="list-mark list-2">
@@ -57,11 +57,11 @@
 <div class="footer-widget mt-20">
       <div class="container"><div class="row">
          <div class="col-lg-6 col-md-6 col-sm-6">
-           <p class="text-white"><a target="_blank" href="https://www.lanciussolutions.com/"> <?php echo $getSiteSettingsData['footer_text'];?></a></p>
+           <p class="text-white"> <a target="_blank" href="https://www.lanciussolutions.com/"><?php echo $getSiteSettingsData['footer_text'];?></a></p>
          </div>
          <div class="col-lg-6 col-md-6 col-sm-6">
            <ul class="text-right">
-             <li><a href="terms_of_us_privacy_policy.php">Terms of Use Privacy Policy</a></li>
+             <li><a href="terms_of_us_privacy_policy.php">Terms of Use </a> <a href="privacy_policy.php">Privacy Policy</a></li>
              
              <li><a href="contact.php">Contact Us</a></li>
            </ul>
