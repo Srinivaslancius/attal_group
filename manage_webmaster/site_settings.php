@@ -9,8 +9,6 @@
     $admin_title = $_POST['admin_title'];  
     $email = $_POST['email'];
     $fb_link = $_POST['fb_link'];
-    $twitter_link = $_POST['twitter_link'];
-    $gplus_link = $_POST['gplus_link'];
     $mobile = $_POST['mobile'];
     $open_timings = $_POST['open_timings'];
     $project_count = $_POST['project_count'];
@@ -36,7 +34,7 @@
         //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
 
         if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-         $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count' ,footer_text='$footer_text', address='$address' WHERE id = '$id' ";
+         $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', mobile='$mobile', open_timings='$open_timings',logo = '$logo',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count' ,footer_text='$footer_text', address='$address' WHERE id = '$id' ";
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
             } else {
@@ -47,7 +45,7 @@
             echo "Sorry, there was an error uploading your file.";
         }
     }  else {
-        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', twitter_link='$twitter_link', gplus_link='$gplus_link', mobile='$mobile',footer_text='$footer_text', open_timings='$open_timings',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count', address='$address' WHERE id = '$id' ";
+        $sql = "UPDATE `site_settings` SET admin_title = '$admin_title', email='$email', fb_link='$fb_link', mobile='$mobile',footer_text='$footer_text', open_timings='$open_timings',project_count='$project_count', credit_count='$credit_count', features_count ='$features_count', likes_count='$likes_count', address='$address' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='site_settings.php?msg=success'</script>";
         } else {
@@ -87,19 +85,6 @@
                     <input type="url" name="fb_link" class="form-control" id="form-control-2" placeholder="Facebook Link" data-error="Please enter a valid Facebook Link." value="<?php echo $getSiteSettingsData['fb_link'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
-
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Twitter Link</label>
-                    <input type="url" name="twitter_link" class="form-control" id="form-control-2" placeholder="Twitter Link" data-error="Please enter a valid Twitter Link." value="<?php echo $getSiteSettingsData['twitter_link'];?>" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Youtube Link</label>
-                    <input type="url" name="gplus_link" class="form-control" id="form-control-2" placeholder="Youtube Link" data-error="Please enter a valid Youtube Link." value="<?php echo $getSiteSettingsData['gplus_link'];?>" required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Mobile</label>
                     <input type="text" name="mobile" class="form-control" id="form-control-2" placeholder="Mobile" data-error="Please enter a valid Mobile." value="<?php echo $getSiteSettingsData['mobile'];?>" required>

@@ -10,8 +10,8 @@
          <div class="social-icons social-white border color-hover mt-20">
             <ul>
         <li class="social-facebook"><a target="_blank" href="<?php echo $getSiteSettingsData['fb_link'];?>"><i class="fa fa-facebook"></i></a></li>
-        <li class="social-twitter"><a target="_blank" href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>
-                <li class="social-linkedin"><a target="_blank" href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube"></i></a></li>
+        <!-- <li class="social-twitter"><a target="_blank" href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-linkedin"><a target="_blank" href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube"></i></a></li> -->
                 <!-- <li class="social-pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
                 <li class="social-behance"><a href="#"><i class="fa fa-behance"></i></a></li> -->
       </ul>

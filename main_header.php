@@ -14,8 +14,8 @@
 					 <ul class="list-inline">
              <li> <i class="fa fa-phone"></i><a href="Tel:<?php echo $getSiteSettingsData['mobile']; ?>"><?php echo $getSiteSettingsData['mobile'];?></a></li> 
              <li><a target="_blank" href="<?php echo $getSiteSettingsData['fb_link'];?>"><i class="fa fa-facebook"></i></a></li>   
-             <li><a target="_blank" href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>   
-             <li><a target="_blank" href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube-play"></i></a></li>   
+             <!-- <li><a target="_blank" href="<?php echo $getSiteSettingsData['twitter_link'];?>"><i class="fa fa-twitter"></i></a></li>   
+             <li><a target="_blank" href="<?php echo $getSiteSettingsData['gplus_link'];?>"><i class="fa fa-youtube-play"></i></a></li> -->   
            </ul>
 				</div>
 			</div>
