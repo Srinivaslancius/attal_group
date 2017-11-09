@@ -107,7 +107,7 @@ header -->
 
 <section class="content-box3 page-section-ptb pb-40">
       <?php 
-      $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id'";
+      $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id' AND status=0";
       $res = $conn->query($subCat);
       $catNum = $res->num_rows;
       if($catNum!=0) {
