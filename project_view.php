@@ -125,7 +125,7 @@ header -->
     <h4 class="title"><?php echo $getSubSubCat['sub_sub_category_name']; ?></h4>
   </div></div> -->
   <?php 
-        $getPro = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '".$id."'";
+        $getPro = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '".$id."' AND status = 0";
         $res2 = $conn->query($getPro);
         while($getProjects = $res2->fetch_assoc()){
         $lid= $getProjects['location_id'];
