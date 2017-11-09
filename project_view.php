@@ -110,7 +110,8 @@ header -->
       $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id'";
       $res = $conn->query($subCat);
       $catNum = $res->num_rows;
-      while($getSubCat = $res->fetch_assoc()){
+      if($catNum!=0) {
+        while($getSubCat = $res->fetch_assoc()){
       ?>
   <div class="container"><div class="row text-justify">
   <div class="col-sm-12"><div class="section-title text-center">
@@ -147,6 +148,8 @@ header -->
   <?php }  //}?>
   
 </div></div>
+<?php } }else { ?>
+  <div><p style="text-align:center">No Projects Found</p></div>
 <?php } ?>
 </section>
 

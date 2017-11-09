@@ -126,7 +126,7 @@ header -->
              </div>
            </div>
           <div class="row text-justify">  
-             <div class="col-lg-6 col-md-6 mb-20"> 
+             <div class="col-lg-6 col-md-6 mb-20" style="float:left; margin-left:-47px;"> 
                <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '450px' height='450px' alt="">
              </div>
              <div class="col-lg-6 col-md-6">
