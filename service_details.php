@@ -76,7 +76,7 @@ header -->
  </div>
 </header>
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/content_images/'.$getService['image'] ?>);">
+<section class="inner-intro bg bg-fixed bg-overlay-black-70" style="background-image:url(<?php echo $base_url . 'uploads/service_images/'.$getService['image'] ?>);">
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
