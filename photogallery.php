@@ -107,18 +107,17 @@ header -->
   <div class="container">
 <div class="col-sm-12">
     <div class="section-title text-center">
-      <h2 class="title">Experience Legend In Pictures</h2>
+      <h2 class="title">Attal Group Gallery Pictures</h2>
     </div>
   </div>
 <?php $sql = "SELECT * FROM photo_gallery WHERE status = 0 GROUP BY gallery_id "; 
       $res = $conn->query($sql);
-      while($row = $res->fetch_assoc()) {
+      $noRows = $res->num_rows;
+      
 ?>
-
+<?php if($noRows!=0) { ?>
+<?php while($row = $res->fetch_assoc()) { ?>
 <div class="row no-gutter">
-
-  
-  
   <div class="col-sm-12">
     <div class="section-title text-left">
       <h4 class="title"><?php echo $row['title']; ?></h4>
@@ -147,6 +146,11 @@ header -->
 
 </div><br>
 <?php } ?>
+<?php }
+  else{
+      echo "<h5 style='text-align:center;'>No Images Are Available In Photo Gallery</h5>";
+  }  ?>
+
 </div></section>
 
 <!--=================================
