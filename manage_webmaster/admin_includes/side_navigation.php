@@ -138,14 +138,14 @@
                 <li class="<?php if($page_name == 'posted_resumes.php' || $page_name == 'add_posted_resumes.php' || $page_name == 'edit_posted_resumes.php') { echo "active"; } ?>"><a href="posted_resumes.php">Posted Resumes</a></li>
               </ul>
             </li>
-            <li  class="<?php if($page_name == 'testimonials.php' || $page_name == 'add_testominials.php' || $page_name == 'edit_testimonials.php') { echo "active"; } ?>">
+            <!-- <li  class="<?php if($page_name == 'testimonials.php' || $page_name == 'add_testominials.php' || $page_name == 'edit_testimonials.php') { echo "active"; } ?>">
               <a href="testimonials.php" aria-haspopup="true">
                 <span class="menu-icon">
                    <i class="zmdi zmdi-comments  zmdi-hc-fw"></i>
                 </span> 
                 <span class="menu-text">Testimonials</span>
               </a>
-            </li>
+            </li> -->
             <li  class="<?php if($page_name == 'services.php' || $page_name == 'add_services.php' || $page_name == 'edit_services.php') { echo "active"; } ?>">
               <a href="services.php" aria-haspopup="true">
                 <span class="menu-icon">
