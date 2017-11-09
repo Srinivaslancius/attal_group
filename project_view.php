@@ -84,7 +84,7 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white"><?php echo $getProjects['category_name']?></h1></div>
+        <div class="section-title"><h1 class="title text-white"><?php echo $getProjects['category_name']?></h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
@@ -106,47 +106,46 @@ header -->
  Page Section -->
 
 <section class="content-box3 page-section-ptb pb-40">
-<?php 
+      <?php 
       $subCat = "SELECT * FROM sub_categories WHERE category_id = '$id'";
       $res = $conn->query($subCat);
+      $catNum = $res->num_rows;
       while($getSubCat = $res->fetch_assoc()){
-
       ?>
   <div class="container"><div class="row text-justify">
-<div class="col-sm-12"><div class="section-title text-center">
-		<h2 class="title"><?php echo $getSubCat['sub_category_name']; ?></h2>
-	</div></div>
-  <?php $subCat = "SELECT * FROM sub_sub_categories WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '$id' ";
+  <div class="col-sm-12"><div class="section-title text-center">
+      <h2 class="title"><?php echo $getSubCat['sub_category_name']; ?></h2>
+  </div></div>
+
+   <?php /*$subCat = "SELECT * FROM sub_sub_categories WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '$id' ";
         $res1 = $conn->query($subCat);
-      while($getSubSubCat = $res1->fetch_assoc()){
+      while($getSubSubCat = $res1->fetch_assoc()){*/
   ?>
-	<div class="col-sm-12"><div class="section-title text-left">
-		<h4 class="title"><?php echo $getSubSubCat['sub_sub_category_name']; ?></h4>
-	</div></div>
+  <!-- <div class="col-sm-12"><div class="section-title text-left">
+    <h4 class="title"><?php echo $getSubSubCat['sub_sub_category_name']; ?></h4>
+  </div></div> -->
   <?php 
-
-    $subCat = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND sub_sub_category_id = '".$getSubSubCat['id']."'";
-        $res2 = $conn->query($subCat);
-      while($getProjects = $res2->fetch_assoc()){
-
+        $getPro = "SELECT * FROM projects WHERE sub_category_id = '".$getSubCat['id']."' AND category_id = '".$id."'";
+        $res2 = $conn->query($getPro);
+        while($getProjects = $res2->fetch_assoc()){
         $lid= $getProjects['location_id'];
   ?>
-	<div class="col-sm-3">
-		<div class="about mb-40">
+  <div class="col-sm-3">
+    <div class="about mb-40">
           <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt=""></div>
           <div class="about-details">
             
-          	<h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
+            <h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
               <small><?php $sql = "SELECT * FROM lkp_locations WHERE id = '$lid'";
               $result = $conn->query($sql);
               $row = $result->fetch_assoc(); echo $row['location_name'];?></small></a></h5>
-          	<div class="about-des"><?php echo substr($getProjects['description'], 0, 250);?></div>
+            <div class="about-des"><?php echo substr($getProjects['description'], 0, 250);?></div>
              <a class="button link" href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><span>Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a> 
           </div>                
-		</div>
-	</div>
-  <?php }  }?>
-	
+    </div>
+  </div>
+  <?php }  //}?>
+  
 </div></div>
 <?php } ?>
 </section>
