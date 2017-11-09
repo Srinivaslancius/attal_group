@@ -1,42 +1,4 @@
-<?php include_once 'top_header.php';
-$getContentsData = getDataFromTables('content_pages','0','id',22,$activeStatus=NULL,$activeTop=NULL);
-$getAddress  = $getContentsData->fetch_assoc();
-$getContentsData = getDataFromTables('content_pages','0','id',23,$activeStatus=NULL,$activeTop=NULL);
-$getPhone  = $getContentsData->fetch_assoc();
-$getContentsData = getDataFromTables('content_pages','0','id',24,$activeStatus=NULL,$activeTop=NULL);
-$getEmail  = $getContentsData->fetch_assoc();
-?>
-<?php
-//ob_start();
-if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['website']) && !empty($_POST['phone']))  {
-$dataem = $getSiteSettingsData['email'];
-//$to = "srinivas@lanciussolutions.com";
-$to = "$dataem";
-$subject = "Attal Group - Contact Us ";
-
-$message = "<html><head><title>Attal Group </title></head>
-<body>
-<p>User Feed Back Information!</p>
-<h4>Name: </h4><p>".$_POST['name']."</p>
-<h4>Email: </h4><p>".$_POST['email']."</p>
-<h4>Email: </h4><p>".$_POST['phone']."</p>
-<h4>Message: </h4><p>".$_POST['message']."</p>
-</body>
-</html>
-";
-
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <info@attalgroup.com>' . "\r\n";
-// $headers .= 'Cc: myboss@example.com' . "\r\n";
-
-mail($to,$subject,$message,$headers);
-
-}
-?>
+<?php include_once 'top_header.php'; ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
