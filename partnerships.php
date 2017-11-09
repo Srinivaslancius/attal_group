@@ -50,10 +50,13 @@ if (!isset($_POST['submit']))  {
   // More headers
   $headers .= 'From: '.$name.'<'.$email.'>'. "\r\n";
 
+    if(mail($to,$subject,$message,$headers)) {
+    echo  "<script>alert('Mail Sent successfully');window.location.href('partnerships.php');</script>";
+}
 
     $sql = "INSERT INTO partnership (`collabrate_as`,`name`, `company_name`, `designation`, `address`,`phone`,`mobile`,`email`,`website_url`,`comments`,`created_at`) VALUES ('$collabrate_as','$name', '$company_name', '$designation','$address','$phone','$mobile','$email','$website_url','$comments','$created_at')";
     if($conn->query($sql) === TRUE){
-       echo "<script>alert('Data Updated Successfully');window.location.href='partnerships.php';</script>";
+       /*echo "<script>alert('Data Updated Successfully');window.location.href='partnerships.php';</script>";*/
     } else {
        echo "<script>alert('Data Updation Failed');window.location.href='partnerships.php';</script>";
     }
@@ -175,13 +178,13 @@ header -->
         <div class="defoult-form">
         <div id="formmessage" style="display:none">Success/Error Message Goes Here</div>
            <form method="post">
-        <?php $getCollabrate = getDataFromTables('collabrate_partners','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
+         <?php $getCollabrate = getDataFromTables('association','0',$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
 		   <div class="form-group">
 		   <label>Collaborate as*</label>
 			  <select name="collabrate_as" class="form-control" id="sel1" required>
 				<option>Select One</option>
 				<?php while($row = $getCollabrate->fetch_assoc()) {  ?>
-        <option value="<?php echo $row['title']; ?>"><?php echo $row['title']; ?></option>
+        <option value="<?php echo $row['association_name']; ?>"><?php echo $row['association_name']; ?></option>
         <?php } ?>
 			  </select>
 			</div>
