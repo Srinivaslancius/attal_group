@@ -9,7 +9,6 @@ if (!isset($_POST['submit']))  {
     $location_id = $_POST['location_id'];
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
-    $sub_sub_category_id = $_POST['sub_sub_category_id'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
     $description = $_POST['description'];
     $specification = $_POST['specification'];
@@ -22,7 +21,7 @@ if (!isset($_POST['submit']))  {
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO projects (`project_name`,`images`,`location_id`, `category_id`,`sub_category_id`,`sub_sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload','$location_id','$category_id','$sub_category_id', '$sub_sub_category_id','$description', '$specification','$status')";
+            $sql = "INSERT INTO projects (`project_name`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$status')";
               
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
@@ -63,14 +62,6 @@ if (!isset($_POST['submit']))  {
                     <label for="form-control-3" class="control-label">Select Sub Category</label>
                     <select id="sub_category_id" name="sub_category_id" class="custom-select" data-error="This field is required." required onChange="getSubSubCategories(this.value);">
                       <option value="">Select Sub Category</option>
-                   </select>
-                    <div class="help-block with-errors"></div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="form-control-3" class="control-label">Select Sub Sub Category</label>
-                    <select id="sub_sub_category_id" name="sub_sub_category_id" class="custom-select" data-error="This field is required." required >
-                      <option value="">Select Sub Sub Category</option>
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
