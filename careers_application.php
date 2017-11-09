@@ -216,7 +216,7 @@ header -->
                	<div class="form-group">
             		<label>Land Line No</label>
                     <div class="input-group">
-            		      <input type="text" class="form-control input-message"  name="land_line_no">
+            		      <input type="text" class="form-control input-message"  name="land_line_no" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" >
                     </div>
                	</div>
 				<div class="form-group">

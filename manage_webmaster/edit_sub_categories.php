@@ -6,6 +6,7 @@ $id = $_GET['bid'];
     } else  {
         $category_id = $_POST['category_id'];
         $sub_category_name = $_POST['sub_category_name'];
+        $status = $_POST['status'];
         $sql = "UPDATE `sub_categories` SET category_id = '$category_id', sub_category_name = '$sub_category_name', status='$status' WHERE id = '$id' ";
         if($conn->query($sql) === TRUE){
            echo "<script type='text/javascript'>window.location='sub_categories.php?msg=success'</script>";

@@ -2,7 +2,8 @@
 include_once('admin_includes/config.php');
 include_once('admin_includes/common_functions.php');
 if(!empty($_POST["category_id"])) {
-	$query ="SELECT * FROM sub_categories WHERE category_id = '" . $_POST["category_id"] . "'";
+	$cat_id = $_POST["category_id"];
+	$query ="SELECT * FROM sub_categories WHERE category_id = '$cat_id' AND status=0 ";
 	$results = $conn->query($query);
 ?>
 	<option value="">Select Sub Category</option>
