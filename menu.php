@@ -22,9 +22,7 @@
                     <li><a href="content_details.php?id=2">History</a></li>
                     <li><a href="content_details.php?id=3">Philosophy</a></li>
                     <li><a href="content_details.php?id=4">Values</a></li>
-                    <li><a href="content_details.php?id=5">Promoters</a></li>
-                    <li><a href="content_details.php?id=6">Our Architects</a></li>
-                    <li><a href="content_details.php?id=7">Our JV Partners</a></li>
+                    <li><a href="content_details.php?id=5">Promoters</a></li>                    
                  </ul>
             </li>
 

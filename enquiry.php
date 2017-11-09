@@ -20,7 +20,7 @@ if (!isset($_POST['submit']))  {
 
   $to = "$dataem";
 
-  $subject = "User Enquiry Info";
+  $subject = "Attal Group - User Enquiry Info";
 
   $message = "<html><head><title>User Enquiry Information</title></head>
   <body>
