@@ -77,14 +77,14 @@
                 <span class="menu-text">Sub Categories</span>
               </a>
             </li>
-            <li  class="<?php if($page_name == 'sub_sub_categories.php' || $page_name == 'add_sub_sub_categories.php' || $page_name == 'edit_sub_sub_categories.php') { echo "active"; } ?>">
+            <!-- <li  class="<?php if($page_name == 'sub_sub_categories.php' || $page_name == 'add_sub_sub_categories.php' || $page_name == 'edit_sub_sub_categories.php') { echo "active"; } ?>">
               <a href="sub_sub_categories.php" aria-haspopup="true">
                 <span class="menu-icon">
                    <i class="zmdi zmdi-store zmdi-hc-fw"></i>
                 </span>
                 <span class="menu-text">Sub Sub Categories</span>
               </a>
-            </li>
+            </li> -->
             <li  class="<?php if($page_name == 'projects.php' || $page_name == 'add_projects.php' || $page_name == 'edit_projects.php') { echo "active"; } ?>">
               <a href="projects.php" aria-haspopup="true">
                 <span class="menu-icon">
