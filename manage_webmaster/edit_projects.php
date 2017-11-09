@@ -79,6 +79,17 @@ $getProjects = $getProjectsData->fetch_assoc();
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
+                  <?php $getSubSubCategories =  getDataFromTables('sub_sub_categories',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL); ?>
+                  <!-- <div class="form-group">
+                    <label for="form-control-3" class="control-label">Select Sub Sub Category</label>
+                    <select id="sub_sub_category_id" name="sub_sub_category_id" class="custom-select" data-error="This field is required." required >
+                       <option value="">Select Sub Sub Category</option>
+                      <?php while($row = $getSubSubCategories->fetch_assoc()) {  ?>
+                      <option <?php if($row['id'] == $getProjects['sub_sub_category_id']) { echo "Selected"; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['sub_sub_category_name']; ?></option>
+                      <?php } ?>
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div> -->
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose Location</label>
                     <select id="form-control-3" name="location_id" class="custom-select" data-error="This field is required." required>
