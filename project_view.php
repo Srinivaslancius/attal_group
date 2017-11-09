@@ -140,7 +140,7 @@ header -->
               <small><?php $sql = "SELECT * FROM lkp_locations WHERE id = '$lid'";
               $result = $conn->query($sql);
               $row = $result->fetch_assoc(); echo $row['location_name'];?></small></a></h5>
-          	<div class="about-des"><?php echo $getProjects['description'];?></div>
+          	<div class="about-des"><?php echo substr($getProjects['description'], 0, 250);?></div>
              <a class="button link" href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><span>Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a> 
           </div>                
 		</div>
