@@ -107,13 +107,14 @@ header -->
          <div class="sidebar">
            <div class="service-nav">
              <ul>
+              <?php 
+              $getServicesData1 = "SELECT * FROM services WHERE status= 0 "; 
+              $getServ = $conn->query($getServicesData1);
+              ?>
                 <!--<li><a href="content_details.php?id=1" <?php if($_GET['id'] == 1) { echo "class = active"; } ?>>Profile</a></li>-->
-                <li><a href="service_details.php?id=2" <?php if($_GET['id'] == 2) { echo "class = active"; } ?>>Property Management Services</a></li>
-                <li><a href="service_details.php?id=3" <?php if($_GET['id'] == 3) { echo "class = active"; } ?>>Home Loans</a></li>
-                <li><a href="service_details.php?id=4" <?php if($_GET['id'] == 4) { echo "class = active"; } ?>>Loan Guide</a></li>
-                <li><a href="service_details.php?id=5" <?php if($_GET['id'] == 5) { echo "class = active"; } ?>>NRI Services</a></li>
-                <!--<li><a href="content_details.php?id=6" <?php if($_GET['id'] == 6) { echo "class = active"; } ?>>Our Architects</a></li>-->
-                <li><a href="service_details.php?id=7" <?php if($_GET['id'] == 7) { echo "class = active"; } ?>>Support Services</a></li>
+                <?php while($getSerData1 = $getServ->fetch_assoc()) { ?>
+                <li><a href="service_details.php?id=<?php echo $getSerData1['id']?>" <?php if($_GET['id'] == $getSerData1['id']) { echo "class = active"; } ?>><?php echo $getSerData1['name']; ?></a></li>
+                <?php } ?>
              </ul>
            </div>
          </div>

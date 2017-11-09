@@ -1,7 +1,7 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
 <?php
   $i = 1;
-  $sql = "SELECT * FROM user_enquiry";
+  $sql = "SELECT * FROM user_enquiry  ORDER BY  id DESC" ;
   $getCustomerEnquiriesData = $conn->query($sql);
 ?>
      <div class="site-content">

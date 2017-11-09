@@ -11,7 +11,7 @@
               <table class="table table-striped table-bordered dataTable" id="table-1">
                 <thead>
                   <tr>
-                    <th>Id</th>
+                    <th>S.No</th>
                     <th>Title</th>
                     <th>Banner</th>
                     <th>Description</th>
