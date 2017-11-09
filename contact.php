@@ -9,7 +9,7 @@ $getEmail  = $getContentsData->fetch_assoc();
 <?php
 //ob_start();
 if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['website']) && !empty($_POST['phone']))  {
-$dataem = 'gunavardhan@lanciussolutions.com';
+$dataem = $getSiteSettingsData['email'];
 //$to = "srinivas@lanciussolutions.com";
 $to = "$dataem";
 $subject = "Attal Group - Contact Us ";
@@ -24,13 +24,12 @@ $message = "<html><head><title>Attal Group </title></head>
 </body>
 </html>
 ";
-
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <info@attalgroup.com>' . "\r\n";
+$headers .= 'From: '.$name.'<'.$email.'>'. "\r\n";
 // $headers .= 'Cc: myboss@example.com' . "\r\n";
 
 if(mail($to,$subject,$message,$headers)) {
@@ -180,7 +179,7 @@ header -->
               <div class="form-group half-group">
                 <label>Phone*</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="phone" required>
+                      <input type="text" placeholder="" class="form-control" name="phone" name="mobile" maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" required>
                     </div>
               </div>
                 <div class="form-group half-group">
