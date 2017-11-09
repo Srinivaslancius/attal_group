@@ -22,7 +22,7 @@
                     <li><a href="content_details.php?id=2">History</a></li>
                     <li><a href="content_details.php?id=3">Philosophy</a></li>
                     <li><a href="content_details.php?id=4">Values</a></li>
-                    <li><a href="content_details.php?id=5">Promoters</a></li>                    
+                    <li><a href="content_details.php?id=5">Attal Group</a></li>                    
                  </ul>
             </li>
 
