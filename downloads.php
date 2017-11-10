@@ -117,21 +117,23 @@ $getAllcategoriesData = $conn->query($getCategoriesData);
             </div>
           </div>
       </div>
-      <?php $getDownloadsData = "SELECT * FROM downloads WHERE status='0' AND category_id='".$getCategories['id']."'  ";
-      $getAllDownloadsData = $conn->query($getDownloadsData); ?>
+      <?php 
+        $getCatId = $getCategories['id'];
+        $getDownloadsData = "SELECT * FROM downloads WHERE  category_id='$getCatId' AND status=0";
+        $getAllDownloadsData = $conn->query($getDownloadsData); ?>
       <div class="row mrgb-btm">
       <?php while($getDownloads = $getAllDownloadsData->fetch_assoc()) {?>
             <div class="col-sm-4">
                 <div class="item">
-                <div class="post left_pos clearfix">
-                <div class="post-image clearfix">
-                <a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="uploads/pdf_file.jpg" alt=""></a>
-                </div>
-                <div class="post-details">
-                <div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
-                <div class="post-content"><p><?php echo substr(strip_tags($getDownloads['description']), 0,40);?></p></div>
-                </div>                
-                </div>
+                  <div class="post left_pos clearfix">
+                    <div class="post-image clearfix">
+                      <a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getDownloads['pdf_image'] ?>" target="_blank"><img class="img-responsive " src="uploads/pdf_file.jpg" alt=""></a>
+                    </div>
+                    <div class="post-details">
+                      <div class="post-title"><h5 class="title"><?php echo $getDownloads['user_name']; ?></h5></div>
+                      <div class="post-content"><p><?php echo substr(strip_tags($getDownloads['description']), 0,40);?></p></div>
+                    </div>                
+                  </div>
                 </div>
             </div>
       <?php } ?>
