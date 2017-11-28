@@ -54,10 +54,10 @@
       <li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
                  <!-- drop down multilevel  -->
             </li>
-            <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Gallery</a>
+            <li <?php if($page_name == 'photogallery.php' || $page_name == 'csr_activities.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Gallery</a>
               <ul class="drop-down-multilevel left-menu">
                 <li><a href="photogallery.php">Photo Gallery</a></li>
-                <li><a href="photogallery.php">CSR Activities</a></li>                                   
+                <li><a href="csr_activities.php">CSR Activities</a></li>                                   
               </ul>
                  <!-- drop down multilevel  -->
             </li>

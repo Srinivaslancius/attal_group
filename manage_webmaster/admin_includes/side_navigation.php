@@ -60,7 +60,14 @@
                 <span class="menu-text">Locations</span>
               </a>
             </li>
-            
+            <li  class="<?php if($page_name == 'csr_activities.php' || $page_name == 'add_csr_activities.php' || $page_name == 'edit_csr_activities.php') { echo "active"; } ?>">
+              <a href="csr_activities.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-store zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Csr Activities</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'categories.php' || $page_name == 'add_categories.php' || $page_name == 'edit_categories.php') { echo "active"; } ?>">
               <a href="categories.php" aria-haspopup="true">
                 <span class="menu-icon">
