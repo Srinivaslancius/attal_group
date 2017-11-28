@@ -54,7 +54,11 @@
       <li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
                  <!-- drop down multilevel  -->
             </li>
-            <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
+            <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Gallery</a>
+              <ul class="drop-down-multilevel left-menu">
+                <li><a href="photogallery.php">Photo Gallery</a></li>
+                <li><a href="photogallery.php">CSR Activities</a></li>                                   
+              </ul>
                  <!-- drop down multilevel  -->
             </li>
             <?php 
@@ -75,7 +79,7 @@
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="enquiry.php">Enquiry</a></li>
-                    <li><a href="feedback.php">Feedback</a></li>
+                    <li><a href="feedback.php">Feedback / Complaints</a></li>
                  </ul>
             </li>
         </ul>

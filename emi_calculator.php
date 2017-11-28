@@ -80,12 +80,12 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-        <div class="section-title"><h1 class="title text-white">Emi Calculator</h1></div>
+        <div class="section-title"><h1 class="title text-white">EMI Calculator</h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="emi_calculator.php">Emi Calculator</a> </li>
+                <li><a href="emi_calculator.php">EMI Calculator</a> </li>
              </ul>
         </div>
      </div>
@@ -102,7 +102,7 @@ header -->
 
 <section class="content-box3 page-section-ptb pb-40"><div class="container"><div class="row text-justify">
 <div class="col-sm-12"><div class="section-title text-center">
-    <h2 class="title">Emi Calculator</h2>
+    <h2 class="title">EMI Calculator</h2>
   </div>
 </div>
   <div class="col-sm-12"><div class="section-title text-left">
