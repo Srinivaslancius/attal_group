@@ -142,7 +142,11 @@ header -->
           </div>
         </div>
         <?php } ?>
-        <a style="color:white" href="project_view.php?id=1">view All</a>
+        <a style="color:white font-size: 18px;
+text-align: center;
+text-align: center;
+border: 1px solid red;
+background-color: #ff7e00;" href="project_view.php?id=1">view All</a>
        </div>
     </div>
 </div></div>
