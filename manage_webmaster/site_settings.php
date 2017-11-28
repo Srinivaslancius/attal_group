@@ -113,7 +113,7 @@
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="form-control-2" class="control-label">Credit Counts</label>
+                    <label for="form-control-2" class="control-label">Happy Residence</label>
                     <input type="text" name="credit_count" class="form-control" id="form-control-2" placeholder="Projects Count" data-error="Please enter Projects Counts." value="<?php echo $getSiteSettingsData['project_count'];?>" required>
                     <div class="help-block with-errors"></div>
                   </div>
