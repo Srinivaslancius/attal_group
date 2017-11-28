@@ -118,6 +118,7 @@ header -->
           <div class="feature-box left_pos small">
                 <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" height="100" width="150" alt="">
                 <h3 class="title"><?php echo $getCompleted1['project_name'];?></h3>
+                <p><?php echo substr($getCompleted1['description'], 0, 150);?></p>
           </div>
         </div>
         <?php } ?>
@@ -135,6 +136,7 @@ header -->
     
                 <img  src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" height="100" width="150" alt="">
                 <h3 class="title"><?php echo $getProjects1['project_name'];?></h3>
+                <p><?php echo substr($getProjects1['description'], 0, 150);?></p>
           </div>
         </div>
         <?php } ?>
