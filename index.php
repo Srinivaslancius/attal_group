@@ -250,27 +250,27 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
 			<label>Projects</label>
 		</div>
 	</div>
-	 <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-		<div class="counter left_pos">
-			<i class="glyph-icon flaticon-management"></i>
-			<span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
-			<label>Credit</label>
-		</div>
-	</div>
-	 <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-		<div class="counter left_pos">
-			<i class="glyph-icon flaticon-trophy"></i>
-			<span class="timer" data-to="<?php echo $getSiteSettingsData['features_count'];?>" data-speed="10000"></span>
-			<label>Features</label>
-		</div>
-	</div>
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-trophy"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['features_count'];?>" data-speed="10000"></span>
+      <label>Features</label>
+    </div>
+  </div>
 	 <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
 		<div class="counter left_pos">
 			<i class="glyph-icon flaticon-like"></i>
 			<span class="timer" data-to="<?php echo $getSiteSettingsData['likes_count'];?>" data-speed="10000"></span>
 			<label>Likes</label>
 		</div>
-	</div>	 
+	</div>	
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-management"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
+      <label>Happy Residence</label>
+    </div>
+  </div> 
   </div>
 </div>
 </section>
