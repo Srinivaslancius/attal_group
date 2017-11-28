@@ -116,7 +116,7 @@ header -->
         <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
      		<div class="col-sm-6">
           <div class="feature-box left_pos small">
-                <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" height="100" width="150" alt="">
+                <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" height="100" width="100" alt="">
                 <h3 class="title"><?php echo $getCompleted1['project_name'];?></h3>
           </div>
         </div>
@@ -133,16 +133,14 @@ header -->
         <div class="col-sm-6">
           <div class="feature-box left_pos small">
     
-                <img  src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" height="100" width="150" alt="">
+                <img  src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" height="100" width="100" alt="">
                 <h3 class="title"><?php echo $getProjects1['project_name'];?></h3>
           </div>
         </div>
         <?php } ?>
-        <a style="color:white font-size: 18px;
-text-align: center;
-text-align: center;
-border: 1px solid red;
-background-color: #ff7e00;" href="project_view.php?id=1">view All</a>
+            <div class="form-group" style="text-align:center">               
+              <a href="project_view.php?id=1"><button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>View All</span></button></a>
+            </div>
        </div>
     </div>
 </div></div>
