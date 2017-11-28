@@ -1,3 +1,4 @@
+
 <?php //$getMenus = getAllDataCheckActive('services',0); 
     $getAllMenus = "SELECT * FROM services WHERE status = 0 ORDER BY id ASC";
     $getMenus = $conn->query($getAllMenus);
@@ -60,14 +61,14 @@
                 $sql1 = "SELECT * FROM news WHERE status = 0 ";
                 $getNews = $conn->query($sql1);
             ?>
-      <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
-                 <!-- drop down multilevel  -->
+      <!-- <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
+                 
                 <ul  class="drop-down-multilevel left-menu">
                     <?php while($getNewsdata = $getNews->fetch_assoc()) {?>
                     <li><a href="news_details.php?id=<?php echo $getNewsdata['id']?>"><?php echo $getNewsdata['title'];?></a></li>
                     <?php } ?>
                  </ul>
-            </li>
+            </li> -->
       <li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
             </li>
            <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php' || $page_name == 'contact.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>

@@ -12,7 +12,6 @@ if (!isset($_POST['submit']))  {
     $name = $_POST['name'];
     $company_name = $_POST['company_name'];
     $designation = $_POST['designation'];
-    $phone = $_POST['phone'];
     $address = $_POST['address'];
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
@@ -33,7 +32,6 @@ if (!isset($_POST['submit']))  {
       <tr style='background: #eee;'><td><strong>User Name:</strong> </td><td>" . strip_tags($_POST['name']) . "</td></tr>
       <tr><td><strong>Company Name:</strong> </td><td>" . strip_tags($_POST['company_name']) . "</td></tr>
       <tr><td><strong>Designation:</strong> </td><td>" . strip_tags($_POST['designation']) . "</td></tr>
-      <tr><td><strong>Phone:</strong> </td><td>" . strip_tags($_POST['phone']) . "</td></tr>
       <tr><td><strong>Address:</strong> </td><td>" . strip_tags($_POST['address']) . "</td></tr>
       <tr><td><strong>Mobile:</strong> </td><td>" . strip_tags($_POST['mobile']) . "</td></tr>
       <tr><td><strong>Email:</strong> </td><td>" . strip_tags($_POST['email']) . "</td></tr>
@@ -201,9 +199,9 @@ header -->
                     </div>
             	</div>
 				 <div class="form-group">
-            		<label>Designation*</label>
+            		<label>Designation</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="designation" required>
+                      <input type="text" placeholder="" class="form-control" name="designation" >
                     </div>
             	</div>
 				<div class="form-group">
@@ -212,12 +210,7 @@ header -->
             		      <textarea class="form-control input-message" rows="7" name="address"></textarea>
                     </div>
                	</div>
-				<div class="form-group">
-            		<label>Phone No*</label>
-                    <div class="input-group">
-            		      <input type="text" placeholder="" class="form-control" name="phone">
-                    </div>
-            	</div>
+				
 				<div class="form-group">
             		<label>Mobile No*</label>
                     <div class="input-group">
@@ -225,9 +218,9 @@ header -->
                     </div>
             	</div>
             	<div class="form-group">
-            		<label>Email Id*</label>
+            		<label>Email Id</label>
                     <div class="input-group">
-            	     	<input type="email" placeholder="" class="form-control" name="email" required>
+            	     	<input type="email" placeholder="" class="form-control" name="email">
                     </div>
             	</div>
                 <div class="form-group">
