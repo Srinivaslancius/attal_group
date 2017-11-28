@@ -107,7 +107,7 @@ header -->
 
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
-	<div class="col-md-9">
+	<div class="col-md-12">
     <?php $getCompletedData ="SELECT * FROM projects WHERE sub_category_id=2 AND status=0 ";
     $getCompleted = $conn->query($getCompletedData);
     ?>
@@ -123,11 +123,7 @@ header -->
         <?php } ?>
        </div>
     </div>
-</div></div>
-</section>
-<section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
-<div class="container"><div class="row">
-  <div class="col-md-9">
+    <div class="col-md-12">
     <?php $getProjectsData ="SELECT * FROM projects WHERE sub_category_id=1 AND status=0 ";
     $getProjects = $conn->query($getProjectsData);
     ?>
@@ -151,6 +147,7 @@ background-color: #ff7e00;" href="project_view.php?id=1">view All</a>
     </div>
 </div></div>
 </section>
+
  <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',15);
 $getChoose5 = $getChooseData5->fetch_assoc(); ?>
 <?php $getChooseData6 = getAllDataCheckActive1('content_pages','0',16);
