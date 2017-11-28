@@ -11,15 +11,20 @@ $rid = $_GET['rid'];
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
+    $fileToUpload1 = $_FILES["fileToUpload1"]["name"];
     $description = $_POST['description'];
     $specification = $_POST['specification'];    
     $status = $_POST['status'];
 
-    if($_FILES["fileToUpload"]["name"]!='') {
+    if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='') {
               $fileToUpload = uniqid().$_FILES["fileToUpload"]["name"];
               $target_dir = "../uploads/projects_images/";
               $target_file = $target_dir . basename($fileToUpload);
               $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+              $fileToUpload1 = uniqid().$_FILES["fileToUpload1"]["name"];
+              $target_dir1 = "../uploads/projects_banner_images/";
+              $target_file1 = $target_dir1 . basename($fileToUpload1);
+              $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
               //$getImgUnlink = getImageUnlink('images','projects','id',$rid,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -30,6 +35,13 @@ $rid = $_GET['rid'];
                        echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
                     }
                     //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                } elseif (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
+                  $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                    if($conn->query($sql) === TRUE){
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+                    } else {
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+                    }
                 } else { 
                     echo "Sorry, there was an error uploading your file.";
                 }
@@ -90,6 +102,15 @@ $getProjects = $getProjectsData->fetch_assoc();
                    </select>
                     <div class="help-block with-errors"></div>
                   </div> -->
+                  <div class="form-group">
+                    <label for="form-control-4" class="control-label">Project Banner</label>
+                    <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjects['banner'] ?>"  id="output1" height="100" width="100"/>
+                    <img id="output1" height="100" width="100"/>
+                    <label class="btn btn-default file-upload-btn">
+                      Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" >
+                      </label>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose Location</label>
                     <select id="form-control-3" name="location_id" class="custom-select" data-error="This field is required." required>
