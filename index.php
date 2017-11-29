@@ -111,6 +111,8 @@ header -->
     <?php $getCompletedData ="SELECT * FROM projects WHERE sub_category_id=2 AND status=0 ";
     $getCompleted = $conn->query($getCompletedData);
     ?>
+
+     <?php if($getCompleted->num_rows > 0) { ?>
      <div class="section-title"><h2 class="title title2">Completed Projects<label></label></h2></div>
      <div class="row mt-50">
         <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
@@ -144,7 +146,11 @@ header -->
               <a href="project_view.php?id=1"><button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>View All</span></button></a>
             </div>
        </div>
-    </div>
+       <?php } else { ?>
+       <h3 style="text-align:center">No Projects Found</h3>
+       <?php } ?>
+
+    </div>    
 </div></div>
 </section>
 
