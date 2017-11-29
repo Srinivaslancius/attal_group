@@ -92,6 +92,14 @@
                 <span class="menu-text">Sub Sub Categories</span>
               </a>
             </li> -->
+            <li  class="<?php if($page_name == 'testimonials.php' || $page_name == 'add_testimonials.php' || $page_name == 'edit_testimonials.php') { echo "active"; } ?>">
+              <a href="testimonials.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-comments  zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Testimonials</span>
+              </a>
+            </li>
             <li  class="<?php if($page_name == 'projects.php' || $page_name == 'add_projects.php' || $page_name == 'edit_projects.php') { echo "active"; } ?>">
               <a href="projects.php" aria-haspopup="true">
                 <span class="menu-icon">

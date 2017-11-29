@@ -28,7 +28,7 @@
              <li><a href="service_details.php">Services</a></li>
        <li><a href="partnerships.php">Patnerships</a></li>
              <li><a href="photogallery.php">Photo Gallery</a></li>
-        <!-- <li><a href="news_details.php?id=<?php echo 1;?>">News</a></li> -->
+        <li><a href="testimonials.php">Testimonials</a></li>
          <li><a href="contact.php">Contact Us</a></li>
            </ul>
        <ul class="list-mark list-2">
