@@ -10,18 +10,22 @@ if (!isset($_POST['submit']))  {
     $category_id = $_POST['category_id'];
     $sub_category_id = $_POST['sub_category_id'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
+    $fileToUpload1 = $_FILES["fileToUpload1"]["name"];
     $description = $_POST['description'];
     $specification = $_POST['specification'];
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
     //save product images into product_images table    
-    if($fileToUpload!='') {
+    if($fileToUpload!='' && $fileToUpload1 !='') {
         $target_dir = "../uploads/projects_images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $target_dir1 = "../uploads/projects_banner_images/";
+        $target_file1 = $target_dir . basename($_FILES["fileToUpload1"]["name"]);
+        $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
 
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO projects (`project_name`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$status')";
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
+            $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$status')";
               
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
@@ -73,6 +77,16 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div> -->
+
+                  <div class="form-group">
+                    <label for="form-control-4" class="control-label">Project Banner</label>
+                    <img id="output1" height="100" width="100"/>
+                    <label class="btn btn-default file-upload-btn">
+                      Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" >
+                      </label>
+                  </div>
+
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose Location</label>
                     <select id="form-control-3" name="location_id" class="custom-select" data-error="This field is required." required>
