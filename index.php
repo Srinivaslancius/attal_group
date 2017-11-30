@@ -107,17 +107,17 @@ header -->
 
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
      <div class="section-title"><h2 class="title title2">Completed <label> Projects</label></h2></div>
      <div class="row mt-50">
-     <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=2 AND status=0 ";
+     <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ORDER BY id DESC LIMIT 0, 3";
     $getCompleted = $conn->query($getCompletedData); ?>      
           <?php if($getCompleted->num_rows > 0) { ?>
           <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
           <div class="col-sm-3">
             <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive"><br>
             <div class="about-details">
-            <h5 class="title"><a href=""><?php echo $getCompleted1['project_name'];?></a></h5>
+            <h5 class="title"><a href="display_project_view.php?id=<?php echo $getCompleted1['id']; ?>&cid=1"><?php echo $getCompleted1['project_name'];?></a></h5>
             </div>
             </div>
             <?php } ?>
@@ -126,17 +126,17 @@ header -->
        <?php } ?>
        </div><br><br>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
      <div class="section-title"><h2 class="title title2">Ongoing <label> Projects</label></h2></div>
      <div class="row mt-50">
-             <?php $getProjectsData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ";
+             <?php $getProjectsData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=2 AND status=0 ORDER BY id DESC LIMIT 0, 3";
               $getProjects = $conn->query($getProjectsData); ?>
               <?php if($getProjects->num_rows > 0) { ?>
               <?php while($getProjects1 = $getProjects->fetch_assoc()){ ?>
              <div class="col-sm-3">
             <img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" class="img-responsive"><br>
             <div class="about-details">
-            <h5 class="title"><a href=""><?php echo $getProjects1['project_name'];?></a></h5>
+            <h5 class="title"><a href="display_project_view.php?id=<?php echo $getProjects1['id']; ?>&cid=1"><?php echo $getProjects1['project_name'];?></a></h5>
             </div>
             </div>
             <?php } ?>
