@@ -183,9 +183,9 @@ header -->
                     </div>
               </div>
                 <div class="form-group half-group">
-                <label>Website*</label>
+                <label>Website</label>
                     <div class="input-group">
-                      <input type="text" placeholder="" class="form-control" name="website" required>
+                      <input type="text" placeholder="" class="form-control" name="website" >
                     </div>
               </div>
               <div class="form-group">

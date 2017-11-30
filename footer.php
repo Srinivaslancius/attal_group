@@ -28,13 +28,13 @@
              <li><a href="service_details.php">Services</a></li>
        <li><a href="partnerships.php">Patnerships</a></li>
              <li><a href="photogallery.php">Photo Gallery</a></li>
-        <li><a href="news_details.php?id=<?php echo 1;?>">News</a></li>
+        <!-- <li><a href="news_details.php?id=<?php echo 1;?>">News</a></li> -->
          <li><a href="contact.php">Contact Us</a></li>
            </ul>
        <ul class="list-mark list-2">
              <li><a href="index.php">Home</a></li>
              <li><a href="contact.php">Customer Care</a></li>
-        <li><a href="emi_calculator.php">Emi Calculator</a></li>
+        <li><a href="emi_calculator.php">EMI Calculator</a></li>
          <li><a href="careers.php">Careers</a></li>
           <li><a href="downloads.php">Downloads</a></li>
          

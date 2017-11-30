@@ -115,43 +115,50 @@ header -->
 
 <!--=================================
  banner -->
-<?php $getChooseData1 = getAllDataCheckActive1('content_pages','0',11);
-$getChoose1 = $getChooseData1->fetch_assoc(); ?>
-<?php $getChooseData2 = getAllDataCheckActive1('content_pages','0',12);
-$getChoose2 = $getChooseData2->fetch_assoc(); ?>
-<?php $getChooseData3 = getAllDataCheckActive1('content_pages','0',13);
-$getChoose3 = $getChooseData3->fetch_assoc(); ?>
-<?php $getChooseData4 = getAllDataCheckActive1('content_pages','0',14);
-$getChoose4 = $getChooseData4->fetch_assoc(); ?>
+
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
-  <div class="col-md-9">
-     <div class="section-title"><h2 class="title title2">The Best <label>Compnay</label> Ever</h2></div>
+  <div class="col-md-12">
+    <?php $getCompletedData ="SELECT * FROM projects WHERE sub_category_id=2 AND status=0 ";
+    $getCompleted = $conn->query($getCompletedData);
+    ?>
+     <div class="section-title"><h2 class="title title2">Completed Projects<label></label></h2></div>
      <div class="row mt-50">
-        <div class="col-sm-6"><div class="feature-box left_pos small">
-                <i class="glyph-icon flaticon-construction-34"></i>
-                <h3 class="title"><?php echo $getChoose1['title'];?></h3>
-                <p><?php echo substr(strip_tags($getChoose1['description']), 0,150);?></p>
-            </div></div>
-            <div class="col-sm-6"><div class="feature-box left_pos small">
-                <i class="glyph-icon flaticon-shield"></i>
-                <h3 class="title"><?php echo $getChoose2['title'];?></h3>
-                <p><?php echo substr(strip_tags($getChoose2['description']), 0,150);?></p>
-            </div></div>
-            <div class="col-sm-6"><div class="feature-box left_pos small">
-                <i class="glyph-icon flaticon-construction-26"></i>
-                <h3 class="title"><?php echo $getChoose3['title'];?></h3>
-                <p><?php echo substr(strip_tags($getChoose3['description']), 0,150);?></p>
-            </div></div>
-            <div class="col-sm-6"><div class="feature-box left_pos small">
-                <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-                <h3 class="title"><?php echo $getChoose4['title'];?></h3>
-                <p><?php echo substr(strip_tags($getChoose4['description']), 0,150);?></p>
-            </div></div>
+        <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
+        <div class="col-sm-6">
+          <div class="feature-box left_pos small">
+                <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" height="100" width="100" alt="">
+                <h3 class="title"><?php echo $getCompleted1['project_name'];?></h3>
+                <p><?php echo substr($getCompleted1['description'], 0, 150);?></p>
+          </div>
+        </div>
+        <?php } ?>
+       </div>
+    </div>
+    <div class="col-md-12">
+    <?php $getProjectsData ="SELECT * FROM projects WHERE sub_category_id=1 AND status=0 ";
+    $getProjects = $conn->query($getProjectsData);
+    ?>
+     <div class="section-title"><h2 class="title title2">Ongoing Projects<label></label></h2></div>
+     <div class="row mt-50">
+        <?php while($getProjects1 = $getProjects->fetch_assoc()){ ?>
+        <div class="col-sm-6">
+          <div class="feature-box left_pos small">
+    
+                <img  src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" height="100" width="100" alt="">
+                <h3 class="title"><?php echo $getProjects1['project_name'];?></h3>
+                <p><?php echo substr($getProjects1['description'], 0, 150);?></p>
+          </div>
+        </div>
+        <?php } ?>
+            <div class="form-group" style="text-align:center">               
+              <a href="project_view.php?id=1"><button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>View All</span></button></a>
+            </div>
        </div>
     </div>
 </div></div>
 </section>
+
  <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',15);
 $getChoose5 = $getChooseData5->fetch_assoc(); ?>
 <?php $getChooseData6 = getAllDataCheckActive1('content_pages','0',16);
@@ -263,13 +270,6 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
   </div>
    <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
     <div class="counter left_pos">
-      <i class="glyph-icon flaticon-management"></i>
-      <span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
-      <label>Credit</label>
-    </div>
-  </div>
-   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-    <div class="counter left_pos">
       <i class="glyph-icon flaticon-trophy"></i>
       <span class="timer" data-to="<?php echo $getSiteSettingsData['features_count'];?>" data-speed="10000"></span>
       <label>Features</label>
@@ -281,10 +281,18 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
       <span class="timer" data-to="<?php echo $getSiteSettingsData['likes_count'];?>" data-speed="10000"></span>
       <label>Likes</label>
     </div>
-  </div>   
+  </div>  
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-management"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
+      <label>Happy Residence</label>
+    </div>
+  </div> 
   </div>
 </div>
 </section>
+
 
 <section class="page-section-pt">
     
@@ -343,16 +351,7 @@ Back to Top -->
 
 <!-- custom -->
 <script type="text/javascript" src="js/custom.js"></script>
- 
-<script src="js/jquery.firstVisitPopup.js"></script> 
-<script>
-      $(function () {
-        $('#my-welcome-message').firstVisitPopup({
-          cookieName : 'homepage',
-          showAgainSelector: '#show-message'
-        });
-      });
-    </script>
+
 
 <!-- END REVOLUTION SLIDER -->
 <script type="text/javascript">

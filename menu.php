@@ -1,3 +1,4 @@
+
 <?php //$getMenus = getAllDataCheckActive('services',0); 
     $getAllMenus = "SELECT * FROM services WHERE status = 0 ORDER BY id ASC";
     $getMenus = $conn->query($getAllMenus);
@@ -53,28 +54,32 @@
       <li <?php if($page_name == 'partnerships.php') {  ?> class="active" <?php } ?>><a href="partnerships.php" >Partnerships</a>
                  <!-- drop down multilevel  -->
             </li>
-            <li <?php if($page_name == 'photogallery.php') {  ?> class="active" <?php } ?>><a href="photogallery.php">Photo Gallery</a>
+            <li <?php if($page_name == 'photogallery.php' || $page_name == 'csr_activities.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">Gallery</a>
+              <ul class="drop-down-multilevel left-menu">
+                <li><a href="photogallery.php">Photo Gallery</a></li>
+                <li><a href="csr_activities.php">CSR Activities</a></li>                                   
+              </ul>
                  <!-- drop down multilevel  -->
             </li>
             <?php 
                 $sql1 = "SELECT * FROM news WHERE status = 0 ";
                 $getNews = $conn->query($sql1);
             ?>
-      <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
-                 <!-- drop down multilevel  -->
+      <!-- <li <?php if($page_name == 'news_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">News<i class="fa fa-angle-down fa-indicator"></i></a>
+                 
                 <ul  class="drop-down-multilevel left-menu">
                     <?php while($getNewsdata = $getNews->fetch_assoc()) {?>
                     <li><a href="news_details.php?id=<?php echo $getNewsdata['id']?>"><?php echo $getNewsdata['title'];?></a></li>
                     <?php } ?>
                  </ul>
-            </li>
+            </li> -->
       <li <?php if($page_name == 'faqs.php') {  ?> class="active" <?php } ?>><a href="faqs.php">FAQs</a>
             </li>
            <li <?php if($page_name == 'feedback.php' || $page_name == 'enquiry.php' || $page_name == 'contact.php') {  ?> class="active" <?php } ?>><a href="contact.php">Contact Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
                     <li><a href="enquiry.php">Enquiry</a></li>
-                    <li><a href="feedback.php">Feedback</a></li>
+                    <li><a href="feedback.php">Feedback / Complaints</a></li>
                  </ul>
             </li>
         </ul>

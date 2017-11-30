@@ -3,28 +3,31 @@
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" />
 
-<!-- bootstrap -->
+<!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!--  Roboto font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
 
-<!-- mega menu -->
+<!-- Mega Menu -->
 <link href="css/mega-menu/mega_menu.css" rel="stylesheet" type="text/css" />
 
-<!-- font-awesome -->
+<!-- Font Awesome -->
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <!-- Flaticon -->
 <link href="css/flaticon.css" rel="stylesheet" type="text/css" />
 
-<!-- owl-carousel -->
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="css/magnific-popup/magnific-popup.css">
+
+<!-- Owl Carousel -->
 <link href="css/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
 
 <!-- General style -->
 <link href="css/general.css" rel="stylesheet" type="text/css" />
 
-<!-- main style -->
+<!-- Main Style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
 <!-- Style customizer -->
@@ -44,7 +47,7 @@ header -->
 
 <header id="header" class="clean">
 <div class="topbar dark">
- <?php include_once 'main_header.php'; ?>
+  <?php include_once 'main_header.php'; ?>
 </div>
  
 <!--=================================
@@ -59,7 +62,7 @@ header -->
       <div class="row"> 
        <div class="col-lg-12 col-md-12"> 
         <!-- menu logo -->
-       <?php include_once 'menu.php'; ?>
+        <?php include_once 'menu.php'; ?>
        </div>
       </div>
      </div>
@@ -80,12 +83,13 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-        <div class="section-title"><h1 class="title text-white">EMI Calculator</h1></div>
+        <div class="section-title"><h1 class="title text-white">Csr Activities</h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><a href="emi_calculator.php">EMI Calculator</a> </li>
+                <li><a href="photogallery.php">Csr Activities</a></li>
+              <!--  <li><span>Portfolio 4 columns</span> </li>-->
              </ul>
         </div>
      </div>
@@ -95,59 +99,63 @@ header -->
 <!--=================================
  banner -->
 
-
-
 <!--=================================
  Page Section -->
 
-<section class="content-box3 page-section-ptb pb-40"><div class="container"><div class="row text-justify">
-<div class="col-sm-12"><div class="section-title text-center">
-    <h2 class="title">EMI Calculator</h2>
+
+<section class="portfolio-page page-section-ptb pb-50">
+  <div class="container">
+<div class="col-sm-12">
+    <div class="section-title text-center">
+      <h2 class="title">Attal Group Csr Activities</h2>
+    </div>
   </div>
-</div>
-  <div class="col-sm-12"><div class="section-title text-left">
-    <!-- EMI Calculator Widget START --><script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script><div id="ecww-widgetwrapper" style="min-width:250px;width:100%;"><div id="ecww-widget" style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;"></div><div id="ecww-more" style="background:#333;font:normal 13px/1 Helvetica, Arial, Verdana, Sans-serif;padding:10px 0;color:#FFF;text-align:center;width:100%;clear:both;margin:0;clear:both;float:left;"></div></div><!-- EMI Calculator Widget END -->
+
+<div class="row no-gutter">
+  
+<div class="col-sm-12"><div class="popup-gallery columns-4">
+
+  <?php  $sql1 = "SELECT * FROM csr_activities WHERE  status = 0 "; 
+      $res1 = $conn->query($sql1);
+      while($row1 = $res1->fetch_assoc()) {
+  ?>
+
+      <div class="project-info">
+           <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/csk_activities_images/'.$row1['image'] ?>" alt="">
+          <div class="overlay">
+              <div class="overlay-content text-center">
+       
+               <a href="<?php echo $base_url . 'uploads/csk_activities_images/'.$row1['image'] ?>" class="button popup-img border small animated middle-fill"> <span> <i class="fa fa-arrows-alt"></i> </span></a>
+              </div>
+          </div>
+      </div>
+     <?php } ?>   
+         
+    </div>
   </div>
-  </div>
-  
 
+</div><br>
+
+
+
+</div></section>
+
+<!--=================================
  
-  
-  
-  
-
- 
-  
-  
- 
-
- 
-  
-    
-  
-  
- 
-
-
-
-  
-
-  
-  
-</div></div></section>
 
 <!--=================================
 footer -->
  
  <footer class="footer dark-bg page-section-pt pb-0">
-  <?php include_once 'footer.php'; ?>
+   <?php include_once 'footer.php'; ?>
  </footer>
-
+ 
  <!--=================================
 footer -->
 
 <!--=================================
 Color Customizer --> 
+
 
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-chevron-up"></i></a></div>
 
@@ -166,6 +174,12 @@ Color Customizer -->
 
 <!-- owl-carousel -->
 <script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
+
+<!-- isotope -->
+<script type="text/javascript" src="js/isotope/isotope.pkgd.min.js"></script>
+
+<!-- magnific -->
+<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- style customizer  -->
 <script type="text/javascript" src="js/style-customizer.js"></script>

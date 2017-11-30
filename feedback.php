@@ -105,13 +105,13 @@ header -->
   <div class="container">
      <div class="row intro-title text-center">
            <div class="col-sm-12">
-				<div class="section-title"><h1 class="title text-white">Feedback</h1></div>
+				<div class="section-title"><h1 class="title text-white">Feedback / Complaints</h1></div>
            </div>
            <div class="col-sm-12">
              <ul class="page-breadcrumb">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
                 <li><a href="contact.php">Contact us</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span>feedback</span> </li>
+                <li><span>feedback / complaints</span> </li>
              </ul>
         </div>
      </div>
@@ -128,7 +128,7 @@ header -->
 
 <section class="contact-sec page-section-pt"><div class="container"><div class="row">
     <div class="col-sm-12"><div class="section-title text-center">
-        <h2 class="title">Feedback</h2>
+        <h2 class="title">Feedback / Complaints</h2>
 		</div>
 		</div>
 	 <div class="col-md-4 col-sm-7">
