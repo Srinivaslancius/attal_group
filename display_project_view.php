@@ -136,7 +136,7 @@ header -->
              </div>
              <?php }?>
              <?php if(!empty($getPojects['upload_pdf']) && $getPojects['upload_pdf'] !='') { ?>
-             <h3>Fllor Plan:<a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getPojects['upload_pdf'] ?>" target="_blank"><?php echo $getPojects['upload_pdf']; ?></a></h3>
+             <h3>Floor Plan:</h3><a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getPojects['upload_pdf'] ?>" target="_blank"><?php echo $getPojects['upload_pdf']; ?></a>
              <?php }?>
             </div>
          </div>
