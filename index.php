@@ -39,7 +39,7 @@ $getAllHistoryData = $conn->query($sqlData);
 
 </head>
 
-<body>
+<body >
 <!--=================================
 header -->
 
@@ -346,6 +346,9 @@ Back to Top -->
 <!-- custom -->
 <script type="text/javascript" src="js/custom.js"></script>
 
+
+
+
 <!-- END REVOLUTION SLIDER -->
 <script type="text/javascript">
   (function($){
@@ -423,6 +426,27 @@ Back to Top -->
       })(jQuery);
 		</script>
 		
+
+<!-- Below Script for popup open when page load -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+<link rel="stylesheet" href="css/main.css">
+<script src="js/main.js"></script>
+<?php $gettermsData = getDataFromTables('content_pages',$status=NULL,'id',27,$activeStatus=NULL,$activeTop=NULL);
+$gettermsData1  = $gettermsData->fetch_assoc();
+?>
+<div id="boxes">
+  <div style="top: 199.5px; left: 551.5px; display: none;" id="dialog" class="window">
+    <h3 ><?php echo $gettermsData1['title']; ?></h3>
+
+    <div id="lorem" style="border-top:1px solid #DCDCDC;"><br>
+     <?php echo $gettermsData1['description']; ?>
+    </div>
+    <div id="popupfoot"> <a href="#" class="close agree"><button type="button" class="btn btn-default">I Agree</button></a> </div>
+  </div>
+  <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.8;" id="mask"></div>
+</div>
+<!-- End Script for popup open when page load -->
+
 </body>
 
 
