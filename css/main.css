@@ -1,4 +1,5 @@
 #mask {
+  opacity: 1.2 !important;
   position:absolute;
   left:0;
   top:0;

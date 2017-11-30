@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 		//Set local storage
 		var shown= localStorage.getItem('isshow');
-	    if(shown !="t"){        
+	    if(shown !="t"){
 
 		    var id = '#dialog';
 		
