@@ -13,6 +13,7 @@ $rid = $_GET['rid'];
     $fileToUpload = $_FILES["fileToUpload"]["name"];
     $fileToUpload1 = $_FILES["fileToUpload1"]["name"];
     $description = $_POST['description'];
+    $upload_pdf = $_FILES["upload_pdf"]["name"];
     $specification = $_POST['specification'];    
     $status = $_POST['status'];
 
@@ -25,6 +26,10 @@ $rid = $_GET['rid'];
               $target_dir1 = "../uploads/projects_banner_images/";
               $target_file1 = $target_dir1 . basename($fileToUpload1);
               $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
+              $upload_pdf = $_FILES["upload_pdf"]["name"];
+              $target_dir2 = "../uploads/product_pdf_files/";
+              $target_file2 = $target_dir2 . basename($upload_pdf);
+              $imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
               //$getImgUnlink = getImageUnlink('images','projects','id',$rid,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -36,13 +41,21 @@ $rid = $_GET['rid'];
                     }
                     //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } elseif (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
-                  $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                  $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification', status = '$status' WHERE id='$rid'";
                     if($conn->query($sql) === TRUE){
                        echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
                     } else {
                        echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
                     }
-                } else { 
+                } 
+                elseif (move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
+                  $sql = "UPDATE projects SET project_name = '$project_name',upload_pdf = '$upload_pdf',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',upload_pdf='$upload_pdf', status = '$status' WHERE id='$rid'";
+                    if($conn->query($sql) === TRUE){
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+                    } else {
+                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+                    }
+                }else { 
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
@@ -144,6 +157,14 @@ $getProjects = $getProjectsData->fetch_assoc();
                     <label class="btn btn-default file-upload-btn">
                         Choose file...
                         <input  class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" >
+                      </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-4" class="control-label">Pdf File</label>
+                    <input type="text" value="<?php echo $getProjects['upload_pdf']; ?>"/>
+                    <label class="btn btn-default file-upload-btn">
+                        Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept=".pdf,.doc" name="upload_pdf" id="fileToUpload2"  multiple="multiple" >
                       </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>

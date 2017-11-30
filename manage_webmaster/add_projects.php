@@ -13,6 +13,7 @@ if (!isset($_POST['submit']))  {
     $fileToUpload1 = $_FILES["fileToUpload1"]["name"];
     $description = $_POST['description'];
     $specification = $_POST['specification'];
+    $upload_pdf = $_FILES["upload_pdf"]["name"];
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
     //save product images into product_images table    
@@ -23,9 +24,11 @@ if (!isset($_POST['submit']))  {
         $target_dir1 = "../uploads/projects_banner_images/";
         $target_file1 = $target_dir . basename($_FILES["fileToUpload1"]["name"]);
         $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
-
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
-            $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$status')";
+        $target_dir2 = "../uploads/product_pdf_files/";
+        $target_file2 = $target_dir . basename($_FILES["upload_pdf"]["name"]);
+        $imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
+            $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`upload_pdf`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$upload_pdf','$status')";
               
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
@@ -121,6 +124,14 @@ if (!isset($_POST['submit']))  {
                     <label class="btn btn-default file-upload-btn">
                       Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload" id="fileToUpload"  onchange="loadFile(event)"  multiple="multiple" required >
+                      </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-4" class="control-label">Pdf File</label>
+                    
+                    <label class="btn btn-default file-upload-btn">
+                      Choose file...
+                        <input id="form-control-22" class="file-upload-input" type="file" accept=".pdf,.doc"  name="upload_pdf" id="fileToUpload2"    multiple="multiple" >
                       </label>
                   </div>
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
