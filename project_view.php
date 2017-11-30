@@ -136,7 +136,7 @@ header -->
           <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt=""></div>
           <div class="about-details">
             
-            <h5 class="title"><a href=""><?php echo $getProjects['project_name'];?>, 
+            <h5 class="title"><a href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><?php echo $getProjects['project_name'];?>, 
               <small><?php $sql = "SELECT * FROM lkp_locations WHERE id = '$lid'";
               $result = $conn->query($sql);
               $row = $result->fetch_assoc(); echo $row['location_name'];?></small></a></h5>

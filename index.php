@@ -110,7 +110,7 @@ header -->
     <div class="col-md-12">
      <div class="section-title"><h2 class="title title2">Completed <label> Projects</label></h2></div>
      <div class="row mt-50">
-     <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ORDER BY id DESC LIMIT 0, 3";
+     <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ORDER BY id DESC LIMIT 0, 4";
     $getCompleted = $conn->query($getCompletedData); ?>      
           <?php if($getCompleted->num_rows > 0) { ?>
           <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
