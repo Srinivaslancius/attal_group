@@ -21,11 +21,13 @@ if (!isset($_POST['submit']))  {
         $target_dir = "../uploads/projects_images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
         $target_dir1 = "../uploads/projects_banner_images/";
-        $target_file1 = $target_dir . basename($_FILES["fileToUpload1"]["name"]);
+        $target_file1 = $target_dir1 . basename($_FILES["fileToUpload1"]["name"]);
         $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
+        
         $target_dir2 = "../uploads/product_pdf_files/";
-        $target_file2 = $target_dir . basename($_FILES["upload_pdf"]["name"]);
+        $target_file2 = $target_dir2 . basename($_FILES["upload_pdf"]["name"]);
         $imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
             $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`upload_pdf`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$upload_pdf','$status')";

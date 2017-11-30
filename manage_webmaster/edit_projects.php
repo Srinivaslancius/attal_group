@@ -17,15 +17,18 @@ $rid = $_GET['rid'];
     $specification = $_POST['specification'];    
     $status = $_POST['status'];
 
-    if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='') {
+    if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='' || $_FILES["upload_pdf"]["name"]!='') {
+
               $fileToUpload = uniqid().$_FILES["fileToUpload"]["name"];
               $target_dir = "../uploads/projects_images/";
               $target_file = $target_dir . basename($fileToUpload);
+
               $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
               $fileToUpload1 = uniqid().$_FILES["fileToUpload1"]["name"];
-              $target_dir1 = "../uploads/projects_banner_images/";
-              $target_file1 = $target_dir1 . basename($fileToUpload1);
+              $target_dir1 = "../uploads/projects_banner_images/";              
+              $target_file1 = $target_dir1 . basename($fileToUpload1);              
               $imageFileType1 = pathinfo($target_file1,PATHINFO_EXTENSION);
+
               $upload_pdf = $_FILES["upload_pdf"]["name"];
               $target_dir2 = "../uploads/product_pdf_files/";
               $target_file2 = $target_dir2 . basename($upload_pdf);
@@ -34,38 +37,31 @@ $rid = $_GET['rid'];
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload', description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
-                    if($conn->query($sql) === TRUE){
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-                    } else {
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-                    }
+                    $conn->query($sql);
+
                     //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } elseif (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
                   $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification', status = '$status' WHERE id='$rid'";
-                    if($conn->query($sql) === TRUE){
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-                    } else {
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-                    }
-                } 
-                elseif (move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
+                  $conn->query($sql);
+
+                } elseif (move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
                   $sql = "UPDATE projects SET project_name = '$project_name',upload_pdf = '$upload_pdf',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',upload_pdf='$upload_pdf', status = '$status' WHERE id='$rid'";
-                    if($conn->query($sql) === TRUE){
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-                    } else {
-                       echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-                    }
+                  $conn->query($sql);
+                   
                 }else { 
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
                 $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id', description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
-                if($conn->query($sql) === TRUE){
-                   echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
-                } else {
-                   echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
-                }
+                $conn->query($sql);
+                
             }    
+
+              if($conn->query($sql) === TRUE){
+                 echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
+              } else {
+                 echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
+              }
       }
 ?>
 <?php $getProjectsData = getDataFromTables('projects',$status=NULL,'id',$rid,$activeStatus=NULL,$activeTop=NULL);
