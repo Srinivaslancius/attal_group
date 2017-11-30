@@ -17,7 +17,7 @@ if (!isset($_POST['submit']))  {
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
     //save product images into product_images table    
-    if($fileToUpload!='' && $fileToUpload1 !='') {
+    //if($fileToUpload!='' && $fileToUpload1 !='') {
         $target_dir = "../uploads/projects_images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -29,18 +29,18 @@ if (!isset($_POST['submit']))  {
         $target_dir2 = "../uploads/product_pdf_files/";
         $target_file2 = $target_dir2 . basename($_FILES["upload_pdf"]["name"]);
         $imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
+        //if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
             $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`upload_pdf`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$upload_pdf','$status')";
-              
+             // echo $sql; die;
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
             } else {
                echo "<script type='text/javascript'>window.location='projects.php?msg=fail'</script>";
             }
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-    }
+       // } else {
+            //echo "Sorry, there was an error uploading your file.";
+        //}
+    //}
 
   }
 ?>
