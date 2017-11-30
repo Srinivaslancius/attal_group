@@ -107,51 +107,48 @@ header -->
 
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
-	<div class="col-md-12">
-    <?php $getCompletedData ="SELECT * FROM projects WHERE sub_category_id=2 AND status=0 ";
-    $getCompleted = $conn->query($getCompletedData);
-    ?>
-
-     <?php if($getCompleted->num_rows > 0) { ?>
-     <div class="section-title"><h2 class="title title2">Completed Projects<label></label></h2></div>
+    <div class="col-md-9">
+     <div class="section-title"><h2 class="title title2">Completed <label> Projects</label></h2></div>
      <div class="row mt-50">
-        <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
-     		<div class="col-sm-6">
-          <div class="feature-box left_pos small">
-                <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" height="100" width="100" alt="">
-                <h3 class="title"><?php echo $getCompleted1['project_name'];?></h3>
-                <p><?php echo substr($getCompleted1['description'], 0, 150);?></p>
-          </div>
-        </div>
-        <?php } ?>
-       </div>
-    </div>
-    <div class="col-md-12">
-    <?php $getProjectsData ="SELECT * FROM projects WHERE sub_category_id=1 AND status=0 ";
-    $getProjects = $conn->query($getProjectsData);
-    ?>
-     <div class="section-title"><h2 class="title title2">Ongoing Projects<label></label></h2></div>
-     <div class="row mt-50">
-        <?php while($getProjects1 = $getProjects->fetch_assoc()){ ?>
-        <div class="col-sm-6">
-          <div class="feature-box left_pos small">
-    
-                <img  src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" height="100" width="100" alt="">
-                <h3 class="title"><?php echo $getProjects1['project_name'];?></h3>
-                <p><?php echo substr($getProjects1['description'], 0, 150);?></p>
-          </div>
-        </div>
-        <?php } ?>
-            <div class="form-group" style="text-align:center">               
-              <a href="project_view.php?id=1"><button id="submit" name="submit" type="submit" value="Send" class="button border animated middle-fill"><span>View All</span></button></a>
+     <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=2 AND status=0 ";
+    $getCompleted = $conn->query($getCompletedData); ?>      
+          <?php if($getCompleted->num_rows > 0) { ?>
+          <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
+          <div class="col-sm-3">
+            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive"><br>
+            <div class="about-details">
+            <h5 class="title"><a href=""><?php echo $getCompleted1['project_name'];?></a></h5>
             </div>
-       </div>
-       <?php } else { ?>
+            </div>
+            <?php } ?>
+            <?php } else { ?>
        <h3 style="text-align:center">No Projects Found</h3>
        <?php } ?>
-
-    </div>    
-</div></div>
+       </div><br><br>
+    </div>
+    <div class="col-md-9">
+     <div class="section-title"><h2 class="title title2">Ongoing <label> Projects</label></h2></div>
+     <div class="row mt-50">
+             <?php $getProjectsData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ";
+              $getProjects = $conn->query($getProjectsData); ?>
+              <?php if($getProjects->num_rows > 0) { ?>
+              <?php while($getProjects1 = $getProjects->fetch_assoc()){ ?>
+             <div class="col-sm-3">
+            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" class="img-responsive"><br>
+            <div class="about-details">
+            <h5 class="title"><a href=""><?php echo $getProjects1['project_name'];?></a></h5>
+            </div>
+            </div>
+            <?php } ?>
+            <?php } else { ?>
+       <h3 style="text-align:center">No Projects Found</h3>
+       <?php } ?>
+       </div>
+    </div>
+    
+</div>
+</div><br>
+ <center><a class="button small border animated middle-fill" href="project_view.php?id=1" style="background-color:transparent; border-color:#ffd200 ; color:#ffd200 "><span>View All</span></a></center>
 </section>
 
  <?php $getChooseData5 = getAllDataCheckActive1('content_pages','0',15);
