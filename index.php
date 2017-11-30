@@ -120,7 +120,7 @@ header -->
 <section class="dark-bg page-section-ptb pb-40 dark-bg bg fixed text-white gradient-overlay" style="background-image:url(images/bg/bg-8.jpg);">
 <div class="container"><div class="row">
   <div class="col-md-12">
-    <?php $getCompletedData ="SELECT * FROM projects WHERE sub_category_id=2 AND status=0 ";
+    <?php $getCompletedData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=1 AND status=0 ";
     $getCompleted = $conn->query($getCompletedData);
     ?>
      <div class="section-title"><h2 class="title title2">Completed Projects<label></label></h2></div>
@@ -137,7 +137,7 @@ header -->
        </div>
     </div>
     <div class="col-md-12">
-    <?php $getProjectsData ="SELECT * FROM projects WHERE sub_category_id=1 AND status=0 ";
+    <?php $getProjectsData ="SELECT * FROM projects WHERE category_id=1 AND sub_category_id=2 AND status=0 ";
     $getProjects = $conn->query($getProjectsData);
     ?>
      <div class="section-title"><h2 class="title title2">Ongoing Projects<label></label></h2></div>
@@ -429,8 +429,8 @@ Back to Top -->
       });
       })(jQuery);
 
-		</script>
-		
+    </script>
+    
 
 <!-- Below Script for popup open when page load -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
