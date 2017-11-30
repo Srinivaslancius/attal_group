@@ -129,10 +129,15 @@ header -->
              <div class="col-lg-6 col-md-6 mb-20" style="float:left; margin-left:-47px;"> 
                <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '450px' height='450px' alt="">
              </div>
+             <?php if(!empty($getPojects['specification']) && $getPojects['specification'] !='') { ?>
              <div class="col-lg-6 col-md-6">
                 <h2>Specifications</h2> 
                <p style="float:left;"><?php echo $getPojects['specification'];?></p>
              </div>
+             <?php }?>
+             <?php if(!empty($getPojects['upload_pdf']) && $getPojects['upload_pdf'] !='') { ?>
+             <h3>Fllor Plan:<a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getPojects['upload_pdf'] ?>" target="_blank"><?php echo $getPojects['upload_pdf']; ?></a></h3>
+             <?php }?>
             </div>
          </div>
        </div>
