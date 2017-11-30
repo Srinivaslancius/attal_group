@@ -446,7 +446,7 @@ $gettermsData1  = $gettermsData->fetch_assoc();
     <div id="lorem" style="border-top:1px solid #DCDCDC;"><br>
      <?php echo $gettermsData1['description']; ?>
     </div>
-    <div id="popupfoot"> <a href="#" class="close agree"><button type="button" class="btn btn-default">I Agree</button></a> </div>
+    <div id="popupfoot"> <a href="#" class="close agree" style="opacity:1.1 !important"><button type="button" class="btn btn-default">I Agree</button></a> </div>
   </div>
   <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.8;" id="mask"></div>
 </div>
