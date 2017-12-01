@@ -133,7 +133,9 @@ header -->
   ?>
   <div class="col-sm-3">
     <div class="about mb-40">
-          <div class="about-image clearfix"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt="" style="width:263px; height:185px"></div>
+          <div class="about-image clearfix">
+
+<a class="button link" href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><img class="img-responsive" src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects['images'] ?>" alt="" style="width:263px; height:185px"></a></div>
           <div class="about-details">
             
             <h5 class="title"><a href="display_project_view.php?id=<?php echo $getProjects['id'];?>&cid=<?php echo $id;?>"><?php echo $getProjects['project_name'];?>, 

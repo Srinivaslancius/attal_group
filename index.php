@@ -97,7 +97,7 @@ header -->
     <?php if($getProjectBanners['banner']!='') { ?>
       <li data-index="rs-42" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-title="Slide"   data-description="">
       <!-- MAIN IMAGE -->
-          <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200; width:263px; height:185px' alt=""  ><br><br>
+          <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200' alt=""  ><br><br>
           
           <center><a class="button border animated middle-fill" href="display_project_view.php?id=<?php echo $getProjectBanners['id'];?>&cid=<?php echo $getProjectBanners['category_id'];?>" style="margin-top:300px"><span>Read More</span></a></center>
       
@@ -130,7 +130,7 @@ header -->
           <?php if($getCompleted->num_rows > 0) { ?>
           <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
           <div class="col-sm-3">
-            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive" style="width:263px; height:185px"><br>
+            <a href="display_project_view.php?id=<?php echo $getCompleted1['id']; ?>&cid=1"><img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive" style="width:263px; height:185px"></a><br>
             <div class="about-details">
             <h5 class="title"><a href="display_project_view.php?id=<?php echo $getCompleted1['id']; ?>&cid=1"><?php echo $getCompleted1['project_name'];?></a></h5>
             </div>
@@ -149,7 +149,7 @@ header -->
               <?php if($getProjects->num_rows > 0) { ?>
               <?php while($getProjects1 = $getProjects->fetch_assoc()){ ?>
              <div class="col-sm-3">
-            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" class="img-responsive"><br>
+            <a href="display_project_view.php?id=<?php echo $getProjects1['id']; ?>&cid=1"><img src="<?php echo $base_url . 'uploads/projects_images/'.$getProjects1['images'] ?>" class="img-responsive" style="width:263px; height:185px"></a><br>
             <div class="about-details">
             <h5 class="title"><a href="display_project_view.php?id=<?php echo $getProjects1['id']; ?>&cid=1"><?php echo $getProjects1['project_name'];?></a></h5>
             </div>
@@ -240,7 +240,7 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
         </div>
     </div>
 </div></div></section>
-<section class="page-section-ptb"><div class="container"><div class="row">
+<!-- <section class="page-section-ptb"><div class="container"><div class="row">
   <div class="col-sm-12"><div class="section-title text-center">
     <h2 class="title">Ongoing Lifestyle Projects</h2>
   </div></div>
@@ -257,13 +257,13 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
         <div class="post-meta">
         </div>
           <div class="post-content"><p><?php echo $getProImages1['description'];?></p></div>
-          <!-- <a class="button small border animated middle-fill" href="#"><span>Read More</span></a> -->
+          <!-- <a class="button small border animated middle-fill" href="#"><span>Read More</span></a> 
       </div>                
          </div>
       </div>
       <?php } ?>
   </div></div>              
-</div></div></section>
+</div></div></section> -->
 
 <section class="page-section-ptb5 yellow-bg counter-section">
 <div class="container">
