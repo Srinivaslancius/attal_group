@@ -124,24 +124,30 @@ header -->
                <h4 class="mb-20"><?php echo $getPojects['project_name'];?></h4>
                <p class="mb-30"><?php echo $getPojects['description'];?></p>
              </div>
-           </div>
-          <div class="row text-justify">  
-             <div class="col-lg-6 col-md-6 mb-20" style="float:left; margin-left:-47px;"> 
+           </div>          
+         </div>
+       </div>
+
+     </div>
+
+      <div class="clear_fix"></div>
+          <div class="row ">  
+             <div class="col-lg-6 col-md-6 mb-20" > 
                <img class="img-responsive center-block" src="<?php echo $base_url . 'uploads/projects_images/'.$getPojects['images'] ?>" width = '450px' height='450px' alt="">
              </div>
              <?php if(!empty($getPojects['specification']) && $getPojects['specification'] !='') { ?>
              <div class="col-lg-6 col-md-6">
                 <h2>Specifications</h2> 
-               <p style="float:left;"><?php echo $getPojects['specification'];?></p>
+               <?php echo $getPojects['specification'];?>
+
+                <?php if(!empty($getPojects['upload_pdf']) && $getPojects['upload_pdf'] !='') { ?>
+                <span style="font-size:20px"><strong>Floor Plan : </strong></span><a href="<?php echo $base_url . 'uploads/product_pdf_files/'.$getPojects['upload_pdf'] ?>" target="_blank" style="color:#000"><?php echo $getPojects['upload_pdf']; ?></a>
+             <?php }?>
              </div>
              <?php }?>
-             <?php if(!empty($getPojects['upload_pdf']) && $getPojects['upload_pdf'] !='') { ?>
-             <h3>Floor Plan:</h3><a href="<?php echo $base_url . 'uploads/downloads_pdf_images/'.$getPojects['upload_pdf'] ?>" target="_blank"><?php echo $getPojects['upload_pdf']; ?></a>
-             <?php }?>
+            
             </div>
-         </div>
-       </div>
-     </div>
+
    </div>
 </section>
 
