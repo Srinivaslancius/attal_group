@@ -97,7 +97,7 @@ header -->
     <?php if($getProjectBanners['banner']!='') { ?>
       <li data-index="rs-42" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-title="Slide"   data-description="">
       <!-- MAIN IMAGE -->
-          <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200' alt=""  ><br><br>
+          <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200; width:263px; height:185px' alt=""  ><br><br>
           
           <center><a class="button border animated middle-fill" href="display_project_view.php?id=<?php echo $getProjectBanners['id'];?>&cid=<?php echo $getProjectBanners['category_id'];?>" style="margin-top:300px"><span>Read More</span></a></center>
       
@@ -130,7 +130,7 @@ header -->
           <?php if($getCompleted->num_rows > 0) { ?>
           <?php while($getCompleted1 = $getCompleted->fetch_assoc()){ ?>
           <div class="col-sm-3">
-            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive"><br>
+            <img src="<?php echo $base_url . 'uploads/projects_images/'.$getCompleted1['images'] ?>" class="img-responsive" style="width:263px; height:185px"><br>
             <div class="about-details">
             <h5 class="title"><a href="display_project_view.php?id=<?php echo $getCompleted1['id']; ?>&cid=1"><?php echo $getCompleted1['project_name'];?></a></h5>
             </div>
