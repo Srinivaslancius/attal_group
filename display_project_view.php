@@ -141,7 +141,7 @@ header -->
                <?php echo $getPojects['specification'];?>
 
                 <?php if(!empty($getPojects['upload_pdf']) && $getPojects['upload_pdf'] !='') { ?>
-                <span style="font-size:20px"><strong>Floor Plan : </strong></span><a href="<?php echo $base_url . 'uploads/product_pdf_files/'.$getPojects['upload_pdf'] ?>" target="_blank" style="color:#000"><?php echo $getPojects['upload_pdf']; ?></a>
+                <span style="font-size:20px"><strong>Floor Plan : </strong></span><a href="<?php echo $base_url . 'uploads/product_pdf_files/'.$getPojects['upload_pdf'] ?>" target="_blank" style="color:#000"><img src="uploads/pdf_file.jpg" style="height:50px; wight:50px"></a>
              <?php }?>
              </div>
              <?php }?>
