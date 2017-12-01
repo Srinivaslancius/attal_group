@@ -16,6 +16,7 @@
             <!-- menu links -->
             <ul class="menu-links">
             <!-- active class -->
+            <li <?php if($page_name == 'index.php') {  ?> class="active" <?php } ?>><a href="index.php">Home</a></li>
             <li <?php if($page_name == 'content_details.php') {  ?> class="active" <?php } ?>><a href="javascript:void(0)">About Us<i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel left-menu">
