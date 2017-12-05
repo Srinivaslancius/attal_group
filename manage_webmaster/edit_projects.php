@@ -16,6 +16,7 @@ $rid = $_GET['rid'];
     $upload_pdf = $_FILES["upload_pdf"]["name"];
     $specification = $_POST['specification'];    
     $status = $_POST['status'];
+    $banner_status = $_POST['banner_status'];
 
     if($_FILES["fileToUpload"]["name"]!='' || $_FILES["fileToUpload1"]["name"]!='' || $_FILES["upload_pdf"]["name"]!='') {
 
@@ -36,23 +37,23 @@ $rid = $_GET['rid'];
               //$getImgUnlink = getImageUnlink('images','projects','id',$rid,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload', description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                    $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',images = '$fileToUpload', description = '$description',specification = '$specification',status = '$status', banner_status ='$banner_status' WHERE id='$rid'";
                     $conn->query($sql);
 
                     //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } elseif (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
-                  $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification', status = '$status' WHERE id='$rid'";
+                  $sql = "UPDATE projects SET project_name = '$project_name',banner = '$fileToUpload1',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification', status = '$status' , banner_status ='$banner_status' WHERE id='$rid'";
                   $conn->query($sql);
 
                 } elseif (move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
-                  $sql = "UPDATE projects SET project_name = '$project_name',upload_pdf = '$upload_pdf',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',upload_pdf='$upload_pdf', status = '$status' WHERE id='$rid'";
+                  $sql = "UPDATE projects SET project_name = '$project_name',upload_pdf = '$upload_pdf',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id',description = '$description',specification = '$specification',upload_pdf='$upload_pdf', status = '$status' , banner_status ='$banner_status' WHERE id='$rid'";
                   $conn->query($sql);
                    
                 }else { 
                     echo "Sorry, there was an error uploading your file.";
                 }
             }  else {
-                $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id', description = '$description',specification = '$specification',status = '$status' WHERE id='$rid'";
+                $sql = "UPDATE projects SET project_name = '$project_name',location_id = '$location_id',category_id = '$category_id',sub_category_id = '$sub_category_id', description = '$description',specification = '$specification',status = '$status' , banner_status ='$banner_status' WHERE id='$rid'";
                 $conn->query($sql);
                 
             }    
@@ -119,6 +120,15 @@ $getProjects = $getProjectsData->fetch_assoc();
                       Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" >
                       </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Banner status</label>
+                    <select id="form-control-3" name="banner_status" class="custom-select" data-error="This field is required." required>
+                      <option value="">Banner status</option>
+                      <option <?php if($getProjects['banner_status'] == 0) { echo "Selected"; } ?> value="0">Active</option>
+                      <option <?php if($getProjects['banner_status'] == 1) { echo "Selected"; } ?> value="1">InActive</option>
+                   </select>
+                    <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose Location</label>

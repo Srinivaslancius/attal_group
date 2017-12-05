@@ -16,6 +16,7 @@ if (!isset($_POST['submit']))  {
     $upload_pdf = $_FILES["upload_pdf"]["name"];
     $gallery_images = $_FILES['gallery_images']['name'];
     $status = $_POST['status'];
+    $banner_status = $_POST['banner_status'];
     //save product images into product_images table    
     //if($fileToUpload!='' && $fileToUpload1 !='') {
         $target_dir = "../uploads/projects_images/";
@@ -30,7 +31,7 @@ if (!isset($_POST['submit']))  {
         $target_file2 = $target_dir2 . basename($_FILES["upload_pdf"]["name"]);
         $imageFileType2 = pathinfo($target_file2,PATHINFO_EXTENSION);
         //if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["upload_pdf"]["tmp_name"], $target_file2)) {
-            $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`upload_pdf`,`status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$upload_pdf','$status')";
+            $sql = "INSERT INTO projects (`project_name`,`banner`,`images`,`location_id`, `category_id`,`sub_category_id`,`description`,`specification`,`upload_pdf`,`status`,`banner_status`) VALUES ('$project_name','$fileToUpload1','$fileToUpload','$location_id','$category_id','$sub_category_id','$description', '$specification','$upload_pdf','$status','$banner_status')";
              // echo $sql; die;
             if($conn->query($sql) === TRUE){
                echo "<script type='text/javascript'>window.location='projects.php?msg=success'</script>";
@@ -91,7 +92,17 @@ if (!isset($_POST['submit']))  {
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="fileToUpload1" id="fileToUpload1"  onchange="loadFile1(event)"  multiple="multiple" >
                       </label>
                   </div>
-
+                  <div class="form-group">
+                    <label for="form-control-3" class="control-label">Banner status</label>
+                    <select id="form-control-3" name="banner_status" class="custom-select" data-error="This field is required." required>
+                      <option value="">Banner Status</option>
+                      
+                          <option value="0">Active</option>
+                          <option value="1">InActive</option>
+                      
+                   </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose Location</label>
                     <select id="form-control-3" name="location_id" class="custom-select" data-error="This field is required." required>
