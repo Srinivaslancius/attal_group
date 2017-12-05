@@ -4,7 +4,9 @@
 $getAllHistoryData = $conn->query($sqlData);
 ?>
 <?php $getBannersData = getAllDataCheckActive('banners',0);  ?>
-<?php $getProjectBannersData = getAllDataCheckActive('projects',0);  ?>
+<?php $getProjectBanners = "SELECT * FROM projects WHERE status=0 AND banner_status=0 ";
+      $getProjectBannersData = $conn->query($getProjectBanners);
+?>
 <link rel="shortcut icon" href="images/favicon.ico" />
 
 <!-- bootstrap -->
