@@ -97,9 +97,9 @@ header -->
     <?php if($getProjectBanners['banner']!='') { ?>
       <li data-index="rs-42" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-title="Slide"   data-description="">
       <!-- MAIN IMAGE -->
-          <img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200' alt=""  ><br><br>
+          <a href="display_project_view.php?id=<?php echo $getProjectBanners['id'];?>&cid=<?php echo $getProjectBanners['category_id'];?>"><img src="<?php echo $base_url . 'uploads/projects_banner_images/'.$getProjectBanners['banner'] ?>" style='background-color:#ffd200' alt=""  ></a><br><br>
           
-          <center><a class="button border animated middle-fill" href="display_project_view.php?id=<?php echo $getProjectBanners['id'];?>&cid=<?php echo $getProjectBanners['category_id'];?>" style="margin-top:300px"><span>Read More</span></a></center>
+         
       
       </li>
       <?php } ?>
@@ -220,8 +220,45 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
         </div>
           </div>
   </div>
+
+
     <div class="text-center mt-40"><img class="img-responsive" src="images/element/01.png" alt=""></div>
 </div></section>
+
+<section class="page-section-ptb5 yellow-bg counter-section">
+<div class="container">
+  <div class="row">
+     <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['project_count'];?>" data-speed="10000"></span>
+      <label>Projects</label>
+    </div>
+  </div>
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-trophy"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['features_count'];?>" data-speed="10000"></span>
+      <label>Features</label>
+    </div>
+  </div>
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-like"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['likes_count'];?>" data-speed="10000"></span>
+      <label>Likes</label>
+    </div>
+  </div>  
+   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
+    <div class="counter left_pos">
+      <i class="glyph-icon flaticon-management"></i>
+      <span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
+      <label>Happy Residence</label>
+    </div>
+  </div> 
+  </div>
+</div>
+</section>
 
 <section class="history-sec dark-bg pattern-overlay fixed pattern-2 text-white"><div class="container-fluid"><div class="row row-eq-height">
   <div class="col-md-6 hidden-xs" style="background-image:url(images/bg/bg-14.jpg); background-repeat:no-repeat; background-size:cover;"></div>
@@ -265,40 +302,7 @@ $getChoose11 = $getChooseData11->fetch_assoc(); ?>
   </div></div>              
 </div></div></section> -->
 
-<section class="page-section-ptb5 yellow-bg counter-section">
-<div class="container">
-  <div class="row">
-     <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-    <div class="counter left_pos">
-      <i class="glyph-icon flaticon-projection-screen-with-bar-chart"></i>
-      <span class="timer" data-to="<?php echo $getSiteSettingsData['project_count'];?>" data-speed="10000"></span>
-      <label>Projects</label>
-    </div>
-  </div>
-   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-    <div class="counter left_pos">
-      <i class="glyph-icon flaticon-trophy"></i>
-      <span class="timer" data-to="<?php echo $getSiteSettingsData['features_count'];?>" data-speed="10000"></span>
-      <label>Features</label>
-    </div>
-  </div>
-   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-    <div class="counter left_pos">
-      <i class="glyph-icon flaticon-like"></i>
-      <span class="timer" data-to="<?php echo $getSiteSettingsData['likes_count'];?>" data-speed="10000"></span>
-      <label>Likes</label>
-    </div>
-  </div>  
-   <div class="col-lg-3 col-md-3 col-xs-6 col-xx-12">
-    <div class="counter left_pos">
-      <i class="glyph-icon flaticon-management"></i>
-      <span class="timer" data-to="<?php echo $getSiteSettingsData['credit_count'];?>" data-speed="10000"></span>
-      <label>Happy Residence</label>
-    </div>
-  </div> 
-  </div>
-</div>
-</section>
+
 
 
 <section class="page-section-pt">
